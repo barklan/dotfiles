@@ -1,0 +1,90 @@
+{
+    "fmt.Errorf": {
+        "prefix": "ef",
+        "body": "fmt.Errorf(\"$0: %w\", err)",
+        "description": "Wrapped error.",
+        "priority": 2000
+    },
+    "; err != nil {}": {
+        "prefix": "ern",
+        "body": "err != nil {\n\t$0\n}"
+    },
+    "zerolog": {
+        "prefix": "zz",
+        "body": "\"github.com/rs/zerolog/log\"$0"
+    },
+    "Log Debug": {
+        "prefix": "ld",
+        "body": "log.DebugContext(ctx, \"$1\", \"$2\", $0)",
+        "description": "Log debug level."
+    },
+    "Log Info": {
+        "prefix": "li",
+        "body": "log.InfoContext(ctx, \"$1\", \"$2\", $0)",
+        "description": "Log info level."
+    },
+    "Log Error": {
+        "prefix": "le",
+        "body": "log.ErrorContext(ctx, \"$1\", \"$2\", $0)",
+        "description": "Log error level."
+    },
+    "err": {
+        "prefix": "e",
+        "body": "err$0"
+    },
+    "string": {
+        "prefix": "s",
+        "body": "string$0",
+        "description": "string"
+    },
+    "[]byte": {
+        "prefix": "b",
+        "body": "[]byte$0"
+    },
+    "int": {
+        "prefix": "i",
+        "body": "int$0"
+    },
+    "int64": {
+        "prefix": "ii",
+        "body": "int64$0"
+    },
+    "float64": {
+        "prefix": "ff",
+        "body": "float64$0"
+    },
+    "todo": {
+        "prefix": "todo",
+        "body": "// TODO: $0",
+        "description": "TODO: comment"
+    },
+    "fix": {
+        "prefix": "fix",
+        "body": "// FIX: $0",
+        "description": "FIX: comment"
+    },
+    "note": {
+        "prefix": "note",
+        "body": "// NOTE: $0",
+        "description": "NOTE comment"
+    },
+    "fmt.Sprintf": {
+        "prefix": "sf",
+        "body": "fmt.Sprintf(\"$1\", $0)",
+        "description": "Sprintf"
+    },
+    "fn": {
+        "prefix": "fn",
+        "body": "func $1($2) $0 {\n}"
+    },
+    "rfc": {
+        "prefix": "rfc",
+        "body": "[RFC$1#$2]$0",
+        "description": "RFC reference"
+    },
+    "rfcl": {
+        "prefix": "rfcl",
+        "body": "[RFC$1#$2]: https://www.rfc-editor.org/rfc/rfc$1#section-$2$0",
+        "description": "RFC link"
+    }
+}

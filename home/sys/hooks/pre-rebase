@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get the current branch name
+current_branch=$(git symbolic-ref --short HEAD)
+
+# Define the backup branch name with a timestamp
+backup_branch="${current_branch}_backup_$(date +%m_%dT%H_%M_%S)"
+
+# Create the backup branch
+git branch "$backup_branch"
+
+if [ $? -eq 0 ]; then
+    echo "Backup branch '$backup_branch' created successfully."
+else
+    echo "Failed to create backup branch '$backup_branch'. Aborting rebase."
+    exit 1
+fi
+

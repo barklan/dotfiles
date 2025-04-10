@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Run gitleaks only on GitHub
+if ! git remote -v | head -1 | rg github >/dev/null; then
+    :
+else
+    notify-send 'running gitleaks'
+	gitleaks git --staged --redact --verbose --no-banner
+fi

@@ -1,0 +1,242 @@
+---
+default_stages: [pre-commit]
+repos:
+  - repo: local
+    hooks:
+      - id: go-mod-tidy
+        name: go-mod-tidy
+        entry: go mod tidy
+        types: [go]
+        language: golang
+        require_serial: true
+        pass_filenames: false
+      - id: go-build
+        name: go-build
+        entry: go build ./...
+        types: [go]
+        language: system
+        require_serial: true
+        pass_filenames: false
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: check-json
+        exclude: ".vscode/tasks.json"
+      - id: check-case-conflict
+      - id: check-symlinks
+      - id: mixed-line-ending
+        args: ["--fix=no"]
+      - id: no-commit-to-branch
+        args: ["--branch", "master", "--branch", "release"]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        types_or: [css, javascript, ts, vue, html, scss, yaml]
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.37.0
+    hooks:
+      - id: yamllint
+        args:
+          [
+            --format,
+            parsable,
+            --strict,
+            -d,
+            "{extends: relaxed, rules: {line-length: {max: 400}}}",
+          ]
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.4.1
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
+        args:
+          [
+            "--ignore=body-is-missing,body-min-length",
+            "--contrib=contrib-title-conventional-commits",
+            "--msg-filename",
+          ]
+  # - repo: https://github.com/crate-ci/typos
+  #   rev: v1.30.1
+  #   hooks:
+  #     - id: typos
+  #       args: []
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.24.2
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/yoheimuta/protolint
+    rev: v0.53.0
+    hooks:
+      - id: protolint
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.13.1-beta
+    hooks:
+      - id: hadolint
+        args: ["--ignore=DL3018"]
+  - repo: https://github.com/barklan/git-hooks
+    rev: v0.1.10
+    hooks:
+      - id: forbid-binary
+      - id: docker-compose-check
+      - id: snake-case-filenames
+      - id: go-deadcode
+      - id: shellcheck
+      - id: shfmt
+      # - id: go-mod-version
+  # - repo: https://github.com/igorshubovych/markdownlint-cli
+  #   rev: v0.39.0
+  #   hooks:
+  #     - id: markdownlint
+  #       args:
+  #         - "--disable=MD013"
+  # Python
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+  - repo: https://github.com/PyCQA/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        args:
+          - --profile=black
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.2.0
+    hooks:
+      - id: flake8
+        args:
+          - --max-line-length=120
+        additional_dependencies: [flake8-eradicate, flake8-pytest-style]
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.3
+    hooks:
+      - id: bandit
+        exclude: "_test.py$|test_.*.py$"
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-check-blanket-noqa
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.15.0
+    hooks:
+      - id: mypy
+  # Python end
+  - repo: local
+    hooks:
+      # Rust
+      - id: fmt
+        name: fmt
+        description: Format files with cargo fmt.
+        entry: cargo fmt
+        language: system
+        types: [rust]
+        args: ["--"]
+      - id: cargo-check
+        name: cargo check
+        description: Check the package for errors.
+        entry: cargo check
+        language: system
+        types: [rust]
+        pass_filenames: false
+      - id: clippy
+        name: clippy
+        description: Lint rust sources
+        entry: cargo clippy
+        language: system
+        args: ["--", "-D", "warnings"]
+        types: [rust]
+        pass_filenames: false
+      # Rust end
+      - id: dotenv-linter
+        name: dotenv-linter
+        entry: dotenv-linter --recursive
+        language: system
+        files: \.env$
+        require_serial: true
+        pass_filenames: false
+      - id: openapi-linter
+        name: validate openapi schema
+        language: docker_image
+        entry: redocly/openapi-cli lint docs/openapi.yml
+        files: ^docs/openapi.yml$
+      # - id: wsl-fix
+      #   name: wsl-fix
+      #   entry: wsl --fix ./...
+      #   language: system
+      #   types: [go]
+      #   require_serial: true
+      #   pass_filenames: false
+      - id: nilaway
+        name: nilaway
+        entry: nilaway ./...
+        language: system
+        types: [go]
+        require_serial: true
+        pass_filenames: false
+      - id: golangci-lint
+        name: golangci-lint
+        # entry: golangci-lint run --fix -c '~/sys/golint.yml'
+        entry: golangci-lint run -c '~/sys/golint.yml' --show-stats
+        types: [go]
+        language: system
+        require_serial: true
+        pass_filenames: false
+      - id: go-test
+        name: go-test
+        entry: go test -race ./...
+        types: [go]
+        language: system
+        require_serial: true
+        pass_filenames: false
+      # - id: go-fieldalignment
+      #   name: go-fieldalignment
+      #   entry: fieldalignment -fix ./...
+      #   types: [go]
+      #   language: system
+      #   require_serial: true
+      #   pass_filenames: false
+      - id: govulncheck
+        name: govulncheck
+        entry: govulncheck ./...
+        types: [go]
+        language: system
+        require_serial: true
+        pass_filenames: false
+      - id: osv-scanner
+        name: osv-scanner
+        entry: osv-scanner scan -r .
+        language: system
+        require_serial: true
+        pass_filenames: false
+      - id: check-unstaged
+        name: check-unstaged
+        entry: git diff --exit-code --quiet
+        language: system
+        require_serial: true
+        pass_filenames: false
+  # Post-commit
+  # - repo: local
+  #   hooks:
+  #     - id: post-commit-local
+  #       name: post commit
+  #       always_run: true
+  #       stages: [post-commit]
+  #       language: system
+  #       entry: >-
+  #         bash -c 'hugo --gc --minify && rsync -azvc --delete
+  #         public/ barklan:static/notes'
+  #

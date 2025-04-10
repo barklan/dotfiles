@@ -1,0 +1,36 @@
+User tor
+
+## Logs go to stdout at level "notice" unless redirected by something
+## else, like one of the below lines. You can have as many Log lines as
+## you want.
+##
+## We advise using "notice" in most cases, since anything more verbose
+## may provide sensitive information to an attacker who obtains the logs.
+##
+## Send all messages of level 'notice' or higher to /var/log/tor/notices.log
+#Log notice file /var/log/tor/notices.log
+## Send every possible message to /var/log/tor/debug.log
+#Log debug file /var/log/tor/debug.log
+## Use the system log instead of Tor's logfiles
+Log notice syslog
+
+## The directory for keeping all the keys/etc. By default, we store
+## things in $HOME/.tor on Unix, and in Application Data\tor on Windows.
+DataDirectory /var/lib/tor
+
+HiddenServiceStatistics 0
+ConnectionPadding 0
+HardwareAccel 1
+
+ExitNodes {de},{nl},{cz},{at},{ee},{pl},{be},{dk},{fi}
+MiddleNodes {de},{nl},{cz},{at},{ee},{pl},{be},{dk},{fi}
+StrictNodes 1
+
+Socks5Proxy 127.0.0.1:1080
+
+UseBridges 0
+ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy managed
+
+# NOTE: add bridges here
+bridge obfs4 ...
+bridge obfs4 ...

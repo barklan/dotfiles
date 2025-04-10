@@ -1,0 +1,205 @@
+[user]
+	email = qufiwefefwoyn@gmail.com
+	name = Gleb Buzin
+	signingkey = /home/barklan/.ssh/personal.pub
+	; signingkey = 6398BE5B25E5BDE2
+[core]
+	excludesfile = ~/.gitignore
+    pager = delta
+    ; NOTE: don't enable global hooks.
+	; hooksPath = ~/sys/hooks
+    untrackedCache = true
+    commitGraph = true
+    preloadindex = true
+    ; NOTE: fsmonitor not available on Linux rn
+    ; fsmonitor = true
+[gc]
+    auto = 256
+[url "ssh://git@codeberg.org/"]
+	insteadOf = https://codeberg.org/
+[includeIf "gitdir:~/dev/berg/"]
+    path = .gitconfig.berg
+[includeIf "gitdir:~/dev/withlove/"]
+    path = .gitconfig.berg
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[alias]
+    s = !git status --show-stash && echo && gitx status
+
+    ; NOTE: change here to desired branch - probably will be used by scripts
+    default-branch-name = !git branch -l master main release | sed -r 's/^[* ] //' | head -n 1
+    staged-files-with-unstaged-changes = !git status -s | awk '/MM / { print $2 }'
+
+	# LOG
+	; l = !clear && git log --oneline --graph --abbrev-commit --all --decorate -20
+    l = !git fetch --all --quiet && printf '%s' 'Divergent commits: ' && \
+        git rev-list $(git default-branch-name)..@ --count && \
+        echo '--------------------' && \
+        git log --pretty=format:'%C(auto)%h%d%Creset %C(cyan)(%cr)%Creset %C(green)%cn %Creset %s' \
+        --decorate --graph --first-parent @ --first-parent -30 $(git default-branch-name) -- && echo '...'
+
+    ll = !git fetch --all --quiet && echo && printf '%s' 'Divergent commits: ' && \
+        git rev-list $(git default-branch-name)..@ --count  && \
+        echo '--------------------' && \
+        git log --decorate --stat --graph --oneline --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
+
+    lll = !git fetch --all --quiet && echo && printf '%s' 'Divergent commits: ' && \
+        git rev-list $(git default-branch-name)..@ --count  && \
+        echo '--------------------' && \
+        git log --decorate --summary --stat --graph --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
+
+	la = !clear && git log --oneline --graph --abbrev-commit --all --decorate
+    lf = log -p --follow --stat
+	lm = !clear && git log --oneline --first-parent $(git default-branch-name)
+
+	# BRANCH
+	b = branch -v
+	ba = branch -a -v
+	abandon-branch = !fish ~/sys/git-abandon-branch.fish
+    rm-backups = !git branch | rg '_backup_' | xargs git branch -d
+    notify-behind = !bash ~/sys/git-notify-behind.sh
+
+	# Diff
+    # These three accept ref as an argument
+    df = forgit diff
+    dfd = difftool -d
+    diffs = diff --minimal -M -C --summary --stat
+
+	diffm = !git difftool --minimal -d $(git default-branch-name) "$(git branch --show-current)"
+    diffms = !git diff --minimal --stat -M -C --summary $(git default-branch-name) "$(git branch --show-current)"
+
+	# CHECKOUT & SWITCH
+	co = forgit checkout_branch
+    sw = switch
+    com = !bash ~/sys/git-checkout-default.sh
+	coc = forgit checkout_commit
+	cot = forgit checkout_tag
+
+	# FETCH
+	# Fetch main while on different branch
+    fm = !git fetch origin "$(git default-branch-name)":"$(git default-branch-name)"
+    fetch-main-safe = !bash ~/sys/git_fetch_main_safe.sh
+
+	# ADD
+	# a = add
+    a = forgit add
+	aa = add --all
+
+	# COMMIT
+	smart = !bash ~/sys/git-smart-commit.sh
+    smart-prep = !bash ~/sys/git-smart-prepare.sh
+	amend = commit --amend --no-edit
+	; fake = !MY_TIME=$(date --date=\"120 days ago\" -R) GIT_AUTHOR_DATE=$MY_TIME GIT_COMMITTER_DATE=$MY_TIME git commit
+    go = !git smart-prep && git commit -m 'fixup!' && git push
+
+	# PUSH
+	ph = push
+	phf = push --force-with-lease --force-if-includes
+    ; php = push --prune --all
+
+    # Github
+	pr-new = !yes | gh pr create -a @me --fill
+    pr-browse = !gh pr view -w
+    pr-review = !git rbm && git pr-new
+    pr-done = !bash -ic ~/sys/git-gh-done.sh
+
+	# Gitlab
+	phgl = push -u origin @ -o merge_request.create -o merge_request.assign="barklan"
+	phglmerge = push -u origin @ -o merge_request.create -o merge_request.assign="barklan" -o merge_request.merge_when_pipeline_succeeds
+	phglci = push -u origin @ -o merge_request.create -o merge_request.label="CI/CD" -o merge_request.assign="barklan"
+
+	# REBASE
+    ri = rebase -v -i
+    rif = forgit rebase
+    rim = !git fetch --all --quiet && REBASE_ONTO="origin/$(git default-branch-name)" git rebase -v -i "origin/$(git default-branch-name)"
+
+	# RESTORE
+	; rs = restore --staged
+
+	# MISC
+    o = open
+	changelogen = !npx changelogen@latest --from="origin/$(git default-branch-name)"
+    reset-main = !git checkout main && git fetch origin && git reset --hard @{u}
+    reset-master = !git checkout master && git fetch origin && git reset --hard @{u}
+    reset-develop = !git checkout develop && git fetch origin && git reset --hard @{u}
+
+	# to delete all unstaged files ignoring .gitignore files
+	cleantree = clean -i -d
+
+	grep-all = !~/sys/git-grep-all.py
+	grep-msg = !bash ~/sys/git-grep-msg.sh
+[status]
+    showStash = true
+[commit]
+	gpgsign = true
+    verbose = true
+[tag]
+	gpgSign = true
+    sort = version:refname
+[merge]
+	tool = vscode
+	conflictstyle = zdiff3
+[mergetool "vscode"]
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[diff]
+    colorMoved = default
+    tool = kitty
+    guitool = kitty.gui
+[difftool]
+    prompt = false
+    trustExitCode = true
+[difftool "kitty"]
+    cmd = kitten diff $LOCAL $REMOTE
+[difftool "kitty.gui"]
+    cmd = kitten diff $LOCAL $REMOTE
+[difftool "vscode-diff"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[init]
+	defaultBranch = main
+[fetch]
+    writeCommitGraph = true
+    prune = true
+	pruneTags = true
+    all = true
+[push]
+	followTags = true
+    default = current
+[pull]
+	ff = only
+	default = current
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[advice]
+    statusHints = false
+[delta]
+	navigate = true
+	light = false
+	; side-by-side = true
+[rebase]
+	autosquash = true
+    updateRefs = false
+    instructionFormat = "%s [ %an | %ar %d]" ; use "%ae" for author email
+    missingCommitsCheck = error
+    stat = true
+[rerere]
+	enabled = true
+[gpg]
+	format = ssh
+[log]
+	; date = iso
+	date = human
+[stash]
+	showPatch = true
+[protocol]
+	version = 2
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[sequence]
+    editor = "rebase-editor"

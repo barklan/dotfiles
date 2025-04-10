@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -x
+
+cd ~
+
+BACKUP="backup_$(date -I | tr '-' '_').tar.zst.age"
+tar -I zstd -cpf - \
+	./.gnupg ./.ssh ./.mozilla ./sss ./dev ./Documents |
+	age -o "${BACKUP}" -p

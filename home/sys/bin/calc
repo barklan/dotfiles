@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+read expression
+result=$(kalker "${expression}")
+
+printf "%s %s\n" "$expression" "$result"

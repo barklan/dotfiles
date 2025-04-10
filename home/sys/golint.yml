@@ -1,0 +1,100 @@
+---
+linters:
+  enable-all: true
+  disable:
+    - gofumpt # Handled by goimports
+    - godot # Check if comments end in a period.
+    - depguard
+
+    # - nonamedreturns # Named returns are useful for instrumentation
+    # - tagliatelle # We have a mess with JSON tags
+    # - dupword # Useless
+    # - exhaustruct
+    # - ireturn # Does not work well with generic functions
+    # - err113 # Allow errors.New("...")
+    # - nlreturn
+    # - wsl
+    # - gochecknoglobals
+    # - gci # Conflict imports formatting with gofumpt
+    # - mnd # Allow magic numbers
+
+linters-settings:
+  # Complexity settings
+  # gocognit:
+  #   min-complexity: 50
+  # funlen:
+  #   lines: 200
+  #   statements: 60
+  # dupl:
+  #   threshold: 300
+  # cyclop:
+  #   max-complexity: 20
+  # interfacebloat:
+  #   max: 20
+
+  stylecheck:
+    checks: ["all", "-ST1003"]
+  varnamelen:
+    max-distance: 20
+    ignore-decls:
+      - c *fiber.Ctx
+  wrapcheck:
+    ignoreSigs:
+      - .Errorf(
+      - errors.New(
+      - errors.Unwrap(
+      - errors.Join(
+      - .Wrap(
+      - .Wrapf(
+      # Fiber stuff
+      - .Next()
+      - .SendStatus(
+      - .JSON(
+      - utils.ReturnFiberBytesJSON(
+      - .Send(
+  gci:
+    sections:
+      - standard
+      - localmodule
+      - default
+      - blank
+      - dot
+      - prefix(gitlab.axarea.ru)
+    skip-generated: true
+    custom-order: true
+  revive:
+    rules:
+      - name: var-naming
+        arguments:
+          - []
+          - []
+          - - skipPackageNameChecks: true
+  godox:
+    keywords:
+      - FIX
+  errcheck:
+    check-type-assertions: true
+    check-blank: false
+  nlreturn:
+    block-size: 4
+  nolintlint:
+    require-explanation: true
+    require-specific: true
+  wsl:
+    allow-cuddle-declarations: true
+    force-err-cuddling: true
+    allow-assign-and-anything: true
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+  govet:
+    enable-all: true
+    disable:
+      - fieldalignment
+
+issues:
+  max-issues-per-linter: 10
+  fix: false
+
+run:
+  timeout: 5m

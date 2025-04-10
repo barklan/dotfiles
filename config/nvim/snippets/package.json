@@ -1,0 +1,55 @@
+{
+    "name": "personal-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "gitcommit",
+                    "NeogitCommitMessage"
+                ],
+                "path": "./git-commit.json"
+            },
+            {
+                "language": [
+                    "just"
+                ],
+                "path": "./justfile.json"
+            },
+            {
+                "language": [
+                    "shellscript",
+                    "shell",
+                    "sh",
+                    "zsh"
+                ],
+                "path": "./shellscript.json"
+            },
+            {
+                "language": "go",
+                "path": "./go.json"
+            },
+            {
+                "language": "go",
+                "path": "./go_friendly.json"
+            },
+            {
+                "language": [
+                    "lua"
+                ],
+                "path": "./lua.json"
+            },
+            {
+                "language": [
+                    "python"
+                ],
+                "path": "./python.json"
+            },
+            {
+                "language": [
+                    "markdown"
+                ],
+                "path": "./markdown.json"
+            }
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -eo pipefail
+IFS=$'\n\t'
+
+if [ -n "$REBASE_ONTO" ]; then
+    sed -i "0,/^#/s//$(echo "# REBASING ONTO: ${REBASE_ONTO}" | sed 's/[&/\]/\\&/g')\n#/" "$1"
+fi
+
+nvim "$1"

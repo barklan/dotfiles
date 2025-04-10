@@ -1,0 +1,7 @@
+{
+    "pyfix": {
+        "prefix": "pyfix",
+        "body": "true = True\nfalse = False\n\n$0",
+        "description": "Fix for Python"
+    }
+}

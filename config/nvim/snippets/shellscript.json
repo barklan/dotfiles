@@ -1,0 +1,11 @@
+{
+    "strict": {
+        "prefix": "strict",
+        "body": [
+            "#!/usr/bin/env bash",
+            "set -euo pipefail",
+            "IFS=$'\\n\\t'\n"
+        ],
+        "description": "Bash strict mode"
+    }
+}

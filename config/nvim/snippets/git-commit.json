@@ -1,0 +1,62 @@
+{
+	"fix": {
+		"prefix": "f",
+		"body": "fix: $0",
+		"description": "A bug fix"
+	},
+	"fixup": {
+		"prefix": "ff",
+		"body": "fixup!",
+		"description": "fixup!"
+	},
+	"feat": {
+		"prefix": "fe",
+		"body": "feat: $0",
+		"description": "A new feature"
+	},
+	"refactor": {
+		"prefix": "re",
+		"body": "refactor: $0",
+		"description": "A code change that neither fixes a bug nor adds a feature"
+	},
+	"docs": {
+		"prefix": "doc",
+		"body": "docs: $0",
+		"description": "Documentation only changes"
+	},
+	"readme": {
+		"prefix": "readme",
+		"body": "docs(README.md): $0",
+		"description": "README.md file changes"
+	},
+	"test": {
+		"prefix": "test",
+		"body": "test: $0",
+		"description": "Adding missing tests or correcting existing tests"
+	},
+	"style": {
+		"prefix": "st",
+		"body": "style: $0",
+		"description": "Changes that do not affect the meaning of the code"
+	},
+	"perf": {
+		"prefix": "perf",
+		"body": "perf: $0",
+		"description": "A code change that improves performance"
+	},
+	"build": {
+		"prefix": "bu",
+		"body": "build: $0",
+		"description": "Changes that affect the build system or external dependencies"
+	},
+	"ci": {
+		"prefix": "ci",
+		"body": "ci: $0",
+		"description": "Changes to our CI configuration files and scripts"
+	},
+	"chore": {
+		"prefix": "ch",
+		"body": "chore: $0",
+		"description": "Chore change"
+	}
+}

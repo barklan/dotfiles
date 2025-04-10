@@ -1,0 +1,9 @@
+*
+!.gitignore
+!/User/
+!/User/snippets
+!/User/snippets/*
+!/User/keybindings.json
+!/User/package.json
+!/User/settings.json
+!/User/tasks.json

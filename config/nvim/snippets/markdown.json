@@ -1,0 +1,60 @@
+{
+    "Inline Math": {
+        "prefix": "m",
+        "body": "\\\\\\($1\\\\\\) $0",
+        "description": "Inline math."
+    },
+    "Block Math": {
+        "prefix": "mm",
+        "body": [
+            "\\$\\$",
+            "$1",
+            "\\$\\$",
+            "",
+            "$0"
+        ],
+        "description": "Block math."
+    },
+    "Block Math Aligned": {
+        "prefix": "mma",
+        "body": [
+            "\\$\\$",
+            "\\begin{align}",
+            "$1",
+            "\\end{align}",
+            "\\$\\$",
+            "",
+            "$0"
+        ],
+        "description": "Block math."
+    },
+    "date": {
+        "prefix": "date",
+        "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+        "description": "Insert today's date."
+    },
+    "ref": {
+        "prefix": "ref",
+        "body": [
+            "<sup id=\"$1\">[[$2]](#$1-ref)</sup>$0",
+            "- <small id=\"$1-ref\">[[$2]](#$1) This is a note.</small>"
+        ],
+        "description": "Markdown reference."
+    },
+    "hl": {
+        "prefix": "hl",
+        "body": "{linenos=inline,hl_lines=[2, \"4-6\"$0],linenostart=1}"
+    },
+    "lines": {
+        "prefix": "lines",
+        "body": "{linenos=inline}"
+    },
+    "break": {
+        "prefix": "br",
+        "body": "<br>"
+    },
+    "bold": {
+        "prefix": "bb",
+        "body": "**$0**"
+    }
+}

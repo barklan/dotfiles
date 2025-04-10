@@ -1,0 +1,96 @@
+{
+    "select": {
+        "prefix": "s",
+        "body": [
+            "SELECT",
+            "\t$0"
+        ],
+        "description": "SELECT"
+    },
+    "from": {
+        "prefix": "f",
+        "body": [
+            "FROM",
+            "\t$0"
+        ],
+        "description": "FROM"
+    },
+    "group by": {
+        "prefix": "g",
+        "body": [
+            "GROUP BY",
+            "\t$0"
+        ],
+        "description": "GROUP BY"
+    },
+    "where": {
+        "prefix": "w",
+        "body": [
+            "WHERE",
+            "\t$0"
+        ],
+        "description": "WHERE"
+    },
+    "order by": {
+        "prefix": "o",
+        "body": [
+            "ORDER BY",
+            "\t$0"
+        ],
+        "description": "ORDER BY"
+    },
+    "count": {
+        "prefix": "c",
+        "body": "COUNT($0)",
+        "description": "COUNT"
+    },
+    "distinct": {
+        "prefix": "d",
+        "body": "DISTINCT $0",
+        "description": "DISTINCT"
+    },
+    "inner join": {
+        "prefix": "ij",
+        "body": [
+            "INNER JOIN",
+            "\t$0"
+        ],
+        "description": "INNER JOIN"
+    },
+    "left join": {
+        "prefix": "lj",
+        "body": [
+            "LEFT JOIN",
+            "\t$0"
+        ],
+        "description": "LEFT JOIN"
+    },
+    "having": {
+        "prefix": "h",
+        "body": [
+            "HAVING",
+            "\t$0"
+        ],
+        "description": "HAVING"
+    },
+    "with": {
+        "prefix": "with",
+        "body": "WITH $0",
+        "description": "HAVING"
+    },
+    "top": {
+        "prefix": "top",
+        "body": "TOP(10)$0",
+        "description": "TOP(10)"
+    },
+    "nan": {
+        "prefix": ".nn",
+        "body": " IS NOT NULL",
+        "description": "IS NOT NULL"
+    },
+    "distributor": {
+        "prefix": "@d",
+        "body": "distributor.$0",
+        "description": "distributor"
+    }
+}
