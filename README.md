@@ -378,8 +378,14 @@ To see available fonts (to update fonts run `fc-cache -fv ~/.local/share/fonts`)
 kitten choose-fonts
 ```
 
-To hide window decorations:
+To hide window decorations (for gnome especially):
 
 ```txt
 hide_window_decorations yes
+```
+
+## Management of dotfiles themselves
+
+```bash
+pre-commit autoupdate -c ./home/sys/lint.yml
 ```
