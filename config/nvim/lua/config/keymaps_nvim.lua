@@ -61,7 +61,7 @@ vim.keymap.set("n", "<leader>1", function()
     DeleteOtherBuffers()
 end, { desc = "Close other buffers" })
 
-if IsGitEditor() == true or IsCMDLineEditor() == true then
+if IsGitEditor() or IsCMDLineEditor() or IsScrollbackPager() then
     vim.keymap.set("n", "<BS>", "<cmd>wqall<cr>", { silent = true, desc = "Quit Neovim" })
 else
     vim.keymap.set("n", "<BS>", close_current_buffer, { silent = true, desc = "Close buffer" })
