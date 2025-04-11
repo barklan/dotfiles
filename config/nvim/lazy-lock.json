@@ -2,6 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "auto-save.nvim": { "branch": "main", "commit": "29f793a3a7f98129387590269ffe3ad61ab5e509" },
   "auto-session": { "branch": "main", "commit": "095b0b54d40c8cc7fe37f2ae4d948ec3069bb1c2" },
+  "better-escape.nvim": { "branch": "master", "commit": "9738a470d93e2e52815bc46b4042372ca198cbd6" },
   "blink-ripgrep.nvim": { "branch": "main", "commit": "56084d1f45c8621d23d4bac724c2dc50b1eb75db" },
   "blink.cmp": { "branch": "main", "commit": "efa0b4d94d2dd1e7b572cd9bd83fbf394d60ec4a" },
   "blink.nvim": { "branch": "main", "commit": "083349ed15478385ed9def61743dfc884ca7e215" },

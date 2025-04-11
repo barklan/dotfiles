@@ -1,5 +1,25 @@
 return {
     {
+        lazy = false, -- Don't want to have any delays here.
+        cond = NotVSCode,
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup({
+                timeout = 300, -- after `timeout` passes, you can press the escape key and the plugin will ignore it
+                default_mappings = false, -- setting this to false removes all the default mappings
+                mappings = {
+                    -- i for insert, other modes are the first letter too
+                    i = {
+                        -- map kj to exit insert mode
+                        k = {
+                            j = "<Esc>",
+                        },
+                    },
+                },
+            })
+        end,
+    },
+    {
         dir = vim.fn.stdpath("config") .. "/lplug/acceleratedjk",
         lazy = false, -- Don't want to have any delays here.
         keys = {

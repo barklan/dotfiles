@@ -1,7 +1,10 @@
 local silent = { silent = true }
 
 vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true }) -- So that <Tab> mappings wont overwrite this.
-vim.keymap.set("i", "kj", "<esc>", silent)
+
+-- Handled by better-escape.nvim
+-- vim.keymap.set("i", "kj", "<esc>", silent)
+
 vim.keymap.set("i", "<C-;>", "<C-v>", silent) -- To insert something without expanding (to bypass abbreviations for example).
 
 local close_current_buffer = function()
