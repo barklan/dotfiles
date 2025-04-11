@@ -52,7 +52,7 @@ return {
         lazy = true,
         event = "VeryLazy",
         opts = {
-            delay = 500,
+            delay = 700,
             preset = "modern",
             icons = {
                 mappings = false,
