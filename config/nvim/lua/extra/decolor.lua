@@ -7,7 +7,7 @@ local M = {}
 M.golang = function()
     -- vim.api.nvim_set_hl(0, "@keyword.type.go", { link = "@none", force = true }) -- anonymous struct also go here
 
-    vim.api.nvim_set_hl(0, "@string.go", { fg = "#b0c6d5", force = true })
+    vim.api.nvim_set_hl(0, "@string.go", { fg = "#b0c6d5", italic = false, force = true })
     vim.api.nvim_set_hl(0, "@character.printf", { link = "@string.go", force = true })
 
     vim.api.nvim_set_hl(0, "@number.go", { link = "@none", force = true })
