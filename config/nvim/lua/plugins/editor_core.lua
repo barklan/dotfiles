@@ -134,7 +134,7 @@ return {
         },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
-            require("treesj").setup({ use_default_keymaps = true, max_join_length = 160 })
+            require("treesj").setup({ use_default_keymaps = false, max_join_length = 160 })
             vim.keymap.set("n", "<leader>rl", require("treesj").toggle, { desc = "treesj toggle" })
         end,
     },

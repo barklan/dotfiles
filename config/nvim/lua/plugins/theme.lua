@@ -2,6 +2,7 @@ return {
     {
         "idr4n/github-monochrome.nvim",
         cond = NotVSCode,
+        enabled = false,
         lazy = false,
         priority = 1000,
         opts = {
@@ -50,15 +51,13 @@ return {
         config = function()
             require("tokyonight").setup({
                 styles = {
-                    comments = {
-                        italic = true,
-                    },
+                    comments = { italic = true },
                     keywords = { italic = false },
                 },
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
                 day_brightness = 0.1,
                 lualine_bold = true,
-                cache = false,
+                cache = true,
                 on_highlights = function(hl, c)
                     -- These are bright ones.
                     -- hl.TSComment = { fg = "#ff9dab" }
@@ -68,12 +67,7 @@ return {
                     -- hl.TSComment = { fg = "#a6a6a6" }
                     -- hl.Comment = { fg = "#a6a6a6" }
 
-                    hl.CursorLineNr = {link = "LineNr"}
-
-                    hl.Comment = {
-                        fg = "#606a99", -- Default is "#565F89"
-                        italic = true,
-                    }
+                    hl.CursorLineNr = { link = "LineNr" }
 
                     local bg_darker = "#16161E"
 
@@ -93,6 +87,11 @@ return {
                     hl.SnacksPickerInputBorder = { fg = c.magenta, bg = bg_darker }
                     hl.SnacksPickerBorder = { fg = c.magenta, bg = bg_darker }
                     -- hl.FloatBorder = { fg = "#bb9af7" }
+                    -- hl.Comment = {
+                    --     fg = "#606a99", -- Default is "#565F89"
+                    --     italic = true,
+                    -- }
+                    -- vim.api.nvim_set_hl(0, "@spell", { link = "Comment", force = true })
 
                     -- EXPERIMENTAL decoloring
                     -- theese are good commented
