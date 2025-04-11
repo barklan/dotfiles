@@ -1,46 +1,10 @@
 return {
     {
-        "idr4n/github-monochrome.nvim",
+        "rebelot/kanagawa.nvim",
         cond = NotVSCode,
         enabled = true,
         lazy = false,
-        priority = 1000,
-        opts = {
-            styles = {
-                comments = { italic = true },
-                keywords = { bold = false },
-                functions = { bold = false },
-                statements = { bold = false }, -- e.g., try/except statements, but also if, for, etc.
-                conditionals = { bold = false }, -- e.g., if statements
-                loops = { bold = false }, -- e.g., for, while statements
-                variables = {},
-                floats = "normal", -- "dark", "transparent" or "normal"
-                sidebars = "normal", -- "dark", "transparent" or "normal"
-            },
-            on_colors = function(c, s)
-                c.number = c.teal
-                -- c.string = c.normal
-                -- if s == "light" then
-                -- c.number = c.blue
-                -- end
-            end,
-            on_highlights = function(hl, c, s)
-                local tnd = "#16161E"
-                hl.BlinkCmpGhostText = { fg = "#7f7f7f" }
-                hl.FloatBorder = { fg = c.magenta }
-                -- hl.TreesitterContext = { bg = "#1a1b26" }
-                hl.TreesitterContext = { bg = c.none }
-                hl.TreesitterContextBottom = { underline = true, sp = "#808080" }
-                hl.GitSignsCurrentLineBlame = { fg = c.comment }
-                hl.Cursor = { bg = c.magenta, blend = 95 }
-
-                -- hl.NeoTreeNormal = { bg = tnd }
-                -- hl.NeoTreeNormalNC = { bg = tnd }
-                -- hl.WinSeparator = { fg = "#1a1b26", bg = "#1a1b26" } -- color of Normal background in tokyonight-night
-                -- hl.NeoTreeWinSeparator = { fg = "#1a1b26", bg = "#1a1b26" } -- color of Normal background in tokyonight-night
-                -- hl.DapUINormal = { bg = "#16161e" } -- color or neo-tree in tokyonight-night
-            end,
-        },
+        priority = 1001,
     },
     {
         "folke/tokyonight.nvim",
