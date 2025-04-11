@@ -2,7 +2,15 @@
 vim.deprecate = function() end
 
 -- vim.o.winborder = "none" -- NEW thing in neovim 0.11
-vim.opt.showcmd = false
+
+vim.opt.showcmd = false -- Shows number of selected lines, etc.
+function ToggleShowCmd()
+  vim.opt.showcmd = not vim.opt.showcmd:get()
+  local status = vim.opt.showcmd:get() and "ON" or "OFF"
+  vim.notify("showcmd is now " .. status, vim.log.levels.INFO, { title = "Toggle ShowCmd" })
+end
+vim.keymap.set('n', '<leader>mc', ToggleShowCmd, { desc = "Toggle showcmd" })
+
 
 -- vim.opt.fixendofline = true
 vim.opt.autowrite = true

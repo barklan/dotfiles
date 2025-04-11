@@ -109,14 +109,13 @@ return {
     {
         "Wansmer/treesj",
         lazy = true,
-        keys = { "<space>m" },
+        keys = {
+            { "<space>rl", mode = { "n" }, desc = "treesj toggle" },
+        },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
-            require("treesj").setup({
-                use_default_keymaps = true,
-                max_join_length = 160,
-            })
-            vim.keymap.set("n", "<leader>m", require("treesj").toggle, { desc = "treesj toggle" })
+            require("treesj").setup({ use_default_keymaps = true, max_join_length = 160 })
+            vim.keymap.set("n", "<leader>rl", require("treesj").toggle, { desc = "treesj toggle" })
         end,
     },
     {
