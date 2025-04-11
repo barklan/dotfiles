@@ -52,7 +52,7 @@ sudo pacman -Syu --needed \
 # Cli
 sudo pacman -Syu --needed \
 	fzf ripgrep ripgrep-all \
-	fd bat mcfly plocate glow git-delta lazygit strace \
+	fd bat mcfly plocate glow git-delta strace \
 	tcpdump perf nmap glab github-cli \
 	xh sd choose bottom pgcli kubectl just \
 	watchexec eza dust duf gping peco grex tealdeer bandwhich \

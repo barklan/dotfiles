@@ -15,7 +15,6 @@ if status is-interactive
     bind \cg 'echo; git status --short --branch; commandline -f repaint'
 
     bind \el 'echo; eza -a --group-directories-first; commandline -f repaint'
-    bind \eg lazygit
 
     bind \ek lf
 
