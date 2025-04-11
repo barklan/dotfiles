@@ -5,6 +5,8 @@ local M = {}
 -- @type.definition.go - this works
 -- @type.definition    - this does not
 M.golang = function()
+    vim.api.nvim_set_hl(0, "@keyword.type.go", { link = "@none", force = true }) -- anonymous struct
+
     -- vim.api.nvim_set_hl(0, "@string.go", { link = "Special", force = true })
     vim.api.nvim_set_hl(0, "@string.go", { fg = "#7e92eb", force = true })
     vim.api.nvim_set_hl(0, "@character.printf", { link = "@string.go", force = true })

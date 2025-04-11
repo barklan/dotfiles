@@ -64,7 +64,8 @@ return {
                             hint = "",
                             info = "",
                             warn = "  ",
-                            error = "  ",
+                            -- error = "  ",
+                            error = "E ",
                         },
                         highlights = {
                             -- hint = "DiagnosticSignHint",

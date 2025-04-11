@@ -68,6 +68,8 @@ return {
                     -- hl.TSComment = { fg = "#a6a6a6" }
                     -- hl.Comment = { fg = "#a6a6a6" }
 
+                    hl.CursorLineNr = {link = "LineNr"}
+
                     hl.Comment = {
                         fg = "#606a99", -- Default is "#565F89"
                         italic = true,
