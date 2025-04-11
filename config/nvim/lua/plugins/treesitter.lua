@@ -39,9 +39,9 @@ return {
                 -- autotag = {
                 --     enable = true,
                 -- },
-                indent = {
-                    enable = true,
-                },
+                -- indent = {
+                --     enable = true,
+                -- },
                 endwise = {
                     enable = true,
                 },
