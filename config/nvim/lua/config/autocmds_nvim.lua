@@ -116,7 +116,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function()
-        vim.cmd("wincmd J")        -- Move quickfix to bottom (full-width)
+        vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
         vim.wo.winfixheight = true -- Lock height (optional)
     end,
 })

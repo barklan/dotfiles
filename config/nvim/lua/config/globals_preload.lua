@@ -1,6 +1,5 @@
 DontAutoSaveOrAutoCloseFiletypes = { "gitcommit", "oil" }
 
--- TODO: fix title to nvim
 NotifySend = vim.schedule_wrap(function(msg)
     require("plenary.job")
         :new({
