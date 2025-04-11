@@ -4,7 +4,6 @@ if status is-interactive
     alias reboot='reboot-safe'
 
     bind \cc cancel-commandline # restore old ^C behavior
-
     bind \co 'xdg-open . &>/dev/null < /dev/null'
     bind \eo 'cd ~/dev; commandline -f repaint;'
     bind \ep 'cd-git-root; commandline -f repaint'
@@ -13,9 +12,7 @@ if status is-interactive
     bind \ej 'just --list; commandline -f repaint'
     bind \e\cj 'just --choose; commandline -f repaint'
     bind \cg 'echo; git status --short --branch; commandline -f repaint'
-
     bind \el 'echo; eza -a --group-directories-first; commandline -f repaint'
-
     bind \ek lf
 
     # To delete an abbreviation use `abbr -e t`
