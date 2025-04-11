@@ -53,6 +53,7 @@ return {
                     comments = {
                         italic = true,
                     },
+                    keywords = { italic = false },
                 },
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
                 day_brightness = 0.1,
