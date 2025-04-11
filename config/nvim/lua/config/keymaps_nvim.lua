@@ -100,7 +100,7 @@ end, { silent = true })
 --------------
 
 vim.keymap.set("n", ";", function()
-    vim.cmd("silent LspFormat")
+    vim.cmd("silent! LspFormat")
     vim.cmd("silent update")
 end, { silent = true, desc = "Format document" })
 
