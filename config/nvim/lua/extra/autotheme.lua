@@ -22,7 +22,7 @@ function M.save_colorscheme()
         file:write(vim.json.encode(state))
         file:close()
     else
-        NotifySend("nvim", "Error saving colorscheme state")
+        NotifySend("Error saving colorscheme state")
     end
 end
 
@@ -30,7 +30,7 @@ function M.load_colorscheme()
     local path = vim.fn.stdpath("data") .. "/colorscheme_state.json"
     local file = io.open(path, "r")
     if not file then
-        NotifySend("nvim", "No saved colorscheme state found, defaulting to dark:tokyonight-night")
+        NotifySend("No saved colorscheme state found, defaulting to dark:tokyonight-night")
 
         vim.o.background = "dark"
         local ok, _ = pcall(vim.cmd.colorscheme, "tokyonight-night")
@@ -46,7 +46,7 @@ function M.load_colorscheme()
 
     local ok, state = pcall(vim.json.decode, content)
     if not ok or not state then
-        NotifySend("nvim", "Error parsing colorscheme state")
+        NotifySend("Error parsing colorscheme state")
         return
     end
 

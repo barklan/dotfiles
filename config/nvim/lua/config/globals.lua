@@ -168,7 +168,7 @@ GitFetchMainBranch = function()
             on_exit = function(j, return_val)
                 if return_val ~= 0 then
                     vim.defer_fn(function()
-                        NotifySend("git", "Failed fetching default branch!")
+                        NotifySend("Failed fetching default branch!")
                     end, 0)
                 end
             end,
@@ -215,7 +215,6 @@ function DeleteBuffersWithoutFile()
 
     for k, v in pairs(buffers) do
         if not FileExists(v.info.name) then
-            -- NotifySend("nvim: deleted buffer", v.info.name)
             require("mini.bufremove").delete(v.bufnr)
         end
     end

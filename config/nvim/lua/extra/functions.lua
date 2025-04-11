@@ -53,11 +53,11 @@ M.rg_all_cwd_lines = function()
             if lastline == "124" then
                 msg = msg .. "reached timeout | "
             elseif lastline ~= "0" then
-                NotifySend("nvim", "rg_all_cwd_lines: unknown error " .. lastline)
+                NotifySend("rg_all_cwd_lines: unknown error " .. lastline)
             end
         end
     else
-        NotifySend("nvim", "rg_all_cwd_lines: failed to start rg")
+        NotifySend("rg_all_cwd_lines: failed to start rg")
     end
 
     return results, msg

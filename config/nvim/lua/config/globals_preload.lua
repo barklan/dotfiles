@@ -1,11 +1,11 @@
 DontAutoSaveOrAutoCloseFiletypes = { "gitcommit", "oil" }
 
 -- TODO: fix title to nvim
-NotifySend = vim.schedule_wrap(function(title, msg)
+NotifySend = vim.schedule_wrap(function(msg)
     require("plenary.job")
         :new({
             command = "notify-send",
-            args = { "-a", title, msg },
+            args = { "-a", "nvim", msg },
             cwd = vim.fn.getcwd(),
         })
         :start()
@@ -80,7 +80,6 @@ IsOilEditor = function()
     return true
 end
 
-
 ShouldEnableNeotree = function()
     if InVSCode() or IsScrollbackPager() or IsCMDLineEditor() then
         return false
@@ -94,6 +93,6 @@ function TimeIt(msg, fn, ...)
     local result = fn(...)
     local elapsed = (vim.loop.hrtime() - start) / 1e6
     local elapsed_str = string.format("took %.2f ms", elapsed)
-    NotifySend("nvim", msg .. ": " .. elapsed_str)
+    NotifySend(msg .. ": " .. elapsed_str)
     return result
 end
