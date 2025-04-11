@@ -55,27 +55,25 @@ return {
                     keywords = { italic = false },
                 },
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-                day_brightness = 0.25,
+                day_brightness = 0.3,
                 lualine_bold = true,
                 on_highlights = function(hl, c)
                     hl.CursorLineNr = { link = "LineNr" }
 
-                    local bg_darker = "#16161E"
-
-                    hl.SnacksPickerDir = { fg = "#7777b6" }
+                    -- hl.SnacksPickerDir = { fg = "#7777b6" }
                     hl.SnacksPickerInputTitle = { fg = c.magenta }
                     hl.SnacksPickerBoxTitle = { fg = c.magenta }
                     hl.BlinkCmpGhostText = { fg = "#7f7f7f" }
-                    hl.DiagnosticUnnecessary = { fg = c.normal }
+                    hl.DiagnosticUnnecessary = { fg = c.fg }
 
-                    hl.WinSeparator = { fg = "#1a1b26", bg = "#1a1b26" } -- color of Normal background in tokyonight-night
-                    hl.DapUINormal = { bg = bg_darker } -- color or neo-tree in tokyonight-night
+                    hl.WinSeparator = { fg = c.bg, bg = c.bg } -- color of Normal background in tokyonight-night
+                    hl.DapUINormal = { bg = c.bg_dark } -- color or neo-tree in tokyonight-night
 
-                    hl.TreesitterContext = { bg = "#1a1b26" }
+                    hl.TreesitterContext = { bg = c.bg }
                     hl.TreesitterContextBottom = { underline = true, sp = c.comment }
 
-                    hl.SnacksPickerInputBorder = { fg = c.magenta, bg = bg_darker }
-                    hl.SnacksPickerBorder = { fg = c.magenta, bg = bg_darker }
+                    hl.SnacksPickerInputBorder = { fg = c.magenta, bg = c.bg_dark }
+                    hl.SnacksPickerBorder = { fg = c.magenta, bg = c.bg_dark }
                     hl.Comment = {
                         fg = "#606a99", -- Default is "#565F89"
                         italic = true,
