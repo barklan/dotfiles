@@ -19,9 +19,10 @@ M.golang = function()
     vim.api.nvim_set_hl(0, "@type.builtin.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@module.go", { link = "@none", force = true })
 
-    -- vim.api.nvim_set_hl(0, "@variable.member.go", { link = "@none", force = true })
+    vim.api.nvim_set_hl(0, "@variable.member.go", { link = "@none", force = true })
 
     vim.api.nvim_set_hl(0, "@property.go", { link = "@none", force = true })
+    vim.api.nvim_set_hl(0, "@constant.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@variable.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@function.builtin.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@punctuation.delimiter.go", { link = "@none", force = true })

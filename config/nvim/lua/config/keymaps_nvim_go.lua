@@ -103,7 +103,7 @@ vim.keymap.set("n", "<F5>", function()
         "kitten @ --to unix:@mykitty-"
             .. tostring(kitty_pid)
             -- .. " launch --type=tab --location=neighbor --tab-title debug --dont-take-focus --cwd "
-            .. " launch --type=window --bias -70 --dont-take-focus --cwd "
+            .. " launch --type=window --bias -15 --dont-take-focus --cwd "
             .. cwd
             .. " fish -ic 'dlv debug ./cmd/"
             .. target
