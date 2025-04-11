@@ -21,7 +21,7 @@ return {
             return true
         end,
         lazy = false,
-        priority = 999, -- Load after theme.
+        priority = 900, -- Load after theme.
         init = function()
             -- vim.o.sessionoptions = "buffers,curdir,tabpages"
             -- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,localoptions"

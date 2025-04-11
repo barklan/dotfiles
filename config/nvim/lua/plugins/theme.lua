@@ -2,7 +2,7 @@ return {
     {
         "idr4n/github-monochrome.nvim",
         cond = NotVSCode,
-        enabled = false,
+        enabled = true,
         lazy = false,
         priority = 1000,
         opts = {
@@ -47,7 +47,7 @@ return {
         cond = NotVSCode,
         enabled = true,
         lazy = false,
-        priority = 1000,
+        priority = 1001,
         config = function()
             require("tokyonight").setup({
                 styles = {
@@ -55,18 +55,9 @@ return {
                     keywords = { italic = false },
                 },
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-                day_brightness = 0.1,
+                day_brightness = 0.25,
                 lualine_bold = true,
-                cache = true,
                 on_highlights = function(hl, c)
-                    -- These are bright ones.
-                    -- hl.TSComment = { fg = "#ff9dab" }
-                    -- hl.Comment = { fg = "#ff9dab" }
-
-                    -- These are grey.
-                    -- hl.TSComment = { fg = "#a6a6a6" }
-                    -- hl.Comment = { fg = "#a6a6a6" }
-
                     hl.CursorLineNr = { link = "LineNr" }
 
                     local bg_darker = "#16161E"
@@ -81,50 +72,14 @@ return {
                     hl.DapUINormal = { bg = bg_darker } -- color or neo-tree in tokyonight-night
 
                     hl.TreesitterContext = { bg = "#1a1b26" }
-                    -- hl.TreesitterContextBottom = { underline = true, sp = "#808080" }
                     hl.TreesitterContextBottom = { underline = true, sp = c.comment }
 
                     hl.SnacksPickerInputBorder = { fg = c.magenta, bg = bg_darker }
                     hl.SnacksPickerBorder = { fg = c.magenta, bg = bg_darker }
-                    -- hl.FloatBorder = { fg = "#bb9af7" }
-                    -- hl.Comment = {
-                    --     fg = "#606a99", -- Default is "#565F89"
-                    --     italic = true,
-                    -- }
-                    -- vim.api.nvim_set_hl(0, "@spell", { link = "Comment", force = true })
-
-                    -- EXPERIMENTAL decoloring
-                    -- theese are good commented
-                    -- hl.Constant = { fg = c.normal }
-                    -- hl.String = { fg = c.normal }
-                    -- hl.Number = { fg = c.normal }
-                    --
-                    -- hl.Character = { fg = c.normal }
-                    -- hl.Boolean = { fg = c.normal }
-                    -- hl.Identifier = { fg = c.normal }
-                    -- hl.Function = { fg = c.normal }
-                    -- hl.Statement = { fg = c.normal }
-                    -- hl.Conditional = { fg = c.normal }
-                    -- hl.Repeat = { fg = c.normal }
-                    -- hl.Label = { fg = c.normal }
-                    -- hl.Operator = { fg = c.normal }
-                    -- hl.Keyword = { fg = c.normal }
-                    -- hl.Exception = { fg = c.normal }
-                    -- hl.PreProc = { fg = c.normal }
-                    -- hl.Include = { fg = c.normal }
-                    -- hl.Define = { fg = c.normal }
-                    -- hl.Macro = { fg = c.normal }
-                    -- hl.PreCondit = { fg = c.normal }
-                    -- hl.Type = { fg = c.normal }
-                    -- hl.StorageClass = { fg = c.normal }
-                    -- hl.Structure = { fg = c.normal }
-                    -- hl.Typedef = { fg = c.normal }
-                    -- hl.SpecialChar = { fg = c.normal }
-                    -- hl.Tag = { fg = c.normal }
-                    -- hl.Delimiter = { fg = c.normal }
-                    -- hl.SpecialComment = { fg = c.normal }
-                    -- hl.Debug = { fg = c.normal }
-                    -- hl.Method = { fg = c.normal }
+                    hl.Comment = {
+                        fg = "#606a99", -- Default is "#565F89"
+                        italic = true,
+                    }
                 end,
             })
         end,
