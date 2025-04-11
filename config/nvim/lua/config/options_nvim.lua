@@ -11,7 +11,6 @@ function ToggleShowCmd()
 end
 vim.keymap.set('n', '<leader>mc', ToggleShowCmd, { desc = "Toggle showcmd" })
 
-
 -- vim.opt.fixendofline = true
 vim.opt.autowrite = true
 vim.opt.autowriteall = true
