@@ -36,7 +36,6 @@ vim.keymap.set("n", "<leader>g<cr>", function()
     local go_pkg_path = GetCurrentBufDirRelativeToCwd()
     local kitty_pid = GetKittyPID()
 
-    -- https://sw.kovidgoyal.net/kitty/launch/
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
             .. tostring(kitty_pid)
@@ -93,11 +92,9 @@ vim.keymap.set("n", "<F5>", function()
 
     vim.fn.system("kitten @ --to unix:@mykitty-" .. tostring(kitty_pid) .. " action goto_layout fat")
 
-    -- https://sw.kovidgoyal.net/kitty/launch/
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
             .. tostring(kitty_pid)
-            -- .. " launch --type=tab --location=neighbor --tab-title debug --dont-take-focus --cwd "
             .. " launch --type=window --bias -15 --dont-take-focus --cwd "
             .. cwd
             .. " fish -ic 'dlv debug ./cmd/"
