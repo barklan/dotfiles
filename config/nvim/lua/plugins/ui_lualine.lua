@@ -9,7 +9,13 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
-        cond = NotVSCode,
+        cond = function ()
+            if InVSCode() then
+                return false
+            end
+
+            return true
+        end,
         lazy = true,
         event = "VeryLazy",
         config = function()

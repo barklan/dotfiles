@@ -16,13 +16,13 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     group = "git_auto",
     pattern = "COMMIT_EDITMSG",
     callback = function()
-        vim.schedule(function()
-            vim.cmd(":Neotree source=git_status position=left reveal=true") -- source can be "last"
-        end)
+        -- vim.schedule(function()
+        vim.cmd(":Neotree source=git_status position=left reveal=true") -- source can be "last"
+        -- end)
 
         vim.defer_fn(function()
             require("nvim-gitstatus").update_git_status()

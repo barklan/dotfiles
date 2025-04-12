@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("VimEnter", { -- Changed from BufReadPre
     once = true,
     callback = function()
         local num_args = vim.fn.argc()
-        if num_args == 0 and IsScrollbackPager() == false then
+        if num_args == 0 and not IsScrollbackPager() then
             vim.schedule(function()
                 if not vim.g.neotree_opened then
                     -- Neotree position=current

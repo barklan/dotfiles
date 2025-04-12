@@ -117,7 +117,13 @@ end
 
 -- Set window title.
 vim.defer_fn(function()
-    local title = cwd() .. [[\ -\ NVIM]]
+    local title = "NVIM"
+    if IsCMDLineEditor() then
+        title = "CMDLINE_EDITOR"
+    else
+        title = cwd() .. [[\ -\ NVIM]]
+    end
+
     vim.cmd([[set title titlestring=]] .. title)
 end, 20)
 
