@@ -20,7 +20,7 @@ sudo pacman -Syu --needed \
     spotify-launcher fastfetch neochat \
     tesseract-data-eng tesseract-data-rus tesseract \
     qalculate-qt python-gevent shadowsocks-rust python-pysocks \
-    fprintd kitty linux-zen
+    fprintd kitty linux-zen cliphist
 
 yay -Syu --needed \
     qbittorrent-enhanced
