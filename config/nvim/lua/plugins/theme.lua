@@ -1,23 +1,5 @@
 return {
     {
-        "ellisonleao/gruvbox.nvim",
-        cond = NotVSCode,
-        enabled = true,
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("gruvbox").setup({
-                overrides = {
-                    SignColumn = { link = "Normal" },
-                    SnacksPickerDir = { link = "@none" },
-                    CursorLine = { bg = "#efe2c2" },
-                    -- CursorLine = { bg = "Whitespace" },
-                    -- Cursor = { fg = "#ffffff", bg = "#000000" },
-                },
-            })
-        end,
-    },
-    {
         "Mofiqul/vscode.nvim",
         cond = NotVSCode,
         enabled = true,
