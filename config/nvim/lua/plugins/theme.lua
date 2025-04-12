@@ -1,5 +1,20 @@
 return {
     {
+        "Mofiqul/vscode.nvim",
+        cond = NotVSCode,
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            -- local c = require("vscode.colors").get_colors()
+            require("vscode").setup({
+                group_overrides = {
+                    NeoTreeDimText = { link = "Whitespace" },
+                },
+            })
+        end,
+    },
+    {
         "folke/tokyonight.nvim",
         cond = NotVSCode,
         enabled = true,
@@ -12,7 +27,7 @@ return {
                     keywords = { italic = false },
                 },
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-                day_brightness = 0.3,
+                day_brightness = 0.25,
                 lualine_bold = true,
                 on_highlights = function(hl, c)
                     hl.CursorLineNr = { link = "LineNr" }
@@ -36,13 +51,18 @@ return {
                         italic = true,
                     }
 
+                    -- Only for night theme
                     hl.illuminatedWord = { bg = "#313751" }
                     hl.illuminatedCurWord = { bg = "#313751" }
                     hl.IlluminatedWordRead = { bg = "#313751" }
                     hl.IlluminatedWordText = { bg = "#313751" }
                     hl.IlluminatedWordWrite = { bg = "#313751" }
 
+                    -- Only for night theme
                     hl.Whitespace = { fg = "#282c41" }
+
+                    -- Only for night theme
+                    hl.String = { fg = "#86c5da" }
                 end,
             })
         end,

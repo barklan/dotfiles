@@ -61,5 +61,6 @@
   "unimpaired.nvim": { "branch": "main", "commit": "75eb0cdee816f4642fe92ffd267a1fc1b02a0117" },
   "vim-asterisk": { "branch": "master", "commit": "77e97061d6691637a034258cc415d98670698459" },
   "vim-illuminate": { "branch": "master", "commit": "08aa184f1bd508f6a59371b52cba26be07bc016d" },
+  "vscode.nvim": { "branch": "main", "commit": "49d6014ba151fc6cc585b8d5f057ca7839077bf8" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
