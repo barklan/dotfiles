@@ -210,12 +210,13 @@ return {
                 end,
                 mode = { "n", "x" },
             },
-            {
-                "<leader>s",
-                function()
-                    Snacks.picker.search_history({ layout = layout_select })
-                end,
-            },
+            -- KEYMAP IS TAKEN
+            -- {
+            --     "<leader>s",
+            --     function()
+            --         Snacks.picker.search_history({ layout = layout_select })
+            --     end,
+            -- },
             {
                 "<C-k>",
                 function()
