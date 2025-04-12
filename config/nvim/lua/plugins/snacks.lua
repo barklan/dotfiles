@@ -147,20 +147,19 @@ return {
                 desc = "Buffers",
             },
             {
-                "<leader>`",
+                "<M-t>",
                 function()
-                    Snacks.picker.recent({
-                        layout = layout_ctrll,
-                        show_empty = true,
-                        filter = {
-                            cwd = true,
-                            paths = {
-                                [vim.fn.getcwd() .. "/.git"] = false,
-                            },
-                        },
+                    -- systemctl --user status cliphist-watch.service
+                    -- systemd-run --unit=cliphist-watch --collect --user wl-paste --watch cliphist store
+                    Snacks.picker.cliphist({
+                        -- layout = layout_ctrll,
+                        -- show_empty = true,
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
                     })
                 end,
-                desc = "Jumps",
+                desc = "ALL files",
             },
             {
                 "<leader>u",
@@ -315,23 +314,6 @@ return {
                 end,
                 desc = "Smart Find Files",
             },
-
-            -- NOTE: doesn't make much sense, since smart already hidden = true and ignored = true
-            -- Mapped in nvim_keymaps instead
-            -- {
-            --     "<C-M-l>",
-            --     function()
-            --         Snacks.picker.files({
-            --             filter = {
-            --                 cwd = true,
-            --             },
-            --             layout = vscode_layout,
-            --             confirm = ctrl_l_confirm,
-            --             hidden = true,
-            --             ignored = true,
-            --         })
-            --     end,
-            -- },
             {
                 "<C-p>",
                 function()
@@ -346,6 +328,25 @@ return {
                     })
                 end,
                 desc = "Dir files",
+            },
+            {
+                "<leader>`",
+                function()
+                    Snacks.picker.files({
+                        filter = { cwd = true },
+                        layout = layout_ctrll,
+                        -- show_empty = true,
+                        hidden = true,
+                        ignored = true,
+                        confirm = ctrl_l_confirm,
+                        args = { "--no-ignore", "--unrestricted" },
+                        dirs = {
+                            vim.fn.getcwd(),
+                            vim.fn.getcwd() .. "/.git",
+                        },
+                    })
+                end,
+                desc = "ALL files",
             },
             ------------
             ---- Git

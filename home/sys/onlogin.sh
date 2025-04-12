@@ -9,4 +9,6 @@ do
   sleep 1
 done
 
+systemd-run --unit=cliphist-watch --collect --user wl-paste --watch cliphist store
+
 setsid telegram-desktop -startintray >/dev/null 2>&1 &
