@@ -1,7 +1,13 @@
 return {
     {
         "okuuva/auto-save.nvim",
-        cond = NotVSCode,
+        cond = function()
+            if InVSCode() or IsCMDLineEditor() or IsScrollbackPager() then
+                return false
+            end
+
+            return true
+        end,
         lazy = true,
         event = "VeryLazy",
         opts = {
