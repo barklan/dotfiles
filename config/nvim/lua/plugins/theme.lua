@@ -27,6 +27,7 @@ return {
                     NeoTreeDirectoryIcon = { link = "NeoTreeDirectoryName" },
                     NeoTreeDotfile = { fg = "#959595" },
                     GitGutterChange = { fg = "#a77817" },
+                    SnacksPickerPreviewCursorLine = { link = "Visual" },
                 },
             })
         end,

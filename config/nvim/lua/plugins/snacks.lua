@@ -1,22 +1,6 @@
 local layout_default = {
-    preview = "main",
-    -- preset = "ivy_split",
-    layout = {
-        box = "vertical",
-        backdrop = false,
-        row = -1,
-        width = 0,
-        height = 0.4,
-        border = "top",
-        title = " {title} {live} {flags}",
-        title_pos = "left",
-        { win = "input", height = 1, border = "bottom" },
-        {
-            box = "horizontal",
-            { win = "list", border = "none" },
-            { win = "preview", title = "{preview}", width = 0.6, border = "left" },
-        },
-    },
+    -- preview = "main",
+    preset = "ivy_split",
 }
 
 local layout_select = {
@@ -103,7 +87,7 @@ return {
             image = { enabled = true },
             picker = {
                 enabled = true,
-                -- layout = layout_default,
+                layout = layout_default,
                 toggles = {
                     regex = { icon = "regex", value = true },
                 },
