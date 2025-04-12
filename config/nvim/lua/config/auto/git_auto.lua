@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             -- vim.cmd(":Neotree close")
             -- vim.cmd(":Neotree show")
             vim.defer_fn(function()
-                vim.cmd(":Neotree source=filesystem position=left") -- source can be "last" or "filesystem"
+                vim.cmd(":Neotree show source=filesystem position=left") -- source can be "last" or "filesystem"
             end, 0)
         end, 0)
     end,
