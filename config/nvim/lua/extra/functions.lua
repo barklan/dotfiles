@@ -8,7 +8,7 @@ M.get_directories = function()
         fdcmd = "fdfind"
     end
 
-    local handle = io.popen(fdcmd .. " . --type directory")
+    local handle = io.popen(fdcmd .. " . --type directory --strip-cwd-prefix")
     if handle then
         for line in handle:lines() do
             table.insert(directories, line)

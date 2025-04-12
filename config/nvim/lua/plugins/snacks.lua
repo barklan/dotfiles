@@ -140,15 +140,24 @@ return {
             {
                 "<leader><tab>",
                 function()
-                    Snacks.picker.buffers()
+                    Snacks.picker.buffers({
+                        layout = layout_ctrll,
+                    })
                 end,
                 desc = "Buffers",
             },
             {
                 "<leader>`",
                 function()
-                    Snacks.picker.jumps({
+                    Snacks.picker.recent({
+                        layout = layout_ctrll,
                         show_empty = true,
+                        filter = {
+                            cwd = true,
+                            paths = {
+                                [vim.fn.getcwd() .. "/.git"] = false,
+                            },
+                        },
                     })
                 end,
                 desc = "Jumps",
@@ -189,7 +198,11 @@ return {
             {
                 "<leader>f",
                 function()
-                    Snacks.picker.grep_word()
+                    Snacks.picker.grep_word({
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
+                    })
                 end,
                 mode = { "n", "x" },
             },
