@@ -1,13 +1,31 @@
-local ivy_layout = {
-    preset = "ivy_split",
+local layout_default = {
+    preview = "main",
+    -- preset = "ivy_split",
+    layout = {
+        box = "vertical",
+        backdrop = false,
+        row = -1,
+        width = 0,
+        height = 0.4,
+        border = "top",
+        title = " {title} {live} {flags}",
+        title_pos = "left",
+        { win = "input", height = 1, border = "bottom" },
+        {
+            box = "horizontal",
+            { win = "list", border = "none" },
+            { win = "preview", title = "{preview}", width = 0.6, border = "left" },
+        },
+    },
 }
 
 local layout_select = {
+    preview = false,
     preset = "select",
 }
 
 local layout_ctrll = {
-    -- preview = false,
+    preview = false,
     preset = "vscode",
 }
 
@@ -85,7 +103,7 @@ return {
             image = { enabled = true },
             picker = {
                 enabled = true,
-                layout = ivy_layout,
+                -- layout = layout_default,
                 toggles = {
                     regex = { icon = "regex", value = true },
                 },
@@ -126,13 +144,15 @@ return {
             {
                 "<leader>a",
                 function()
-                    Snacks.picker({ layout = layout_select })
+                    Snacks.picker({
+                        layout = layout_select,
+                    })
                 end,
             },
             {
                 "<leader>;",
                 function()
-                    Snacks.picker.commands()
+                    Snacks.picker.commands({ layout = layout_select })
                 end,
                 desc = "Commands",
             },
@@ -150,21 +170,30 @@ return {
                 function()
                     -- systemctl --user status cliphist-watch.service
                     -- systemd-run --unit=cliphist-watch --collect --user wl-paste --watch cliphist store
-                    Snacks.picker.cliphist({
-                        layout = layout_select,
-                        -- show_empty = true,
-                        -- on_show = function()
-                        --     vim.cmd.stopinsert()
-                        -- end,
-                    })
+                    Snacks.picker.cliphist({ layout = layout_select })
                 end,
                 mode = { "n", "i" },
                 desc = "Clipboard history",
             },
             {
+                "`",
+                function()
+                    Snacks.picker.lines({
+                        layout = layout_default,
+                        -- layout = {
+                        --     preview = "main",
+                        --     preset = "ivy_s",
+                        --
+                        -- }
+                    })
+                end,
+                desc = "Lines",
+            },
+            {
                 "<leader>u",
                 function()
                     Snacks.picker.undo({
+                        layout = layout_lsp_symbols,
                         on_show = function()
                             vim.cmd.stopinsert()
                         end,
@@ -176,6 +205,7 @@ return {
                 "<C-'>",
                 function()
                     Snacks.picker.diagnostics({
+                        layout = layout_default,
                         show_empty = false,
                         on_show = function()
                             vim.cmd.stopinsert()
@@ -188,6 +218,7 @@ return {
                 "<C-f>",
                 function()
                     Snacks.picker.grep({
+                        layout = layout_default,
                         hidden = true,
                         ignored = true,
                         regex = false,
@@ -198,6 +229,7 @@ return {
                 "<leader>f",
                 function()
                     Snacks.picker.grep_word({
+                        layout = layout_default,
                         on_show = function()
                             vim.cmd.stopinsert()
                         end,
@@ -208,7 +240,7 @@ return {
             {
                 "<leader>s",
                 function()
-                    Snacks.picker.search_history()
+                    Snacks.picker.search_history({ layout = layout_select })
                 end,
             },
             {
@@ -248,13 +280,14 @@ return {
             {
                 "<C-t>",
                 function()
-                    Snacks.picker.lsp_workspace_symbols()
+                    Snacks.picker.lsp_workspace_symbols({ layout = layout_default })
                 end,
             },
             {
                 "gd",
                 function()
                     Snacks.picker.lsp_definitions({
+                        layout = layout_default,
                         on_show = function()
                             vim.cmd.stopinsert()
                         end,
@@ -266,6 +299,7 @@ return {
                 "gD",
                 function()
                     Snacks.picker.lsp_declarations({
+                        layout = layout_default,
                         on_show = function()
                             vim.cmd.stopinsert()
                         end,
@@ -277,6 +311,7 @@ return {
                 "gj",
                 function()
                     Snacks.picker.lsp_references({
+                        layout = layout_default,
                         on_show = function()
                             vim.cmd.stopinsert()
                         end,
@@ -289,6 +324,7 @@ return {
                 "gi",
                 function()
                     Snacks.picker.lsp_implementations({
+                        layout = layout_default,
                         on_show = function()
                             vim.cmd.stopinsert()
                         end,
@@ -355,6 +391,7 @@ return {
                 "<C-;>",
                 function()
                     Snacks.picker.git_status({
+                        layout = layout_ctrll,
                         win = {
                             input = {
                                 keys = {
@@ -370,6 +407,7 @@ return {
                 "<C-g>s",
                 function()
                     Snacks.picker.git_stash({
+                        layout = layout_lsp_symbols,
                         confirm = "cancel", -- NOTE: disabled for safety
                     })
                 end,
@@ -379,6 +417,7 @@ return {
                 "<C-g>k",
                 function()
                     Snacks.picker.git_branches({
+                        layout = layout_lsp_symbols,
                         on_close = function()
                             vim.defer_fn(function()
                                 require("nvim-gitstatus").update_git_status()
