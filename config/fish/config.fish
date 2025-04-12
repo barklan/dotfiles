@@ -200,24 +200,6 @@ function sshfs-umount
     fusermount -u ~/remote
 end
 
-# function ssh-forward
-#     ssh -tR 5432:localhost:5432 main
-# end
-
-function ssh-pg
-    if test (count $argv) -ne 1
-        echo "ssh-pg <host>"
-        return
-    end
-
-    ssh -NL 5432:127.0.0.1:5432 $argv[1]
-end
-
-function youtube
-    set -f format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio'
-    yt-dlp -f "$format" -S vcodec:av1 $argv[1]
-end
-
 function zj
     zellij attach
     if test $status != 0
@@ -559,45 +541,6 @@ Watch files and reload <cmd> on change. <filetype> can be 'all'"
     else
         watchexec -r --debounce 1sec -e $ft --shell='fish -i' -- "clear && echo '$ft --> $cmd'  && date +%T && print-line && $cmd"
     end
-end
-
-function extract-audio
-    if test (count $argv) -ne 1
-        echo "extract-audio <file>"
-        return
-    end
-    ffmpeg -i $argv[1] -vn -acodec copy output-audio.aac
-end
-
-function chrome-tor
-    chromium --proxy-server="socks5://127.0.0.1:9050"
-end
-
-function convert-images-web
-    for f in *.png *.jpg
-        set -f base (string split -r -m 1 -f 1 . $f)
-        avifenc -j all --ignore-exif --ignore-xmp -- $f "$base".avif
-    end
-end
-
-# Presets: veryfast, ultrafast
-function compress-mp4-qsv
-    if test (count $argv) -ne 2
-        echo "compress-mp4-qsv <input> <output>"
-        return
-    end
-    ffmpeg -hwaccel vaapi -hwaccel_output_format vaapi -i $argv[1] -vaapi_device /dev/dri/renderD128 -vf 'hwmap=derive_device=qsv,format=qsv,scale_qsv=w=2560:h=1600' -c:v hevc_qsv -c:a copy -global_quality 25 -preset slow -loglevel warning -stats $argv[2]
-end
-
-function compress-mp4-fast
-    if test (count $argv) -ne 1
-        echo "compress-mp4-fast <input>"
-        return
-    end
-    set base (string split -r -m 1 -f 1 . $argv[1])
-    set filename (string join '' $base '_c.mkv')
-    echo $filename
-    ffmpeg -hwaccel vaapi -hwaccel_output_format vaapi -threads 16 -i $argv[1] -vaapi_device /dev/dri/renderD128 -c:v hevc_vaapi -c:a copy -vf format='nv12|vaapi,hwupload' -qp 40 -preset ultrafast -loglevel warning -stats $filename
 end
 
 function nvim-sessions-clean
