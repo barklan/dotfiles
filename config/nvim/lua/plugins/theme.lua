@@ -21,7 +21,7 @@ return {
                     CursorLine = { bg = "#f2f2f2" },
                     CursorLineNr = { link = "CursorLine" },
 
-                    SnacksPickerCol = { link = "Whitespace" },
+                    SnacksPickerCol = { link = "Comment" },
                     NeoTreeDimText = { link = "Whitespace" },
                     NeoTreeDirectoryIcon = { link = "NeoTreeDirectoryName" },
                     NeoTreeDotfile = { fg = "#959595" },
@@ -48,10 +48,16 @@ return {
                 on_highlights = function(hl, c)
                     hl.CursorLineNr = { link = "CursorLine" }
                     hl.String = { fg = "#86c5da" }
+                    hl.Comment = {
+                        fg = "#606a99", -- Default is "#565F89"
+                        italic = true,
+                    }
 
                     hl.SnacksPickerDir = { link = "Comment" }
                     hl.SnacksPickerInputTitle = { fg = c.magenta }
                     hl.SnacksPickerBoxTitle = { fg = c.magenta }
+                    hl.SnacksPickerCol = { link = "Comment" }
+
                     hl.BlinkCmpGhostText = { fg = "#7f7f7f" }
                     hl.DiagnosticUnnecessary = { fg = c.fg }
 
@@ -63,10 +69,6 @@ return {
 
                     hl.SnacksPickerInputBorder = { fg = c.magenta, bg = c.bg_dark }
                     hl.SnacksPickerBorder = { fg = c.magenta, bg = c.bg_dark }
-                    hl.Comment = {
-                        fg = "#606a99", -- Default is "#565F89"
-                        italic = true,
-                    }
 
                     -- Only for night theme
                     hl.illuminatedWord = { bg = "#313751" }
