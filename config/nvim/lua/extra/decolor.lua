@@ -53,6 +53,8 @@ M.golang = function()
     vim.api.nvim_set_hl(0, "@variable.parameter", { link = "@none", force = true })
 
     vim.api.nvim_set_hl(0, "@variable.member", { link = "@none", force = true })
+    vim.api.nvim_set_hl(0, "@operator", { link = "@none", force = true })
+    vim.api.nvim_set_hl(0, "@punctuation.delimiter", { link = "@none", force = true })
 end
 
 return M
