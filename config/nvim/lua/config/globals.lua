@@ -128,7 +128,7 @@ SmartCommit = function()
                         --     vim.notify("git smart-prep failed, retrying in 500ms", "info", { title = "git" })
                         -- end)
 
-                        vim.defer_fn(SmartCommit, 500)
+                        vim.defer_fn(SmartCommit, 400)
                     else
                         vim.g.smart_commit_prep_try = 0
 
