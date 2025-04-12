@@ -67,6 +67,7 @@ if IsOilEditor() and NotVSCode() then
 end
 
 require("config.globals")
+
 require("config.options_shared")
 require("config.keymaps_shared")
 require("config.autocmds_shared")
