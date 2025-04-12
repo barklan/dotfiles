@@ -88,7 +88,6 @@ else
 end
 
 require("config.autocmds_shared")
-
 if not InVSCode() then
     require("config.autocmds_nvim")
     require("config.lsp_shim").setup()
