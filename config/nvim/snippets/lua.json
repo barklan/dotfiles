@@ -1,4 +1,9 @@
 {
+    "fix": {
+        "prefix": "fix",
+        "body": "-- FIX: $0",
+        "description": "FIX comment"
+    },
     "todo": {
         "prefix": "todo",
         "body": "-- TODO: $0",

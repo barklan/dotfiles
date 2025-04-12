@@ -8,10 +8,7 @@ vim.api.nvim_create_user_command("GoLintEx", function()
     vim.cmd("GoMake")
 end, {})
 vim.keymap.set("n", "<leader>gl", ":GoLintEx<cr>", { desc = "Lint" })
--- vim.keymap.set("n", "<leader>gl", ":GoLint<cr>", { desc = "Lint" })
 
--- NOTE: taken by "run debug session"
--- vim.keymap.set("n", "<leader>g<cr>", ":GoGenReturn<cr>", { silent = true })
 vim.keymap.set("n", "<leader>gr", ":LspRestart<cr>", { silent = true })
 vim.keymap.set("n", "<leader>gf", ":GoFillStruct<cr>", { silent = true })
 vim.keymap.set("n", "<leader>gp", ":GoFixPlurals<cr>", { silent = true })
@@ -30,8 +27,6 @@ end, { desc = "GoImports" })
 -----------
 
 vim.keymap.set("n", "<leader>gta", ":GoAddTest<cr>", { desc = "Add test for current function" })
-
--- vim.keymap.set("n", "<leader>gtc", ":GoCoverage -p<cr>", { desc = "Test and show coverage" })
 vim.keymap.set("n", "<leader>gtc", function()
     vim.cmd(":GoCoverage -p")
 end, { desc = "Test and show coverage" })
@@ -47,9 +42,9 @@ vim.keymap.set("n", "<leader>g<cr>", function()
             .. tostring(kitty_pid)
             .. " launch --type=window --bias -60 --cwd "
             .. cwd
-            .. " fish -ic 'kitten @ action goto_layout tall && echo go test "
+            .. " fish -ic 'kitten @ action goto_layout tall && echo go test -race "
             .. go_pkg_path
-            .. " && print-line && go test -cover "
+            .. " && print-line && go test -race -cover "
             .. go_pkg_path
             .. " && print-line; read -P continue -n1'"
     )
