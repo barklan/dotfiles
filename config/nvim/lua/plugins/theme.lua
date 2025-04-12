@@ -20,6 +20,9 @@ return {
 
                     SnacksPickerCol = { link = "Whitespace" },
                     NeoTreeDimText = { link = "Whitespace" },
+                    NeoTreeDirectoryIcon = { link = "NeoTreeDirectoryName" },
+                    NeoTreeDotfile = { fg = "#959595" },
+                    GitGutterChange = { fg = "#a77817" },
                 },
             })
         end,
