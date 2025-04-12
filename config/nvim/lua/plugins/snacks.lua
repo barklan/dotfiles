@@ -128,9 +128,7 @@ return {
             {
                 "<leader>a",
                 function()
-                    Snacks.picker({
-                        layout = layout_select,
-                    })
+                    Snacks.picker({ layout = layout_select })
                 end,
             },
             {
@@ -143,9 +141,7 @@ return {
             {
                 "<leader><tab>",
                 function()
-                    Snacks.picker.buffers({
-                        layout = layout_ctrll,
-                    })
+                    Snacks.picker.buffers({ layout = layout_ctrll })
                 end,
                 desc = "Buffers",
             },
@@ -162,14 +158,7 @@ return {
             {
                 "`",
                 function()
-                    Snacks.picker.lines({
-                        layout = layout_default,
-                        -- layout = {
-                        --     preview = "main",
-                        --     preset = "ivy_s",
-                        --
-                        -- }
-                    })
+                    Snacks.picker.lines({ layout = layout_default })
                 end,
                 desc = "Lines",
             },
