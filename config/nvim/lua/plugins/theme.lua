@@ -35,6 +35,12 @@ return {
                         fg = "#606a99", -- Default is "#565F89"
                         italic = true,
                     }
+
+                    hl.illuminatedWord = { bg = "#313751" }
+                    hl.illuminatedCurWord = { bg = "#313751" }
+                    hl.IlluminatedWordRead = { bg = "#313751" }
+                    hl.IlluminatedWordText = { bg = "#313751" }
+                    hl.IlluminatedWordWrite = { bg = "#313751" }
                 end,
             })
         end,
