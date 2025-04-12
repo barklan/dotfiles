@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             -- vim.cmd(":Neotree show")
             vim.defer_fn(function()
                 vim.cmd(":Neotree source=filesystem position=left") -- source can be "last" or "filesystem"
-            end, 200)
+            end, 0)
         end, 0)
     end,
 })
@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     callback = function()
         vim.defer_fn(function()
             vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
-        end, 200)
+        end, 0)
 
         vim.defer_fn(function()
             require("nvim-gitstatus").update_git_status()
