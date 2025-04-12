@@ -147,19 +147,20 @@ return {
                 desc = "Buffers",
             },
             {
-                "<M-t>",
+                "<M-s>",
                 function()
                     -- systemctl --user status cliphist-watch.service
                     -- systemd-run --unit=cliphist-watch --collect --user wl-paste --watch cliphist store
                     Snacks.picker.cliphist({
-                        -- layout = layout_ctrll,
+                        layout = layout_select,
                         -- show_empty = true,
-                        on_show = function()
-                            vim.cmd.stopinsert()
-                        end,
+                        -- on_show = function()
+                        --     vim.cmd.stopinsert()
+                        -- end,
                     })
                 end,
-                desc = "ALL files",
+                mode = { "n", "i" },
+                desc = "Clipboard history",
             },
             {
                 "<leader>u",
