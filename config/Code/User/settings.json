@@ -119,7 +119,7 @@
     "editor.find.addExtraSpaceOnTop": false,
     "extensions.ignoreRecommendations": true,
     "editor.scrollbar.verticalScrollbarSize": 10,
-    "window.zoomLevel": 0.40,
+    "window.zoomLevel": 0.4,
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.tabs.location": "left",
     "terminal.integrated.tabs.hideCondition": "never",
@@ -258,5 +258,6 @@
     "workbench.layoutControl.enabled": false,
     "window.customTitleBarVisibility": "never",
     "window.titleBarStyle": "native",
-    "workbench.colorTheme": "Tokyo Night"
+    "workbench.colorTheme": "Tokyo Night Light",
+    "window.zoomPerWindow": false
 }
