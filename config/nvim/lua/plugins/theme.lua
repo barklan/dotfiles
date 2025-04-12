@@ -10,6 +10,8 @@ return {
             require("vscode").setup({
                 group_overrides = {
                     LineNr = { link = "Whitespace" },
+                    Comment = { fg = "#8f8f8f", italic = true },
+                    String = { fg = "#2d7a93" },
 
                     Cursor = {
                         bg = "#909090",
@@ -44,6 +46,7 @@ return {
                 lualine_bold = true,
                 on_highlights = function(hl, c)
                     hl.CursorLineNr = { link = "CursorLine" }
+                    hl.String = { fg = "#86c5da" }
 
                     hl.SnacksPickerDir = { link = "Comment" }
                     hl.SnacksPickerInputTitle = { fg = c.magenta }

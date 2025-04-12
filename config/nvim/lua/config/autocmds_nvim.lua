@@ -28,12 +28,11 @@ vim.api.nvim_create_autocmd("FileType", {
 local auto_kitty_font = function()
     local bg = vim.o.background
     if bg == "light" then
-        -- use links instead
-        vim.api.nvim_set_hl(0, "@string", { fg = "#2d7a93", italic = false, force = true }) -- This is for vscode light theme
-        vim.api.nvim_set_hl(0, "@comment", { fg = "#8f8f8f", italic = true }) -- This is for vscode light theme
+        vim.api.nvim_set_hl(0, "@string", { link = "String", force = true }) -- This is for vscode light theme
+        vim.api.nvim_set_hl(0, "@comment", { link = "Comment", force = true }) -- This is for vscode light theme
         vim.fn.system("kitten @ load-config ~/.config/kitty/light.conf")
     elseif bg == "dark" then
-        vim.api.nvim_set_hl(0, "@string", { fg = "#86c5da", italic = false, force = true }) -- This is for tokyonight night theme
+        vim.api.nvim_set_hl(0, "@string", { link = "String", italic = false, force = true }) -- This is for tokyonight night theme
         vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
     end
 end
