@@ -9,7 +9,8 @@ return {
             -- local c = require("vscode.colors").get_colors()
             require("vscode").setup({
                 group_overrides = {
-                    LineNr = { link = "Whitespace" },
+                    Whitespace = { fg = "#e8e8e8" }, -- blink Indent uses this
+                    LineNr = { fg = "#CECECE" },
                     Comment = { fg = "#8f8f8f", italic = true },
                     String = { fg = "#2c778e" },
 
@@ -75,7 +76,7 @@ return {
                     hl.IlluminatedWordWrite = { bg = "#313751" }
 
                     -- Only for night theme
-                    hl.Whitespace = { fg = "#282c41" }
+                    hl.Whitespace = { fg = "#282c41" } -- blink Indent uses this
 
                     -- Only for night theme
                     hl.String = { fg = "#86c5da" }
