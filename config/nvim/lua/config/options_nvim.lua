@@ -131,4 +131,5 @@ vim.cmd([[
 let &t_ut=''
 ]])
 
+-- TODO: move somewhere else
 vim.cmd("cabbrev g !git")
