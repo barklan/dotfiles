@@ -50,6 +50,8 @@ return {
                 on_highlights = function(hl, c)
                     hl.CursorLineNr = { link = "CursorLine" }
                     hl.String = { fg = "#86c5da" }
+                    hl.Constant = { link = "@none" }
+
                     hl.Comment = {
                         fg = "#606a99", -- Default is "#565F89"
                         italic = true,

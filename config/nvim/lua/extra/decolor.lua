@@ -5,6 +5,9 @@ local M = {}
 -- @type.definition.go - this works
 -- @type.definition    - this does not
 M.golang = function()
+    ---- GO STUFF
+    -------------
+
     -- vim.api.nvim_set_hl(0, "@keyword.type.go", { link = "@none", force = true }) -- anonymous struct also go here
 
     -- vim.api.nvim_set_hl(0, "@string.go", { fg = "#86c5da", italic = false, force = true }) -- Set in theme.lua instead
@@ -42,6 +45,14 @@ M.golang = function()
     vim.api.nvim_set_hl(0, "@punctuation.delimiter.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@operator.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@variable.parameter.go", { link = "@none", force = true })
+
+    ---- GO STUFF END
+    -----------------
+
+    vim.api.nvim_set_hl(0, "@constructor", { link = "@none", force = true })
+    vim.api.nvim_set_hl(0, "@variable.parameter", { link = "@none", force = true })
+
+    vim.api.nvim_set_hl(0, "@variable.member", { link = "@none", force = true })
 end
 
 return M
