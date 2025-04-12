@@ -1,7 +1,7 @@
 local all_map_modes = { "n", "i", "c", "v", "x", "s", "o", "t", "l" }
 
 -- Unmap annoying stuff.
--- vim.keymap.set("n", "q", "<Nop>")
+vim.keymap.set("n", "q", "<Nop>") -- Just map macros for neovim if needed
 vim.keymap.set("n", "gh", "<Nop>")
 vim.keymap.set({ "n" }, "s", "<Nop>")
 vim.keymap.set("n", "<C-]>", "<Nop>")
