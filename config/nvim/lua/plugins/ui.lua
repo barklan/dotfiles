@@ -14,12 +14,14 @@ return {
 
             -- List of messages to ignore
             local ignore_messages = {
-                "Client gopls quit with exit code 2 and signal 0. Check log for errors: /home/barklan/.local/state/nvim/lsp.log",
                 "No information available"
             }
 
             local ignore_prefixes = {
                 "golangci-lint run",
+                "Client gopls quit with exit code 2 and signal 0.",
+                "nvim-dap-virtual-text not found",
+                "INFO: plugin nvim-dap-virtual-text module nvim-dap-virtual-text  not loaded"
             }
 
             -- vim.notify = require("notify")

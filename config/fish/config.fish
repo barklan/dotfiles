@@ -7,7 +7,7 @@ if status is-interactive
     bind \co 'xdg-open . &>/dev/null < /dev/null'
     bind \eo 'cd ~/dev; commandline -f repaint;'
     bind \ep 'cd-git-root; commandline -f repaint'
-    bind \en 'nvim; emit should_repaint'
+    bind \en 'nvim; emit nvim_exit'
     bind \ei zj
     bind \ej 'just --list; commandline -f repaint'
     bind \e\cj 'just --choose; commandline -f repaint'
@@ -68,7 +68,8 @@ if status is-interactive
     end
 end
 
-function __on_should_repaint --on-event should_repaint
+function __on_nvim_exit --on-event nvim_exit
+    kitten @ load-config ~/.config/kitty/with_trail.conf
     commandline -f repaint
 end
 

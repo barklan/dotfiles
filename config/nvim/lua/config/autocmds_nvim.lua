@@ -53,6 +53,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = augroup("colorscheme_kitty_on_enter"),
     once = true,
     callback = function()
+        vim.defer_fn(function()
+            vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
+        end, 300)
+
         require("extra.decolor").golang()
         vim.defer_fn(function()
             auto_kitty_font()
@@ -84,7 +88,7 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "FocusGained", "WinLeave" }, {
+vim.api.nvim_create_autocmd({ "FocusGained", "WinLeave", "BufEnter" }, {
     group = augroup("checktime"),
     pattern = "*",
     callback = function()
@@ -116,7 +120,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function()
-        vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
+        vim.cmd("wincmd J")        -- Move quickfix to bottom (full-width)
         vim.wo.winfixheight = true -- Lock height (optional)
     end,
 })

@@ -223,8 +223,11 @@ vim.keymap.set("n", "<leader>q", toggle_quickfix, { silent = true, desc = "Open 
 
 vim.keymap.set("n", "<C-e>", function()
     if require("dap").session() ~= nil then
-        require("dapui").float_element("scopes", { enter = true })
-
+        if vim.bo.filetype == "dapui_scopes" then
+            vim.cmd("q")
+        else
+            require("dapui").float_element("scopes", { enter = true })
+        end
         return
     end
 

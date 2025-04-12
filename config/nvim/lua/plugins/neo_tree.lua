@@ -97,7 +97,7 @@ return {
                             untracked = "UNTRACKED ",
                             added = "NEW ",
                             modified = "",
-                            unstaged = "",
+                            unstaged =  "＊ ",
                             deleted = "DEL ",
                             renamed = "RENAME ",
                             conflict = "CONFLICT! ",

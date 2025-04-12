@@ -55,7 +55,7 @@ return {
                 icons = { breakpoint = "🔴", currentpos = "🟡" },
                 dap_debug_keymap = false,
                 dap_debug_vt = {
-                    virt_text_pos = "eol",
+                    virt_text_pos = "inline", -- or "eol"
                 },
                 dap_debug_gui = {
                     -- expand_lines = true,

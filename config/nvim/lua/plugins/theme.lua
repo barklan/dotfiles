@@ -9,6 +9,7 @@ return {
             -- local c = require("vscode.colors").get_colors()
             require("vscode").setup({
                 group_overrides = {
+                    LineNr = { link = "Whitespace" },
                     CursorLineNr = { link = "LineNr" },
 
                     SnacksPickerCol = { link = "Whitespace" },
