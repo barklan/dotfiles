@@ -1,5 +1,9 @@
 local silent = { silent = true }
 
+if IsPersonalDevice() then
+    vim.keymap.set("n", "<leader>z", ":Lazy<cr>", { silent = true, desc = "Lazy Dashboard" })
+end
+
 vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true }) -- So that <Tab> mappings wont overwrite this.
 
 -- Handled by better-escape.nvim

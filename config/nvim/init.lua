@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
@@ -12,7 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
             { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out,                            "WarningMsg" },
+            { out, "WarningMsg" },
             { "\nPress any key to exit..." },
         }, true, {})
         vim.fn.getchar()
@@ -69,23 +71,30 @@ end
 require("config.globals")
 
 require("config.options_shared")
-require("config.keymaps_shared")
-require("config.autocmds_shared")
-
 if InVSCode() then
     require("config.options_vscode")
-    require("config.keymaps_vscode")
 else
     require("config.options_nvim")
+end
+
+require("config.keymaps_shared")
+if InVSCode() then
+    require("config.keymaps_vscode")
+else
+    require("config.keymaps_nvim")
+    require("config.keymaps_nvim_go")
+    require("config.keymaps_nvim_ru")
+    require("config.keymaps_nvim_kitty")
+end
+
+require("config.autocmds_shared")
+
+if not InVSCode() then
     require("config.autocmds_nvim")
     require("config.lsp_shim").setup()
 
     -- NOTE: This is for terminal emulators only.
     vim.keymap.set("i", "<C-H>", "<C-W>", { silent = true })
 
-    require("config.keymaps_nvim")
-    require("config.keymaps_nvim_go")
-    require("config.keymaps_nvim_ru")
-    require("config.keymaps_nvim_kitty")
     require("config.commands")
 end
