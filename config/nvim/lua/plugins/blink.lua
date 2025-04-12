@@ -13,9 +13,9 @@ return {
                 disable_in_replace_mode = false,
                 disable_in_macro = false,
                 enable_abbr = false,
-                check_ts = false,
+                check_ts = false, -- TODO: what is this?
                 ignored_next_char = "[%w%.]",
-                map_cr = false,
+                map_cr = true,
             })
         end,
     },
