@@ -30,8 +30,9 @@ return {
         ft = { "json", "yaml", "javascript", "typescript", "sh", "python" },
         event = { "CmdlineEnter" },
         dependencies = {
-            "b0o/schemastore.nvim",
-            "onsails/lspkind.nvim",
+            -- TODO: is this really needed?
+            -- "b0o/schemastore.nvim",
+            --
             "saghen/blink.cmp",
         },
         config = function()
@@ -48,7 +49,7 @@ return {
                 "bashls",
             }
 
-            if IsPersonalDevice() == false then
+            if not IsPersonalDevice() then
                 servers = {}
             end
 
@@ -61,10 +62,10 @@ return {
                         capabilities = capabilities,
                         settings = {
                             yaml = {
-                                schemaStore = {
-                                    url = "https://www.schemastore.org/api/json/catalog.json",
-                                    enable = true,
-                                },
+                                -- schemaStore = {
+                                --     url = "https://www.schemastore.org/api/json/catalog.json",
+                                --     enable = true,
+                                -- },
                                 format = {
                                     enable = true,
                                 },
@@ -77,7 +78,7 @@ return {
                         capabilities = capabilities,
                         settings = {
                             json = {
-                                schemas = require("schemastore").json.schemas(),
+                                -- schemas = require("schemastore").json.schemas(),
                                 validate = { enable = true },
                             },
                         },

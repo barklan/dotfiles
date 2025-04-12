@@ -28,6 +28,7 @@ return {
             "mikavilpas/blink-ripgrep.nvim",
             "windwp/nvim-autopairs",
             "abecodes/tabout.nvim",
+            "onsails/lspkind.nvim",
         },
         build = "cargo build --release", -- This requires rust nightly!
         config = function()

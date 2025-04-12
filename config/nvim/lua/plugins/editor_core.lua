@@ -1,8 +1,8 @@
 return {
     {
+        "max397574/better-escape.nvim",
         lazy = false, -- Don't want to have any delays here.
         cond = NotVSCode,
-        "max397574/better-escape.nvim",
         config = function()
             require("better_escape").setup({
                 timeout = 300, -- after `timeout` passes, you can press the escape key and the plugin will ignore it
