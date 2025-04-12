@@ -28,13 +28,11 @@ vim.api.nvim_create_autocmd("FileType", {
 local auto_kitty_font = function()
     local bg = vim.o.background
     if bg == "light" then
-        vim.defer_fn(function()
-            vim.fn.system("kitten @ load-config ~/.config/kitty/light.conf")
-        end, 100)
+        vim.api.nvim_set_hl(0, "@string", { fg = "#2d7a93", italic = false, force = true }) -- This is for vscode light theme
+        vim.fn.system("kitten @ load-config ~/.config/kitty/light.conf")
     elseif bg == "dark" then
-        vim.defer_fn(function()
-            vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
-        end, 100)
+        vim.api.nvim_set_hl(0, "@string", { fg = "#86c5da", italic = false, force = true }) -- This is for tokyonight night theme
+        vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
     end
 end
 
@@ -45,7 +43,9 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         require("extra.autotheme").save_colorscheme()
         require("extra.decolor").golang()
 
-        auto_kitty_font()
+        vim.defer_fn(function()
+            auto_kitty_font()
+        end, 0)
     end,
 })
 
@@ -53,14 +53,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = augroup("colorscheme_kitty_on_enter"),
     once = true,
     callback = function()
-        vim.defer_fn(function()
-            vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
-        end, 300)
-
         require("extra.decolor").golang()
         vim.defer_fn(function()
             auto_kitty_font()
-        end, 1500)
+        end, 0)
     end,
 })
 
@@ -120,7 +116,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function()
-        vim.cmd("wincmd J")        -- Move quickfix to bottom (full-width)
+        vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
         vim.wo.winfixheight = true -- Lock height (optional)
     end,
 })

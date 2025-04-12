@@ -1,5 +1,23 @@
 return {
     {
+        "ellisonleao/gruvbox.nvim",
+        cond = NotVSCode,
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("gruvbox").setup({
+                overrides = {
+                    SignColumn = { link = "Normal" },
+                    SnacksPickerDir = { link = "@none" },
+                    CursorLine = { bg = "#efe2c2" },
+                    -- CursorLine = { bg = "Whitespace" },
+                    -- Cursor = { fg = "#ffffff", bg = "#000000" },
+                },
+            })
+        end,
+    },
+    {
         "Mofiqul/vscode.nvim",
         cond = NotVSCode,
         enabled = true,
@@ -10,7 +28,13 @@ return {
             require("vscode").setup({
                 group_overrides = {
                     LineNr = { link = "Whitespace" },
-                    CursorLineNr = { link = "LineNr" },
+
+                    Cursor = {
+                        bg = "#909090",
+                        fg = "#6F6F6F",
+                    },
+                    CursorLine = { bg = "#f2f2f2" },
+                    CursorLineNr = { link = "CursorLine" },
 
                     SnacksPickerCol = { link = "Whitespace" },
                     NeoTreeDimText = { link = "Whitespace" },
@@ -34,9 +58,9 @@ return {
                 day_brightness = 0.25,
                 lualine_bold = true,
                 on_highlights = function(hl, c)
-                    hl.CursorLineNr = { link = "LineNr" }
+                    hl.CursorLineNr = { link = "CursorLine" }
 
-                    -- hl.SnacksPickerDir = { fg = "#7777b6" }
+                    hl.SnacksPickerDir = { link = "Comment" }
                     hl.SnacksPickerInputTitle = { fg = c.magenta }
                     hl.SnacksPickerBoxTitle = { fg = c.magenta }
                     hl.BlinkCmpGhostText = { fg = "#7f7f7f" }
