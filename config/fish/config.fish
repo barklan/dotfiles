@@ -21,6 +21,8 @@ if status is-interactive
     abbr -a j just
     abbr -a rm gtrash put
 
+    set -gx GOTESTS_TEMPLATE 'testify'
+
     set -gx FZF_DEFAULT_OPTS '--height 70% --layout reverse --bind tab:down,btab:up,alt-s:toggle+down,alt-e:jump-accept'
 
     if test "$DISTRIB_ID" = Sberos
