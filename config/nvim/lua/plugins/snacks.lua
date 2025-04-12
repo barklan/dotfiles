@@ -19,7 +19,6 @@ local layout_lsp_symbols = {
 local tab_map = { "list_down", mode = { "i", "n" } }
 
 local ctrl_l_confirm = function(picker, item)
-    -- P(item)
     picker:norm(function()
         if item then
             if item.info then
