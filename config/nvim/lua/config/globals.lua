@@ -17,16 +17,6 @@ GetFileExt = function(filename)
     return ext
 end
 
-AttachLspToExistingBuffers = vim.schedule_wrap(function()
-    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-        local valid = vim.api.nvim_buf_is_valid(bufnr) and vim.api.nvim_get_option_value("buflisted", { buf = bufnr })
-        if valid and vim.bo[bufnr].buftype == "" then
-            local augroup_lspconfig = vim.api.nvim_create_augroup("lspconfig", { clear = false })
-            vim.api.nvim_exec_autocmds("FileType", { group = augroup_lspconfig, buffer = bufnr })
-        end
-    end
-end)
-
 GetKittyPID = function()
     local kitty_pid = vim.fn.system("pgrep -o kitty"):gsub("%s+", "")
 

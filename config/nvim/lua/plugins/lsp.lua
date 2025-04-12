@@ -6,17 +6,12 @@ return {
         end,
         lazy = true,
         ft = "lua",
-        -- event = "VeryLazy",
         config = function()
             require("lazydev").setup({
                 library = {
                     { path = "snacks.nvim", words = { "Snacks" } },
                 },
             })
-            -- This is if loading plugin "VeryLazy".
-            -- vim.defer_fn(function()
-            --     AttachLspToExistingBuffers()
-            -- end, 0)
         end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",

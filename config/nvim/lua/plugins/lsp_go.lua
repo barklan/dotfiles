@@ -5,9 +5,6 @@ return {
         lazy = true,
         ft = { "go", "gomod" },
         event = { "CmdlineEnter" },
-        -- NOTE: all fancy lazy-loading breaks stuff in suble ways - don't do it.
-        -- event = { "BufReadPost", "CmdlineEnter", "BufNewFile", "BufWritePre" },
-        -- event = "VeryLazy",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "neovim/nvim-lspconfig",
@@ -109,11 +106,6 @@ return {
                     },
                 },
             })
-
-            -- This is if loading plugin "VeryLazy".
-            -- vim.defer_fn(function()
-            --     AttachLspToExistingBuffers()
-            -- end, 0)
         end,
     },
 }
