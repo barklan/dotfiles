@@ -42,9 +42,9 @@ vim.keymap.set("n", "<leader>g<cr>", function()
             .. tostring(kitty_pid)
             .. " launch --type=window --bias -60 --cwd "
             .. cwd
-            .. " fish -ic 'kitten @ action goto_layout tall && echo go test -race "
+            .. " fish -ic 'kitten @ action goto_layout tall && echo go test "
             .. go_pkg_path
-            .. " && print-line && go test -race -cover "
+            .. " && print-line && go test -cover "
             .. go_pkg_path
             .. " && print-line; read -P continue -n1'"
     )
