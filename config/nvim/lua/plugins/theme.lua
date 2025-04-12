@@ -11,7 +11,7 @@ return {
                 group_overrides = {
                     LineNr = { link = "Whitespace" },
                     Comment = { fg = "#8f8f8f", italic = true },
-                    String = { fg = "#2d7a93" },
+                    String = { fg = "#2c778e" },
 
                     Cursor = {
                         bg = "#909090",
