@@ -48,9 +48,9 @@ return {
                 pairs = {
                     enable = true,
                     disable = {},
-                    highlight_pair_events = { "CursorMoved" }, -- e.g. {"CursorMoved"}, -- when to highlight the pairs, use {} to deactivate highlighting
-                    highlight_self = false, -- whether to highlight also the part of the pair under cursor (or only the partner)
-                    goto_right_end = true, -- whether to go to the end of the right partner or the beginning
+                    highlight_pair_events = { "CursorMoved" },                    -- e.g. {"CursorMoved"}, -- when to highlight the pairs, use {} to deactivate highlighting
+                    highlight_self = false,                                       -- whether to highlight also the part of the pair under cursor (or only the partner)
+                    goto_right_end = true,                                        -- whether to go to the end of the right partner or the beginning
                     fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')", -- What command to issue when we can't find a pair (e.g. "normal! %")
                     keymaps = {
                         goto_partner = "<M-'>",
@@ -58,8 +58,8 @@ return {
                     },
                     delete_balanced = {
                         only_on_first_char = false, -- whether to trigger balanced delete when on first character of a pair
-                        fallback_cmd_normal = nil, -- fallback command when no pair found, can be nil
-                        longest_partner = false, -- whether to delete the longest or the shortest pair when multiple found.
+                        fallback_cmd_normal = nil,  -- fallback command when no pair found, can be nil
+                        longest_partner = false,    -- whether to delete the longest or the shortest pair when multiple found.
                         -- E.g. whether to delete the angle bracket or whole tag in  <pair> </pair>
                     },
                 },
@@ -131,13 +131,20 @@ return {
         "numToStr/Comment.nvim",
         cond = NotVSCode,
         lazy = true,
-        event = "VeryLazy",
+        -- event = "VeryLazy",
+        keys = {
+            { "<c-/>", mode = { "n", "x" }, desc = "Comment code" },
+            { "<leader>k", mode = { "n" }, desc = "Comment at the eol" },
+        },
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
         config = function()
-            local commentstring_avail, commentstring = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
-            local opts = {}
+            local commentstring_avail, commentstring = pcall(require,
+                "ts_context_commentstring.integrations.comment_nvim")
+            local opts = {
+                mappings = false,
+            }
             if commentstring_avail then
                 opts.pre_hook = commentstring.create_pre_hook()
             end
@@ -146,12 +153,13 @@ return {
 
             local api = require("Comment.api")
             vim.keymap.set("n", "<C-/>", api.toggle.linewise.current, { desc = "Toggle line comment." })
+
             local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
             vim.keymap.set("x", "<C-/>", function()
                 vim.api.nvim_feedkeys(esc, "nx", false)
                 api.toggle.linewise(vim.fn.visualmode())
             end)
-            vim.keymap.set("n", "<leader>K", api.insert.linewise.eol, { desc = "Add comment at the end of line." })
+            vim.keymap.set("n", "<leader>k", api.insert.linewise.eol, { desc = "Add comment at the end of line." })
         end,
     },
 }
