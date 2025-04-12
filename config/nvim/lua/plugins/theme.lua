@@ -1,12 +1,5 @@
 return {
     {
-        "rebelot/kanagawa.nvim",
-        cond = NotVSCode,
-        enabled = true,
-        lazy = false,
-        priority = 1001,
-    },
-    {
         "folke/tokyonight.nvim",
         cond = NotVSCode,
         enabled = true,
