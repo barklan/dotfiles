@@ -102,7 +102,7 @@ vim.keymap.set("n", "<Leader><f4>", enable_dark_theme, { desc = "Dark theme" })
 
 local enable_light_theme = function()
     vim.o.background = "light"
-    vim.cmd("colorscheme github-monochrome-rosepine-dawn")
+    vim.cmd("colorscheme vscode")
 end
 vim.keymap.set("n", "<Leader><f5>", enable_light_theme, { desc = "Light theme" })
 

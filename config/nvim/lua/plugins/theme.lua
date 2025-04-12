@@ -9,6 +9,9 @@ return {
             -- local c = require("vscode.colors").get_colors()
             require("vscode").setup({
                 group_overrides = {
+                    CursorLineNr = { link = "LineNr" },
+
+                    SnacksPickerCol = { link = "Whitespace" },
                     NeoTreeDimText = { link = "Whitespace" },
                 },
             })
