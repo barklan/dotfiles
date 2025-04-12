@@ -13,12 +13,12 @@ vim.keymap.set("n", "<leader>e", function()
     vim.fn.system("kitten @ action goto_layout tall")
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
-        .. tostring(kitty_pid)
-        .. " launch --type=window --bias -60 --cwd "
-        .. cwd
-        .. " fish -ic 'run "
-        .. file
-        .. "; read -P continue -n1'"
+            .. tostring(kitty_pid)
+            .. " launch --type=window --bias -60 --cwd "
+            .. cwd
+            .. " fish -ic 'run "
+            .. file
+            .. "; read -P continue -n1'"
     )
 end, { silent = true, desc = "Execute file" })
 
@@ -29,10 +29,10 @@ vim.keymap.set("n", "<leader>j", function()
     vim.fn.system("kitten @ action goto_layout tall")
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
-        .. tostring(kitty_pid)
-        .. " launch --type=window --bias -60 --cwd "
-        .. cwd
-        .. " fish -ic 'just; read -P continue -n1'"
+            .. tostring(kitty_pid)
+            .. " launch --type=window --bias -60 --cwd "
+            .. cwd
+            .. " fish -ic 'just; read -P continue -n1'"
     )
 end, { silent = true, desc = "just test" })
 
@@ -88,12 +88,10 @@ local toggle_terminal = function()
 
     -- vim.fn.system("kitten @ --to unix:@mykitty-" .. tostring(kitty_pid) .. " action goto_layout fat")
     vim.fn.system("kitten @ action goto_layout fat")
-    vim.fn.system("kitten @ launch --title " ..
-    toggle_term_title .. " --type=window --bias -40 --cwd " .. cwd .. " fish -ic zj")
+    vim.fn.system("kitten @ launch --title " .. toggle_term_title .. " --type=window --bias -40 --cwd " .. cwd .. " fish -ic zj")
 end
 
-vim.keymap.set(all_map_modes, "<C-j>", toggle_terminal,
-    { noremap = true, silent = true, desc = "Toggle (almost) terminal" })
+vim.keymap.set(all_map_modes, "<C-j>", toggle_terminal, { noremap = true, silent = true, desc = "Toggle (almost) terminal" })
 
 --------------------
 --- Paragraph runner
@@ -140,6 +138,10 @@ local function get_first_line()
     return lines[1] or "" -- Returns empty string if buffer is empty
 end
 
+local function escape_single_quotes(str)
+    return str:gsub("'", "'\\''")
+end
+
 local run_paragraph = function()
     local first_line = get_first_line()
     local whitelist = { "sql", "cql" }
@@ -167,7 +169,7 @@ local run_paragraph = function()
         return
     end
 
-    local cmd = [[kitten @ send-text --match 'title:^]] .. toggle_term_title .. [[$' ]] .. paragraph
+    local cmd = [[kitten @ send-text --match 'title:^]] .. toggle_term_title .. [[$' ]] .. "'" .. escape_single_quotes(paragraph) .. "'"
     vim.fn.system(cmd)
     vim.fn.system("kitten @ send-key --match 'title:^" .. toggle_term_title .. "$' enter")
 end
