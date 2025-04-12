@@ -24,8 +24,6 @@ return {
         },
     },
     {
-        -- TODO: possibly move to native neovim stuff for this
-        -- https://github.com/ray-x/go.nvim/issues/558
         "neovim/nvim-lspconfig",
         cond = NotVSCode,
         lazy = true,
