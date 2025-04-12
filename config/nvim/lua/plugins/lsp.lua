@@ -30,9 +30,6 @@ return {
         ft = { "json", "yaml", "javascript", "typescript", "sh", "python" },
         event = { "CmdlineEnter" },
         dependencies = {
-            -- TODO: is this really needed?
-            -- "b0o/schemastore.nvim",
-            --
             "saghen/blink.cmp",
         },
         config = function()
@@ -62,10 +59,6 @@ return {
                         capabilities = capabilities,
                         settings = {
                             yaml = {
-                                -- schemaStore = {
-                                --     url = "https://www.schemastore.org/api/json/catalog.json",
-                                --     enable = true,
-                                -- },
                                 format = {
                                     enable = true,
                                 },
@@ -78,7 +71,6 @@ return {
                         capabilities = capabilities,
                         settings = {
                             json = {
-                                -- schemas = require("schemastore").json.schemas(),
                                 validate = { enable = true },
                             },
                         },
