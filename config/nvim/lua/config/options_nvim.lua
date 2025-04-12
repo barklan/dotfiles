@@ -131,5 +131,4 @@ vim.cmd([[
 let &t_ut=''
 ]])
 
-vim.keymap.set("n", "<C-g>", ":!git ")
 vim.cmd("cabbrev g !git")

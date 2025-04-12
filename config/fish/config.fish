@@ -73,7 +73,6 @@ if status is-interactive
 end
 
 function __on_nvim_exit --on-event nvim_exit
-    kitten @ load-config ~/.config/kitty/kitty.conf
     commandline -f repaint
 end
 

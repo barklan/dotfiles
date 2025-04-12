@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("FileType", {
 local auto_kitty_font = function()
     local bg = vim.o.background
     if bg == "light" then
-        vim.api.nvim_set_hl(0, "@string", { link = "String", force = true }) -- This is for vscode light theme
+        vim.api.nvim_set_hl(0, "@string", { link = "String", force = true })   -- This is for vscode light theme
         vim.api.nvim_set_hl(0, "@comment", { link = "Comment", force = true }) -- This is for vscode light theme
         -- vim.defer_fn(function()
         --     vim.fn.system("kitten @ load-config ~/.config/kitty/light.conf")
@@ -63,6 +63,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
         vim.defer_fn(function()
             auto_kitty_font()
         end, 0)
+    end,
+})
+
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    group = augroup("colorscheme_kitty_on_leave"),
+    once = true,
+    callback = function()
+        vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
     end,
 })
 
@@ -122,7 +130,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function()
-        vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
+        vim.cmd("wincmd J")        -- Move quickfix to bottom (full-width)
         vim.wo.winfixheight = true -- Lock height (optional)
     end,
 })
