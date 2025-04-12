@@ -138,8 +138,9 @@ local function get_first_line()
     return lines[1] or "" -- Returns empty string if buffer is empty
 end
 
-local function escape_single_quotes(str)
-    return str:gsub("'", "'\\''")
+-- Escapes single quotes and backslashes
+local function escape_special_chars(str)
+    return str:gsub("\\", "\\\\"):gsub("'", "'\\''")
 end
 
 local run_paragraph = function()
@@ -169,7 +170,7 @@ local run_paragraph = function()
         return
     end
 
-    local cmd = [[kitten @ send-text --match 'title:^]] .. toggle_term_title .. [[$' ]] .. "'" .. escape_single_quotes(paragraph) .. "'"
+    local cmd = [[kitten @ send-text --match 'title:^]] .. toggle_term_title .. [[$' ]] .. "'" .. escape_special_chars(paragraph) .. "'"
     vim.fn.system(cmd)
     vim.fn.system("kitten @ send-key --match 'title:^" .. toggle_term_title .. "$' enter")
 end
