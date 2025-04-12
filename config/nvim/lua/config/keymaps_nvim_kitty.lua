@@ -86,7 +86,6 @@ local toggle_terminal = function()
         return
     end
 
-    -- https://sw.kovidgoyal.net/kitty/launch/
     -- vim.fn.system("kitten @ --to unix:@mykitty-" .. tostring(kitty_pid) .. " action goto_layout fat")
     vim.fn.system("kitten @ action goto_layout fat")
     vim.fn.system("kitten @ launch --title " ..
@@ -171,5 +170,4 @@ local run_paragraph = function()
     vim.fn.system("kitten @ send-key --match 'title:^" .. toggle_term_title .. "$' enter")
 end
 
--- Whitelist filetypes (maybe evpmbpmben add some protection - require certain text on first line of file)
-vim.keymap.set("n", "<leader>p", run_paragraph, { desc = "Run line in TOGGLE_TERM" })
+vim.keymap.set("n", "<leader>p", run_paragraph, { desc = "Run paragraph in TOGGLE_TERM" })
