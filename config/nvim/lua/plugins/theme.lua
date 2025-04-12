@@ -41,6 +41,8 @@ return {
                     hl.IlluminatedWordRead = { bg = "#313751" }
                     hl.IlluminatedWordText = { bg = "#313751" }
                     hl.IlluminatedWordWrite = { bg = "#313751" }
+
+                    hl.Whitespace = { fg = "#282c41" }
                 end,
             })
         end,
