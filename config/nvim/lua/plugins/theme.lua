@@ -21,6 +21,7 @@ return {
                     CursorLine = { bg = "#f2f2f2" },
                     CursorLineNr = { link = "CursorLine" },
 
+                    SnacksPickerDir = { link = "Comment" },
                     SnacksPickerCol = { link = "Comment" },
                     NeoTreeDimText = { link = "Whitespace" },
                     NeoTreeDirectoryIcon = { link = "NeoTreeDirectoryName" },
