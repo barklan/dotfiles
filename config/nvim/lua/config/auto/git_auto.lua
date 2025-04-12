@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     pattern = "COMMIT_EDITMSG",
     callback = function()
         vim.defer_fn(function()
-            vim.cmd(":Neotree show source=git_status position=left reveal=true") -- source can be "last"
+            vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
         end, 200)
 
         vim.defer_fn(function()
