@@ -21,7 +21,7 @@ if status is-interactive
     abbr -a j just
     abbr -a rm gtrash put
 
-    set -gx GOTESTS_TEMPLATE 'testify'
+    set -gx GOTESTS_TEMPLATE testify
 
     set -gx FZF_DEFAULT_OPTS '--height 70% --layout reverse --bind tab:down,btab:up,alt-s:toggle+down,alt-e:jump-accept'
 
@@ -37,6 +37,31 @@ if status is-interactive
         set -gx FZF_CTRL_T_COMMAND 'fd --type f --type d --hidden --strip-cwd-prefix'
     end
 
+    # NOTE: tokyo-night theme
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none \
+  --color=bg+:#283457 \
+  --color=bg:#16161e \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
+
     set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons --time-style=relative --total-size --git-repos --color always {}'"
     fzf_key_bindings
 
@@ -44,10 +69,10 @@ if status is-interactive
 
     fzf_configure_bindings --git_status=\e\cg --variables=\e\cv --git_log=\e\cc --history=
 
-    bind --erase \cr
-
-    mcfly init fish | source
-    bind \cr __mcfly-history-widget
+    # FIX: get rid of mcfly (and in packages sh (and env variables)) - use fish'es <c-r>
+    # bind --erase \cr
+    # mcfly init fish | source
+    # bind \cr __mcfly-history-widget
 
     # NOTE: unreadable anyway in alacritty tokyo-night
     set -gx MCFLY_DISABLE_MENU true
