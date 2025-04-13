@@ -50,8 +50,7 @@ return {
     {
         "echasnovski/mini.ai",
         version = false,
-        lazy = false,
-        -- event = "VeryLazy",
+        lazy = false, -- Don't load text objects lazily
         config = function()
             require("mini.ai").setup({
                 custom_textobjects = {
