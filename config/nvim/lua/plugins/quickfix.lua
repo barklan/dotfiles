@@ -15,6 +15,9 @@ return {
                 open = "o",
                 openc = "<CR>",
             },
+            preview = {
+                win_height = 999,
+            },
         },
     },
 }

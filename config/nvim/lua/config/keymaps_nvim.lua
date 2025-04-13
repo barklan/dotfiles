@@ -7,9 +7,13 @@ end
 vim.keymap.set("n", "<leader>c", ":Cheat<cr>", { silent = true, desc = "Open cheatsheet" })
 
 vim.keymap.set("n", "<leader>h", function()
-    vim.cmd([[:vimgrep /^##\+ / %]])
-    vim.cmd("copen")
-end, {silent = true, desc = "Markdown headings to qf"})
+    if vim.bo.filetype == "markdown" then
+        vim.cmd([[:vimgrep /^##\+ / %]])
+        vim.cmd("copen")
+    else
+        vim.notify("Not a markdown file.", "info", { timeout = 1000 })
+    end
+end, { silent = true, desc = "Markdown headings to qf" })
 
 vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true }) -- So that <Tab> mappings wont overwrite this.
 
