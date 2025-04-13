@@ -78,8 +78,6 @@ return {
                 handlers = {
                     cursor = {
                         enable = false,
-                        -- Supports any number of symbols
-                        symbols = { "⎺", "⎻", "⎼", "⎽" },
                     },
                     search = {
                         enable = true,
