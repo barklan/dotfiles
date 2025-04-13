@@ -80,7 +80,8 @@ return {
                         },
                     },
                     icon = {
-                        folder_empty = "[]",
+                        folder_empty = "e",
+                        folder_empty_open = ">",
                         default = "˗",
                         folder_closed = ">",
                         folder_open = "v",
