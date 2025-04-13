@@ -161,12 +161,12 @@ return {
                 },
                 fuzzy = {
                     implementation = "rust",
-                    sorts = { -- Remove this section if you want more fuzzy completions (without exact matches).
-                        "exact",
-                        -- defaults
-                        "score",
-                        "sort_text",
-                    },
+                    -- Add this section if you want exact matches to be prioritized
+                    -- sorts = {
+                    --     "exact",
+                    --     "score",
+                    --     "sort_text",
+                    -- },
                 },
                 snippets = {
                     preset = "default",
