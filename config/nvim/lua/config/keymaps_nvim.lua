@@ -213,7 +213,7 @@ vim.keymap.set("n", "<C-M-f>", function()
     require("extra.functions").snacks_rg_all_cwd_lines()
 end)
 
-vim.keymap.set("n", "<leader>o", ":Oil .<cr>", { desc = "Open Oil buffer" })
+vim.keymap.set("n", "<leader>o", ":Oil<cr>", { desc = "Open Oil buffer" })
 
 local function toggle_quickfix()
     for _, win in ipairs(vim.fn.getwininfo()) do

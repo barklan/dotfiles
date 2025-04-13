@@ -36,6 +36,32 @@ return {
                 return cwd_table[#cwd_table]
             end
 
+            local function oil_buffer_name()
+                local dir = require("oil").get_current_dir(vim.b.integer)
+                if dir then
+                    return vim.fn.fnamemodify(dir, ":~")
+                else
+                    -- If there is no current directory (e.g. over ssh), just show the buffer name
+                    return vim.api.nvim_buf_get_name(0)
+                end
+            end
+
+            local function oil_buffer_warning()
+                -- if vim.bo.filetype == "oil" then
+                return "OIL: " .. oil_buffer_name()
+                -- end
+
+                -- return ""
+            end
+
+            local function is_oil_buffer()
+                if vim.bo.filetype == "oil" then
+                    return true
+                end
+
+                return false
+            end
+
             require("lualine").setup({
                 options = {
                     theme = "auto", -- rosepine-dawn?
@@ -130,9 +156,16 @@ return {
                             "diagnostics",
                             symbols = { error = "E", warn = "W", info = "I", hint = "H" },
                         },
+                        {
+                            oil_buffer_warning,
+                            cond = is_oil_buffer,
+                            color = "WarningMsg",
+                        },
                     },
                     lualine_x = {
-                        { require("capslock").status_string },
+                        {
+                            require("capslock").status_string,
+                        },
                         {
                             "buffers",
                             icons_enabled = false,
