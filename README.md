@@ -387,28 +387,11 @@ pre-commit autoupdate -c ./home/sys/lint.yml
 
 ## Fonts shit
 
-Unfortunately it is not well known that font rendering in QT differs depending on the format of your chosen font:
-
-- TTF (e.g. Noto Sans, Ubuntu)
-  - No stem darkening and no gamma corrected alpha blending
-  - Fonts appear too thin on dark backgrounds (e.g. dark themes, terminal applications)
-  - Fonts appear too bold on light backgrounds
-  - Prone to color fringing when using subpixel antialiasing
-- OTF (e.g. Cantarell)
-  - Stem darkening and gamma corrected alpha blending (this is how it is done on macOS and Windows)
-  - Fonts look nice on both light and dark backgrounds
-  - Color fringing is not an issue.
-
-The difference between both formats is most apparent on low DPI screens, especially with dark themes, but is noticeable on high DPI screens as well.
-
-Furthermore, you can use an environment variable to optimize stem darkening, which IMO is a bit too strong by default:
+Enable stem darkening:
 
 ```bash
-# Enables stem darkening, most likely set in /etc/environment
-FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
-
-# This lowers stem darkeing
-FREETYPE_PROPERTIES="cff:darkening-parameters=500,550,1000,25,1667,0,2000,0"
+# Set in /etc/environment
+FREETYPE_PROPERTIES="cff:no-stem-darkening=0 cff:darkening-parameters=500,300,1000,25,1667,0,2000,0 autofitter:no-stem-darkening=0 autofitter:darkening-parameters=500,300,1000,25,1667,0,2000,0"
 ```
 
-
+more in docs https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening
