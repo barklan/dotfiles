@@ -126,6 +126,3 @@ vim.defer_fn(function()
 
     vim.cmd([[set title titlestring=]] .. title)
 end, 20)
-
--- TODO: move somewhere else
-vim.cmd("cabbrev g !git")
