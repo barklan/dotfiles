@@ -47,11 +47,7 @@ return {
             end
 
             local function oil_buffer_warning()
-                -- if vim.bo.filetype == "oil" then
                 return "OIL: " .. oil_buffer_name()
-                -- end
-
-                -- return ""
             end
 
             local function is_oil_buffer()
