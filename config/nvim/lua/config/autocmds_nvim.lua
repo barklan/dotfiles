@@ -32,12 +32,12 @@ local auto_kitty_font = function()
         vim.api.nvim_set_hl(0, "@string", { link = "String", force = true })   -- This is for vscode light theme
         vim.api.nvim_set_hl(0, "@comment", { link = "Comment", force = true }) -- This is for vscode light theme
         vim.defer_fn(function()
-            vim.fn.system("kitten @ load-config ~/.config/kitty/light.conf")
+            -- vim.fn.system("kitten @ load-config ~/.config/kitty/light.conf")
         end, 20)
     elseif bg == "dark" then
         vim.api.nvim_set_hl(0, "@string", { link = "String", italic = false, force = true }) -- This is for tokyonight night theme
         vim.defer_fn(function()
-            vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
+            -- vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
         end, 20)
     end
 end

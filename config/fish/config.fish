@@ -44,9 +44,9 @@ function auto_theme_on_start
     end
 
     if test "$THEME_STYLE" = light
-        kitten @ load-config ~/.config/kitty/light.conf
+        # kitten @ load-config ~/.config/kitty/light.conf
     else
-        kitten @ load-config ~/.config/kitty/kitty.conf
+        # kitten @ load-config ~/.config/kitty/kitty.conf
     end
 
     auto_theme_color_cli_programs
