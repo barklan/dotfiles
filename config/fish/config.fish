@@ -37,6 +37,11 @@ if status is-interactive
         set -gx FZF_CTRL_T_COMMAND 'fd --type f --type d --hidden --strip-cwd-prefix'
     end
 
+    if test -f ~/.local/share/nvim/colorscheme_state.json
+        set -gx THEME_STYLE (string match -r '"background":"([^"]*)"' < ~/.local/share/nvim/colorscheme_state.json)[2]
+        echo "THEME_STYLE set to: $THEME_STYLE"
+    end
+
     if test "$THEME_STYLE" = light
         # NOTE: vscode-light theme
         export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"'
