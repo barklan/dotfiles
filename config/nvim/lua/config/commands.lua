@@ -4,3 +4,8 @@ vim.api.nvim_create_user_command("ExportPlugins", function()
     vim.fn.system("tar -C ~/.local/share/nvim -I zstd -cpf lazy.tar.zst lazy")
     NotifySend("plugins exported to lazy.tar.zst!")
 end, {})
+
+vim.api.nvim_create_user_command("Cheat", function()
+    vim.cmd("view " .. vim.fn.stdpath("config") .. "/cheatsheet.md")
+    vim.bo.modifiable = false
+end, {})
