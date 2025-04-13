@@ -37,15 +37,14 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export GIT_EDITOR="nvim"
 export GIT_PAGER='delta'
-export BAT_THEME=Coldark-Dark
 export KUBECONFIG=${HOME?}/.kube/config
 export OS=Linux
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export DISTRIB_ID=$(lsb_release -i | awk '{print $3}')
 
 # NOTE: no idea what these do exactly
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_ENABLE_HIGHDPI_SCALING=1
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export QT_ENABLE_HIGHDPI_SCALING=1
 
 export DIFFPROG='code --wait --diff'
 
@@ -85,6 +84,5 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 if [[ $(ps --no-header --pid="$PPID" --format=comm) != "fish" && -z $BASH_EXECUTION_STRING ]]; then
-	# fish && exit
 	exec fish
 fi
