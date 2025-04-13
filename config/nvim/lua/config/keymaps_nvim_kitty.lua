@@ -97,8 +97,6 @@ vim.keymap.set(all_map_modes, "<C-j>", toggle_terminal, { noremap = true, silent
 --- Paragraph runner
 --------------------
 
--- FIX: this does not escape chars
-
 local function trim_whitespace(str)
     return str:match("^%s*(.-)%s*$")
 end
