@@ -66,7 +66,7 @@ yay -Syu --needed \
 sudo pacman -Syu --needed \
 	inkscape krita blender \
 	mpv mpv-mpris opencv mediainfo noise-suppression-for-voice \
-	yt-dlp kdenlive libjxl qt5-imageformats qt6-imageformats kimageformats \
+	yt-dlp kdenlive libjxl qt6-imageformats kimageformats \
     libbluray libaacs
 
 # LSP and linters
