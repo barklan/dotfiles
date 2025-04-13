@@ -19,6 +19,7 @@ return {
                         bg = "#b998b9",
                         fg = "#ffffff",
                     },
+
                     CursorLine = { bg = "#f2f2f2" },
                     CursorLineNr = { link = "CursorLine" },
 
@@ -29,7 +30,7 @@ return {
                     NeoTreeDotfile = { fg = "#959595" },
                     GitGutterChange = { fg = "#a77817" },
                     SnacksPickerPreviewCursorLine = { link = "Visual" },
-                    BlinkCmpGhostText = { fg = "#a9a9a9" }
+                    BlinkCmpGhostText = { fg = "#a9a9a9" },
                 },
             })
         end,
@@ -71,7 +72,7 @@ return {
                     hl.DiagnosticUnnecessary = { fg = c.fg }
 
                     hl.WinSeparator = { fg = c.bg, bg = c.bg } -- color of Normal background in tokyonight-night
-                    hl.DapUINormal = { bg = c.bg_dark }        -- color or neo-tree in tokyonight-night
+                    hl.DapUINormal = { bg = c.bg_dark } -- color or neo-tree in tokyonight-night
 
                     hl.TreesitterContext = { bg = c.bg }
                     hl.TreesitterContextBottom = { underline = true, sp = c.comment }
