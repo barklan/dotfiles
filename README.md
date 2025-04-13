@@ -32,11 +32,6 @@ Install packages:
 bash packages.sh
 ```
 
-```bash
-rustup toolchain install nightly
-rustup default nightly
-```
-
 From fish shell:
 
 ```fish

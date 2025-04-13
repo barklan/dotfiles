@@ -76,21 +76,21 @@ sudo pacman -Syu --needed \
 	lua-language-server stylua shfmt shellharden \
 	python-lsp-server buf
 
-rustup default stable
+rustup toolchain install nightly
+rustup default nightly
 rustup component add rust-analyzer
 
 # Multilib
 # sudo pacman -Syu --needed wine wine-mono xf86-video-intel
 
 yay -Syu --needed \
-	visual-studio-code-bin postman-bin shellcheck-bin \
+	visual-studio-code-bin shellcheck-bin \
 	hadolint-bin \
 	nekoray sing-geosite sing-geoip
 
 npm install -g \
 	neovim @fsouza/prettierd markdownlint-cli \
-	standard-version pnpm \
-	vscode-langservers-extracted
+	standard-version vscode-langservers-extracted
 
 pipx install black
 pipx install codespell
