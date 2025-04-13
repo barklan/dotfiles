@@ -44,7 +44,7 @@ sudo pacman -Syu --needed \
 	go rustup sccache cargo-outdated \
 	protobuf pyenv nodejs npm typescript lua luajit llvm lld clang \
 	docker docker-compose docker-buildx \
-	alacritty bubblewrap git-lfs \
+	bubblewrap git-lfs \
 	graphviz python-pygments hugo \
 	python-pipx python-pynvim gdb zellij bpf kompare \
     osv-scanner gitleaks
