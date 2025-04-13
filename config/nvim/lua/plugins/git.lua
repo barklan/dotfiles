@@ -14,10 +14,14 @@ return {
     {
         "akinsho/git-conflict.nvim",
         cond = NotVSCode,
-        lazy = true,
-        event = "VeryLazy",
+        lazy = false, -- TODO: Not great lazy loading, does not highlight conflicts in buffer
+        -- event = "VeryLazy",
         version = "*",
-        config = true,
+        config = function()
+            require("git-conflict").setup({
+                disable_diagnostics = true,
+            })
+        end,
     },
     {
         "lewis6991/gitsigns.nvim",
