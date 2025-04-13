@@ -16,8 +16,8 @@ return {
                     String = { fg = "#2c778e" },
 
                     Cursor = {
-                        bg = "#909090",
-                        fg = "#6F6F6F",
+                        bg = "#aaaaaa",
+                        fg = "#ffffff",
                     },
                     CursorLine = { bg = "#f2f2f2" },
                     CursorLineNr = { link = "CursorLine" },
