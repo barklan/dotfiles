@@ -6,6 +6,11 @@ end
 
 vim.keymap.set("n", "<leader>c", ":Cheat<cr>", { silent = true, desc = "Open cheatsheet" })
 
+vim.keymap.set("n", "<leader>h", function()
+    vim.cmd([[:vimgrep /^##\+ / %]])
+    vim.cmd("copen")
+end, {silent = true, desc = "Markdown headings to qf"})
+
 vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true }) -- So that <Tab> mappings wont overwrite this.
 
 -- Handled by better-escape.nvim

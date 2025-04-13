@@ -10,7 +10,7 @@ return {
         },
         opts = {
             auto_enable = true,
-            auto_resize_height = true,
+            auto_resize_height = false,
             func_map = {
                 open = "o",
                 openc = "<CR>",

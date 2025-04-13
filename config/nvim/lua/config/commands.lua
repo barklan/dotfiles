@@ -11,7 +11,7 @@ vim.api.nvim_create_user_command("Cheat", function()
 end, {})
 
 local group = vim.api.nvim_create_augroup("personal_leave_cheatsheet", { clear = true })
-vim.api.nvim_create_autocmd({"BufLeave", "QuitPre"}, {
+vim.api.nvim_create_autocmd({"BufLeave", "BufWinLeave", "QuitPre"}, {
     group = group,
     pattern = vim.fn.stdpath("config") .. "/cheatsheet.md",
     callback = function(args)
