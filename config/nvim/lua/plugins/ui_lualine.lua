@@ -9,7 +9,7 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
-        cond = function ()
+        cond = function()
             if InVSCode() then
                 return false
             end
@@ -154,7 +154,7 @@ return {
                         },
                     },
                     lualine_y = {},
-                    lualine_z = {},
+                    lualine_z = { "progress" },
                 },
             })
         end,

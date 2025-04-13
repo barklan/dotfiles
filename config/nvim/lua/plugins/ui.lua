@@ -65,15 +65,16 @@ return {
     {
         "lewis6991/satellite.nvim", -- This is scroll bar.
         cond = NotVSCode,
+        enabled = false,
         lazy = true,
         event = "VeryLazy",
         config = function()
             require("satellite").setup({
-                current_only = false,
+                current_only = true,
                 winblend = 0,
                 zindex = 40,
                 excluded_filetypes = { "neo-tree" },
-                width = 10,
+                width = 4,
                 handlers = {
                     cursor = {
                         enable = false,

@@ -258,6 +258,6 @@
     "workbench.layoutControl.enabled": false,
     "window.customTitleBarVisibility": "never",
     "window.titleBarStyle": "native",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Default Light Modern",
     "window.zoomPerWindow": false
 }
