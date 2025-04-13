@@ -22,7 +22,7 @@ M.get_directories = function()
 end
 
 M.rg_all_cwd_lines_important_args = "--hidden --ignore --max-columns=500 --max-filesize=5M"
-M.rg_all_cwd_lines_limit = 1000000
+M.rg_all_cwd_lines_limit = 200000
 
 M.rg_all_cwd_lines = function()
     local results = {}
