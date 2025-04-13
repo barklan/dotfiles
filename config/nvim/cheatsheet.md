@@ -75,17 +75,11 @@ echo $temp
 
 #### IF
 
-{{% columns %}}
-
 ```fish
 if test 5 -gt 2
     echo "Yes, 5 is greater than 2"
 end
 ```
-
-<--->
-
-{{% /columns %}}
 
 #### and/or
 
@@ -98,15 +92,11 @@ or set -l configdir ~/.config
 
 `break` and `continue` are available.
 
-{{% columns %}}
-
 ```fish
 for i in (seq 1 5)
     echo $i
 end
 ```
-
-<--->
 
 ```fish
 for f in *{1,2,3}000.png
@@ -114,34 +104,24 @@ for f in *{1,2,3}000.png
 end
 ```
 
-<--->
-
 ```fish
 while read -l line
     echo line: $line
 end < file.txt
 ```
 
-{{% /columns %}}
-
 #### Error handling
 
 There are 3 options as of now. See [issue](https://github.com/fish-shell/fish-shell/issues/510) for more info.
-
-{{% columns %}}
 
 ```fish
 git sast; or return
 echo "hi"
 ```
 
-<--->
-
 ```fish
 git sast; and echo "hi"
 ```
-
-<--->
 
 ```fish
 git sast
@@ -152,8 +132,6 @@ end
 
 echo hi
 ```
-
-{{% /columns %}}
 
 ### Builtins
 
@@ -658,16 +636,6 @@ c:
 
 d:
   echo 'D!'
-
-[unix]
-run:
-  cc main.c
-  ./a.out
-
-[windows]
-run:
-  cl main.c
-  main.exe
 
 ```
 
