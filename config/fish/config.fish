@@ -107,7 +107,10 @@ if status is-interactive
     end
 
     export FZF_DEFAULT_OPTS_PRE_THEME="$FZF_DEFAULT_OPTS"
-    auto_theme_on_start
+
+    if set -q KITTY_PID
+        auto_theme_on_start
+    end
 
     set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons --time-style=relative --total-size --git-repos --color always {}'"
     fzf_key_bindings

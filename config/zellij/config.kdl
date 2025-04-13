@@ -161,7 +161,7 @@ session_serialization false
     }
  }
 
-// theme "tokyonight_night"
+theme "tokyonight_night"
 default_layout "compact"
 show_startup_tips false
 copy_on_select false
