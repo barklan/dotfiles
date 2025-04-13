@@ -1,5 +1,7 @@
 function auto_theme_color_cli_programs
     if test "$THEME_STYLE" = light
+        export PROMPT_THEME_COLOR="AF00DB"
+
         # NOTE: vscode-light theme
         export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS_PRE_THEME"'
   --color=fg:#000000,fg+:#000000,bg:#FFFFFF,bg+:#F3F3F3
@@ -7,6 +9,8 @@ function auto_theme_color_cli_programs
   --color=prompt:#AF00DB,spinner:#AF00DB,pointer:#AF00DB,header:#008000
   --color=border:#000000,label:#AF00DB,query:#000000'
     else
+        export PROMPT_THEME_COLOR="2AC3DE"
+
         # NOTE: tokyo-night theme
         export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS_PRE_THEME \
   --highlight-line \
@@ -211,7 +215,7 @@ function fish_prompt --description 'Write out the prompt'
     # (prompt_pwd) # 2AC3DE
     # echo -n -s (set_color -b ffb6c1) (set_color $color_cwd) (_hydro_pwd) (set_color -b normal) $normal (fish_vcs_prompt) $normal " "$prompt_status $systemd_shell (set_color red) $background_jobs $normal $suffix " "
 
-    echo -n -s (set_color 2AC3DE) (_hydro_pwd) $normal (fish_vcs_prompt) $normal " "$prompt_status $systemd_shell (set_color red) $background_jobs $normal $suffix " "
+    echo -n -s (set_color $PROMPT_THEME_COLOR) (_hydro_pwd) $normal (fish_vcs_prompt) $normal " "$prompt_status $systemd_shell (set_color red) $background_jobs $normal $suffix " "
 
 end
 
