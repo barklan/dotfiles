@@ -37,21 +37,6 @@ function auto_theme_color_cli_programs
     end
 end
 
-function auto_theme_on_start
-    if test -f ~/.local/share/nvim/colorscheme_state.json
-        set -gx THEME_STYLE (string match -r '"background":"([^"]*)"' < ~/.local/share/nvim/colorscheme_state.json)[2]
-        # echo "THEME_STYLE set to: $THEME_STYLE"
-    end
-
-    if test "$THEME_STYLE" = light
-        # kitten @ load-config ~/.config/kitty/light.conf
-    else
-        # kitten @ load-config ~/.config/kitty/kitty.conf
-    end
-
-    auto_theme_color_cli_programs
-end
-
 function auto_theme
     if test -f ~/.local/share/nvim/colorscheme_state.json
         set new_theme_style (string match -r '"background":"([^"]*)"' < ~/.local/share/nvim/colorscheme_state.json)[2]
@@ -108,9 +93,7 @@ if status is-interactive
 
     export FZF_DEFAULT_OPTS_PRE_THEME="$FZF_DEFAULT_OPTS"
 
-    if set -q KITTY_PID
-        auto_theme_on_start
-    end
+    auto_theme_color_cli_programs
 
     set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons --time-style=relative --total-size --git-repos --color always {}'"
     fzf_key_bindings
@@ -136,7 +119,6 @@ if status is-interactive
 end
 
 function __on_nvim_exit --on-event nvim_exit
-    auto_theme
     commandline -f repaint
 end
 

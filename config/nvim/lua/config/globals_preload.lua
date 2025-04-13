@@ -1,15 +1,5 @@
 DontAutoSaveOrAutoCloseFiletypes = { "gitcommit", "oil" }
 
-NotifySend = vim.schedule_wrap(function(msg)
-    require("plenary.job")
-        :new({
-            command = "notify-send",
-            args = { "-a", "nvim", msg },
-            cwd = vim.fn.getcwd(),
-        })
-        :start()
-end)
-
 IsPersonalDevice = function()
     local user = os.getenv("USER")
     return user == "barklan"

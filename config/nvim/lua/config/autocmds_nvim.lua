@@ -25,54 +25,22 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-local auto_kitty_font = function()
-    local bg = vim.o.background
-    if bg == "light" then
-        -- TODO: move this to startup
-        vim.api.nvim_set_hl(0, "@string", { link = "String", force = true })   -- This is for vscode light theme
-        vim.api.nvim_set_hl(0, "@comment", { link = "Comment", force = true }) -- This is for vscode light theme
-        vim.defer_fn(function()
-            -- vim.fn.system("kitten @ load-config ~/.config/kitty/light.conf")
-        end, 20)
-    elseif bg == "dark" then
-        vim.api.nvim_set_hl(0, "@string", { link = "String", italic = false, force = true }) -- This is for tokyonight night theme
-        vim.defer_fn(function()
-            -- vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
-        end, 20)
-    end
-end
-
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-    group = augroup("save_colorscheme"),
-    pattern = { "*" },
-    callback = function()
-        require("extra.autotheme").save_colorscheme()
-        require("extra.decolor").golang()
-
-        vim.defer_fn(function()
-            auto_kitty_font()
-        end, 0)
-    end,
-})
-
 vim.api.nvim_create_autocmd("VimEnter", {
     group = augroup("colorscheme_kitty_on_enter"),
     once = true,
     callback = function()
         require("extra.decolor").golang()
-        vim.defer_fn(function()
-            auto_kitty_font()
-        end, 0)
+
+        local bg = vim.o.background
+        if bg == "light" then
+            -- TODO: move this to startup
+            vim.api.nvim_set_hl(0, "@string", { link = "String", force = true })                 -- This is for vscode light theme
+            vim.api.nvim_set_hl(0, "@comment", { link = "Comment", force = true })               -- This is for vscode light theme
+        elseif bg == "dark" then
+            vim.api.nvim_set_hl(0, "@string", { link = "String", italic = false, force = true }) -- This is for tokyonight night theme
+        end
     end,
 })
-
--- vim.api.nvim_create_autocmd("VimLeavePre", {
---     group = augroup("colorscheme_kitty_on_leave"),
---     once = true,
---     callback = function()
---         vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
---     end,
--- })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
     group = augroup("autospell"),

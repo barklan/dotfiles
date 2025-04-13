@@ -64,6 +64,16 @@ require("lazy").setup({
     },
 })
 
+NotifySend = vim.schedule_wrap(function(msg)
+    require("plenary.job")
+        :new({
+            command = "notify-send",
+            args = { "-a", "nvim", msg },
+            cwd = vim.fn.getcwd(),
+        })
+        :start()
+end)
+
 if IsOilEditor() and NotVSCode() then
     require("oil").setup()
 end
