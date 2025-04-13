@@ -77,18 +77,6 @@ if status is-interactive
 
     fzf_configure_bindings --git_status=\e\cg --variables=\e\cv --git_log=\e\cc --history=
 
-    # FIX: get rid of mcfly (and in packages sh (and env variables)) - use fish'es <c-r>
-    # bind --erase \cr
-    # mcfly init fish | source
-    # bind \cr __mcfly-history-widget
-
-    # NOTE: unreadable anyway in alacritty tokyo-night
-    set -gx MCFLY_DISABLE_MENU true
-
-    set -gx MCFLY_RESULTS 25
-    set -gx MCFLY_FUZZY 3
-    set -gx MCFLY_PROMPT "❯"
-
     bind \cH backward-kill-word
 
     # NOTE: this clears screen and scrollback buffer
