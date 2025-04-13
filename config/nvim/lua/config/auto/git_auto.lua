@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
             -- vim.cmd(":Neotree show")
             vim.defer_fn(function()
-                vim.cmd(":Neotree close")
+                -- vim.cmd(":Neotree close")
                 vim.cmd(":Neotree show source=filesystem position=left") -- source can be "last" or "filesystem"
             end, 0)
         end, 0)
@@ -22,10 +22,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     group = "git_auto",
     pattern = "COMMIT_EDITMSG",
     callback = function()
+        -- vim.cmd(":Neotree close")
+        vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
         vim.defer_fn(function()
-            vim.cmd(":Neotree close")
             vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
-        end, 0)
+        end, 100)
 
         vim.defer_fn(function()
             require("nvim-gitstatus").update_git_status()
