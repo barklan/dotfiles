@@ -48,10 +48,9 @@ return {
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
                 day_brightness = 0.25,
                 lualine_bold = true,
-                transparent = true, -- TODO: experimental
+                transparent = true,
                 on_highlights = function(hl, c)
                     Normal = { guifg = "#C0CAF5", guibg = "#1A1B26", forse = true }
-
 
                     hl.CursorLineNr = { link = "CursorLine" }
                     hl.String = { fg = "#86c5da" }
@@ -71,7 +70,7 @@ return {
                     hl.DiagnosticUnnecessary = { fg = c.fg }
 
                     hl.WinSeparator = { fg = c.bg, bg = c.bg } -- color of Normal background in tokyonight-night
-                    hl.DapUINormal = { bg = c.bg_dark } -- color or neo-tree in tokyonight-night
+                    hl.DapUINormal = { bg = c.bg_dark }        -- color or neo-tree in tokyonight-night
 
                     hl.TreesitterContext = { bg = c.bg }
                     hl.TreesitterContextBottom = { underline = true, sp = c.comment }
