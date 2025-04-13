@@ -16,7 +16,7 @@ return {
                     String = { fg = "#2c778e" },
 
                     Cursor = {
-                        bg = "#aaaaaa",
+                        bg = "#b998b9",
                         fg = "#ffffff",
                     },
                     CursorLine = { bg = "#f2f2f2" },
@@ -29,6 +29,7 @@ return {
                     NeoTreeDotfile = { fg = "#959595" },
                     GitGutterChange = { fg = "#a77817" },
                     SnacksPickerPreviewCursorLine = { link = "Visual" },
+                    BlinkCmpGhostText = { fg = "#a9a9a9" }
                 },
             })
         end,
