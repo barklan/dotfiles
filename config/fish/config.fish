@@ -175,8 +175,11 @@ function fish_prompt --description 'Write out the prompt'
         set background_jobs " [background jobs]"
     end
 
-    # (prompt_pwd)
-    echo -n -s (set_color -b ffb6c1) (set_color $color_cwd) (_hydro_pwd) (set_color -b normal) $normal (fish_vcs_prompt) $normal " "$prompt_status $systemd_shell (set_color red) $background_jobs $normal $suffix " "
+    # (prompt_pwd) # 2AC3DE
+    # echo -n -s (set_color -b ffb6c1) (set_color $color_cwd) (_hydro_pwd) (set_color -b normal) $normal (fish_vcs_prompt) $normal " "$prompt_status $systemd_shell (set_color red) $background_jobs $normal $suffix " "
+
+    echo -n -s (set_color 2AC3DE) (_hydro_pwd) $normal (fish_vcs_prompt) $normal " "$prompt_status $systemd_shell (set_color red) $background_jobs $normal $suffix " "
+
 end
 
 # function fish_right_prompt -d "Write out the right prompt"
