@@ -84,27 +84,6 @@ vim.opt.fillchars = { eob = " " }
 
 require("extra.autotheme").load_colorscheme()
 
--- if IsCMDLineEditor() == true or IsScrollbackPager() == true then
---     vim.cmd([[
---         set background=dark
---         colorscheme tokyonight-night
---     ]])
--- else
---     require("extra.autotheme").load_colorscheme()
--- end
-
-local enable_dark_theme = function()
-    vim.o.background = "dark"
-    vim.cmd("colorscheme tokyonight-night")
-end
-vim.keymap.set("n", "<Leader><f4>", enable_dark_theme, { desc = "Dark theme" })
-
-local enable_light_theme = function()
-    vim.o.background = "light"
-    vim.cmd("colorscheme vscode")
-end
-vim.keymap.set("n", "<Leader><f5>", enable_light_theme, { desc = "Light theme" })
-
 local function cwd()
     local full_cwd = vim.fn.getcwd()
     local cwd_table = Split(full_cwd, "/")
