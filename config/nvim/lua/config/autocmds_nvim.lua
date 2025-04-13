@@ -37,7 +37,7 @@ local auto_kitty_font = function()
     elseif bg == "dark" then
         vim.api.nvim_set_hl(0, "@string", { link = "String", italic = false, force = true }) -- This is for tokyonight night theme
         vim.defer_fn(function()
-            vim.fn.system("kitten @ load-config ~/.config/kitty/base.conf")
+            vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
         end, 20)
     end
 end

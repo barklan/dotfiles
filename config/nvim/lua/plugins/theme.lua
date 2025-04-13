@@ -8,7 +8,7 @@ return {
         config = function()
             -- local c = require("vscode.colors").get_colors()
             require("vscode").setup({
-                -- transparent = true,
+                transparent = true,
                 group_overrides = {
                     Whitespace = { fg = "#e8e8e8" }, -- blink Indent uses this
                     LineNr = { fg = "#CECECE" },

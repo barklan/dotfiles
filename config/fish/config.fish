@@ -1,3 +1,55 @@
+function auto_theme
+    # if test -f ~/.local/share/nvim/colorscheme_state.json
+    #     set -gx THEME_STYLE (string match -r '"background":"([^"]*)"' < ~/.local/share/nvim/colorscheme_state.json)[2]
+    #     echo "THEME_STYLE set to: $THEME_STYLE"
+    # end
+
+    if test -f ~/.local/share/nvim/colorscheme_state.json
+        set new_theme_style (string match -r '"background":"([^"]*)"' < ~/.local/share/nvim/colorscheme_state.json)[2]
+
+        if test "$THEME_STYLE" != "$new_theme_style"
+            set -gx THEME_STYLE "$new_theme_style"
+            echo "# THEME_STYLE updated to: $THEME_STYLE"
+        else
+            # echo "# THEME_STYLE unchanged ($THEME_STYLE)"
+            return
+        end
+    end
+
+    if test "$THEME_STYLE" = light
+        # NOTE: vscode-light theme
+        export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS_PRE_THEME"'
+  --color=fg:#000000,fg+:#000000,bg:#FFFFFF,bg+:#F3F3F3
+  --color=hl:#008000,hl+:#AF00DB,info:#AF00DB,marker:#AF00DB
+  --color=prompt:#AF00DB,spinner:#AF00DB,pointer:#AF00DB,header:#008000
+  --color=border:#000000,label:#AF00DB,query:#000000'
+    else
+        # NOTE: tokyo-night theme
+        export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS_PRE_THEME \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none \
+  --color=bg+:#283457 \
+  --color=bg:#16161e \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c"
+    end
+end
+
 if status is-interactive
     alias l='eza -a --group-directories-first'
     alias ls='eza -l -a --hyperlink --group-directories-first --git --icons --time-style=relative --git-repos'
@@ -37,43 +89,8 @@ if status is-interactive
         set -gx FZF_CTRL_T_COMMAND 'fd --type f --type d --hidden --strip-cwd-prefix'
     end
 
-    if test -f ~/.local/share/nvim/colorscheme_state.json
-        set -gx THEME_STYLE (string match -r '"background":"([^"]*)"' < ~/.local/share/nvim/colorscheme_state.json)[2]
-        echo "THEME_STYLE set to: $THEME_STYLE"
-    end
-
-    if test "$THEME_STYLE" = light
-        # NOTE: vscode-light theme
-        export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"'
-  --color=fg:#000000,fg+:#000000,bg:#FFFFFF,bg+:#F3F3F3
-  --color=hl:#008000,hl+:#AF00DB,info:#AF00DB,marker:#AF00DB
-  --color=prompt:#AF00DB,spinner:#AF00DB,pointer:#AF00DB,header:#008000
-  --color=border:#000000,label:#AF00DB,query:#000000'
-    else
-        # NOTE: tokyo-night theme
-        export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --highlight-line \
-  --info=inline-right \
-  --ansi \
-  --layout=reverse \
-  --border=none \
-  --color=bg+:#283457 \
-  --color=bg:#16161e \
-  --color=border:#27a1b9 \
-  --color=fg:#c0caf5 \
-  --color=gutter:#16161e \
-  --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#2ac3de \
-  --color=query:#c0caf5:regular \
-  --color=scrollbar:#27a1b9 \
-  --color=separator:#ff9e64 \
-  --color=spinner:#ff007c"
-    end
+    export FZF_DEFAULT_OPTS_PRE_THEME="$FZF_DEFAULT_OPTS"
+    auto_theme
 
     set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons --time-style=relative --total-size --git-repos --color always {}'"
     fzf_key_bindings
@@ -99,6 +116,7 @@ if status is-interactive
 end
 
 function __on_nvim_exit --on-event nvim_exit
+    auto_theme
     commandline -f repaint
 end
 
