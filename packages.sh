@@ -41,7 +41,7 @@ sudo pacman -Syu --needed \
 # Dev
 sudo pacman -Syu --needed \
 	neovim \
-	go rustup sccache cargo-outdated \
+	go rustup sccache \
 	protobuf pyenv nodejs npm typescript lua luajit llvm lld clang \
 	docker docker-compose docker-buildx \
 	bubblewrap git-lfs \
@@ -71,7 +71,7 @@ sudo pacman -Syu --needed \
 
 # LSP and linters
 sudo pacman -Syu --needed \
-	bash-language-server pyright \
+	bash-language-server \
 	yaml-language-server typescript-language-server \
 	lua-language-server stylua shfmt shellharden \
 	python-lsp-server buf
@@ -93,19 +93,13 @@ npm install -g \
 	standard-version vscode-langservers-extracted
 
 pipx install black
-pipx install codespell
 pipx install flake8
 pipx inject flake8 flake8-eradicate flake8-pytest-style
-pipx install pydocstyle
 pipx install mypy
-pipx install curlylint
-pipx install pdm
 pipx install yamllint
-pipx install ansible-lint
 pipx install isort
 pipx install pre-commit
 pipx install basedpyright
-pipx install pdfCropMargins
 pipx install litecli
 pipx install sqruff
 
@@ -113,6 +107,7 @@ cargo install cargo-update
 cargo install killport
 cargo install kalker
 cargo install dotenv-linter
+cargo install --locked cargo-outdated
 
 # This is `gore dump -l`
 go install golang.org/x/perf/cmd/benchstat@latest
