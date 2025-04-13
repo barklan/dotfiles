@@ -41,13 +41,7 @@ export KUBECONFIG=${HOME?}/.kube/config
 export OS=Linux
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export DISTRIB_ID=$(lsb_release -i | awk '{print $3}')
-
-# NOTE: no idea what these do exactly
-# export QT_AUTO_SCREEN_SCALE_FACTOR=1
-# export QT_ENABLE_HIGHDPI_SCALING=1
-
 export DIFFPROG='code --wait --diff'
-
 export GOAMD64=v3
 export RUSTFLAGS="-C target-cpu=native"
 
