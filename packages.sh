@@ -14,12 +14,12 @@ sudo pacman -Syu --needed \
 	rclone electrum kdeplasma-addons plasma-browser-integration \
 	firefox-developer-edition thunderbird \
     brotli \
-	kcharselect yakuake fish fisher kgpg musl sqlite \
+	kcharselect fish fisher kgpg musl sqlite \
 	xdg-desktop-portal-gtk wireguard-tools \
 	aspell aspell-ru aspell-de usbguard sbctl efibootmgr libreoffice-fresh \
     spotify-launcher fastfetch neochat \
     tesseract-data-eng tesseract-data-rus tesseract \
-    qalculate-qt python-gevent shadowsocks-rust python-pysocks \
+    python-gevent shadowsocks-rust python-pysocks \
     fprintd kitty linux-zen cliphist
 
 yay -Syu --needed \
