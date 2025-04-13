@@ -12,7 +12,12 @@ vim.keymap.set(all_map_modes, "<2-MiddleMouse>", "<Nop>")
 vim.keymap.set(all_map_modes, "<3-MiddleMouse>", "<Nop>")
 vim.keymap.set(all_map_modes, "<4-MiddleMouse>", "<Nop>")
 
-vim.keymap.set("n", "<leader>rs", ":%s/\\v", { desc = "Search and replace" })
+-- vim.keymap.set("n", "<leader>rs", ":%s/\\v", { desc = "Search and replace" })
+vim.keymap.set("n", "<leader>rw", [[:%s$<C-r><C-w>$$c<Left><Left>]], { desc = "Search and replace word" })
+vim.keymap.set("v", "<leader>rw", [[:s$$c<Left><Left>]], { desc = "Search and replace word" })
+
+vim.keymap.set("n", "<leader>rs", [[:%s$$$c<Left><Left>]], { desc = "Search and replace last search" })
+vim.keymap.set("n", "<leader>rg", [[:cfdo %s$$c<Left><Left>]], { desc = "Search and replace (global)" })
 
 -- Make < > shifts keep selection.
 vim.keymap.set("v", "<", "<gv")
@@ -31,4 +36,3 @@ vim.keymap.set({ "n", "v" }, "K", "{")
 
 -- Look into treesitter objects
 vim.keymap.set("n", "<M-CR>", "<Nop>")
-
