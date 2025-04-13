@@ -121,6 +121,7 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@latest
 go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
 go install github.com/davidrjenni/reftools/cmd/fillswitch@latest
+go install github.com/davidrjenni/reftools/cmd/fixplurals@latest
 go install mvdan.cc/garble@latest
 go install github.com/onsi/ginkgo/v2/ginkgo@latest
 go install github.com/yolo-pkgs/gitx@latest
