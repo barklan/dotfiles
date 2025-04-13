@@ -83,7 +83,6 @@ if status is-interactive
     bind \e\cj 'just --choose; commandline -f repaint'
     bind \cg 'echo; git status --short --branch; commandline -f repaint'
     bind \el 'echo; eza -a --group-directories-first; commandline -f repaint'
-    bind \ek lf
 
     # To delete an abbreviation use `abbr -e t`
     abbr -a g git

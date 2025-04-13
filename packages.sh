@@ -46,14 +46,14 @@ sudo pacman -Syu --needed \
 	docker docker-compose docker-buildx \
 	bubblewrap git-lfs \
 	graphviz python-pygments hugo \
-	python-pipx python-pynvim gdb zellij bpf kompare \
+	python-pipx python-pynvim gdb zellij bpf \
     osv-scanner gitleaks
 
 # Cli
 sudo pacman -Syu --needed \
 	fzf ripgrep ripgrep-all \
 	fd bat plocate glow git-delta strace \
-	tcpdump perf nmap glab github-cli \
+	tcpdump perf nmap \
 	xh sd choose bottom pgcli kubectl just \
 	watchexec eza dust duf gping peco grex tealdeer bandwhich \
 	hyperfine hexyl chafa sad wireless_tools age zstd \
