@@ -42,8 +42,8 @@ vim.opt.jumpoptions = "stack" -- go back with <C-o> even if buffer has been clos
 -- vim.opt.winborder = "single"
 vim.opt.cmdheight = 1
 vim.opt.showmode = false -- Dont show mode since we have a statusline
-vim.opt.scroll = 15
-vim.opt.mousescroll = "ver:5"
+vim.opt.scroll = 25
+vim.opt.mousescroll = "ver:3"
 
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep --smart-case"
