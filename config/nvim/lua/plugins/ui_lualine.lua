@@ -182,8 +182,16 @@ return {
                             }, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
                         },
                     },
+                    -- lualine_y = { "progress" },
                     lualine_y = {},
-                    lualine_z = { "progress" },
+                    lualine_z = {
+                        {
+                            "datetime",
+                            style = "%H:%M",
+                            color = "Comment",
+                            padding = {left = 3, right = 0},
+                        },
+                    },
                 },
             })
         end,

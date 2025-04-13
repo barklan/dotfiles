@@ -65,7 +65,7 @@ return {
     {
         "lewis6991/satellite.nvim", -- This is scroll bar.
         cond = NotVSCode,
-        enabled = false,
+        enabled = true,
         lazy = true,
         event = "VeryLazy",
         config = function()
