@@ -1,4 +1,4 @@
-function auto_theme_color_cli_programs
+function __set_theme_style
     if test "$THEME_STYLE" = light
         export PROMPT_THEME_COLOR="AF00DB"
 
@@ -35,22 +35,6 @@ function auto_theme_color_cli_programs
   --color=separator:#ff9e64 \
   --color=spinner:#ff007c"
     end
-end
-
-function auto_theme
-    if test -f ~/.local/share/nvim/colorscheme_state.json
-        set new_theme_style (string match -r '"background":"([^"]*)"' < ~/.local/share/nvim/colorscheme_state.json)[2]
-
-        if test "$THEME_STYLE" != "$new_theme_style"
-            set -gx THEME_STYLE "$new_theme_style"
-            echo "# THEME_STYLE updated to: $THEME_STYLE"
-        else
-            # echo "# THEME_STYLE unchanged ($THEME_STYLE)"
-            return
-        end
-    end
-
-    auto_theme_color_cli_programs
 end
 
 if status is-interactive
@@ -93,7 +77,7 @@ if status is-interactive
 
     export FZF_DEFAULT_OPTS_PRE_THEME="$FZF_DEFAULT_OPTS"
 
-    auto_theme_color_cli_programs
+    __set_theme_style
 
     set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons --time-style=relative --total-size --git-repos --color always {}'"
     fzf_key_bindings
@@ -209,6 +193,14 @@ end
 
 # This is to disable fish greeting
 set fish_greeting
+
+function themedark
+    echo 'dark' > ~/.cache/theme_style
+end
+
+function themelight
+    echo 'light' > ~/.cache/theme_style
+end
 
 function golint
     pre-commit run -c ~/sys/lint.yml --all-files
