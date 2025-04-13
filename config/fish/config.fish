@@ -37,8 +37,16 @@ if status is-interactive
         set -gx FZF_CTRL_T_COMMAND 'fd --type f --type d --hidden --strip-cwd-prefix'
     end
 
-    # NOTE: tokyo-night theme
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+    if test "$THEME_STYLE" = light
+        # NOTE: vscode-light theme
+        export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"'
+  --color=fg:#000000,fg+:#000000,bg:#FFFFFF,bg+:#F3F3F3
+  --color=hl:#008000,hl+:#AF00DB,info:#AF00DB,marker:#AF00DB
+  --color=prompt:#AF00DB,spinner:#AF00DB,pointer:#AF00DB,header:#008000
+  --color=border:#000000,label:#AF00DB,query:#000000'
+    else
+        # NOTE: tokyo-night theme
+        export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --highlight-line \
   --info=inline-right \
   --ansi \
@@ -59,8 +67,8 @@ if status is-interactive
   --color=query:#c0caf5:regular \
   --color=scrollbar:#27a1b9 \
   --color=separator:#ff9e64 \
-  --color=spinner:#ff007c \
-"
+  --color=spinner:#ff007c"
+    end
 
     set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons --time-style=relative --total-size --git-repos --color always {}'"
     fzf_key_bindings

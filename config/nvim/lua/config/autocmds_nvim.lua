@@ -66,13 +66,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
-vim.api.nvim_create_autocmd("VimLeavePre", {
-    group = augroup("colorscheme_kitty_on_leave"),
-    once = true,
-    callback = function()
-        vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
-    end,
-})
+-- vim.api.nvim_create_autocmd("VimLeavePre", {
+--     group = augroup("colorscheme_kitty_on_leave"),
+--     once = true,
+--     callback = function()
+--         vim.fn.system("kitten @ load-config ~/.config/kitty/kitty.conf")
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
     group = augroup("autospell"),
