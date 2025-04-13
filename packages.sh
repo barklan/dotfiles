@@ -85,7 +85,6 @@ rustup component add rust-analyzer
 yay -Syu --needed \
 	visual-studio-code-bin postman-bin shellcheck-bin \
 	hadolint-bin \
-	upscayl-bin \
 	nekoray sing-geosite sing-geoip
 
 npm install -g \
