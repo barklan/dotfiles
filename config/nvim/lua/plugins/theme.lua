@@ -52,8 +52,6 @@ return {
                 lualine_bold = true,
                 transparent = true,
                 on_highlights = function(hl, c)
-                    Normal = { guifg = "#C0CAF5", guibg = "#1A1B26", forse = true }
-
                     hl.CursorLineNr = { link = "CursorLine" }
                     hl.String = { fg = "#86c5da" }
                     hl.Constant = { link = "@none" }

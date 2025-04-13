@@ -41,7 +41,7 @@ return {
                 },
                 diagnostic = {
                     hdlr = false, -- hook lsp diag handler and send diag to quickfix
-                    underline = false,
+                    underline = true,
                     -- virtual_text = { spacing = 0, prefix = "■" },
                     signs = false,
                     update_in_insert = false,

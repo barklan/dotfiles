@@ -26,16 +26,16 @@ vim.opt.termguicolors = true
 vim.opt.mouse = "a"
 vim.opt.smoothscroll = true -- Not sure what this does
 vim.opt.mousemoveevent = true
-vim.opt.number = true       -- Option is set as local on autocmd
+vim.opt.number = true -- Option is set as local on autocmd
 vim.opt.relativenumber = false
-vim.opt.swapfile = false    -- fuck swap files
+vim.opt.swapfile = false -- fuck swap files
 vim.opt.scrolloff = 6
 vim.opt.smartindent = true
 vim.o.timeout = true
 vim.o.timeoutlen = 700 -- this is for jk escape (if mapped natively) and other repetitions like `xx`
 vim.opt.signcolumn = "yes"
 vim.o.numberwidth = 1
-vim.o.writebackup = false     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
 vim.opt.jumpoptions = "stack" -- go back with <C-o> even if buffer has been closed
 
@@ -51,8 +51,7 @@ vim.opt.grepprg = "rg --vimgrep --smart-case"
 vim.opt.cursorline = true
 
 -- To enable Cursor highlight
-vim.opt.guicursor =
-"n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,t:block-blinkon500-blinkoff500-TermCursor"
+vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,t:block-blinkon500-blinkoff500-TermCursor"
 
 vim.opt.spell = false
 vim.opt.spelllang = "en_us,ru"
@@ -79,7 +78,6 @@ vim.diagnostic.config({
     signs = false,
     update_in_insert = false,
 })
-
 
 -- Don't display `~` at the end of buffer.
 vim.opt.fillchars = { eob = " " }
