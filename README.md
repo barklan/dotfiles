@@ -391,7 +391,7 @@ Enable stem darkening:
 
 ```bash
 # Set in /etc/environment
-FREETYPE_PROPERTIES="cff:no-stem-darkening=0 cff:darkening-parameters=500,300,1000,25,1667,0,2000,0 autofitter:no-stem-darkening=0 autofitter:darkening-parameters=500,350,1000,25,1667,0,2000,0"
+FREETYPE_PROPERTIES="cff:no-stem-darkening=0 cff:darkening-parameters=500,350,1000,25,1667,0,2000,0 autofitter:no-stem-darkening=0 autofitter:darkening-parameters=500,350,1000,25,1667,0,2000,0"
 ```
 
 more in docs https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening
