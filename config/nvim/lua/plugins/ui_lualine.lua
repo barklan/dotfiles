@@ -121,7 +121,7 @@ return {
                                 if name == "" then
                                     return name
                                 else
-                                    return "Buffer: " .. name
+                                    return "buf: " .. name
                                 end
                             end,
                             source = diff_source,
