@@ -47,7 +47,7 @@ return {
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
                 day_brightness = 0.25,
                 lualine_bold = true,
-                transparent = false, -- TODO: experimental
+                transparent = true, -- TODO: experimental
                 on_highlights = function(hl, c)
                     Normal = { guifg = "#C0CAF5", guibg = "#1A1B26", forse = true }
 
