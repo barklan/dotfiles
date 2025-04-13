@@ -72,10 +72,6 @@ return {
                     extra_args = { "--max-len=250", "--base-formatter=gofumpt" },
                 }),
                 null_ls.builtins.formatting.sqruff,
-                null_ls.builtins.formatting.black,
-                null_ls.builtins.formatting.isort.with({
-                    extra_args = { "--profile=black" },
-                }),
                 null_ls.builtins.formatting.fish_indent,
             }
 
