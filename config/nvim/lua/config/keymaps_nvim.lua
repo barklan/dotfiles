@@ -180,6 +180,8 @@ end, { silent = true, desc = "Stage current file" })
 
 vim.keymap.set("n", "<C-g>j", function()
     vim.cmd(":update")
+    vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
+
     vim.schedule(SmartCommit)
 end, { silent = true, desc = "Smart commit" })
 

@@ -6,14 +6,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     callback = function()
         vim.defer_fn(function()
             vim.cmd("clearjumps") -- NOTE: no way currently to delete specific entry from jumplist
-            vim.cmd("echo")
+            -- vim.cmd("echo")
             vim.cmd("normal! `A")
 
             -- vim.cmd(":Neotree show")
-            vim.defer_fn(function()
-                -- vim.cmd(":Neotree close")
-                vim.cmd(":Neotree show source=filesystem position=left") -- source can be "last" or "filesystem"
-            end, 0)
+            -- vim.defer_fn(function()
+            -- vim.cmd(":Neotree close")
+            vim.cmd(":Neotree show source=filesystem position=left") -- source can be "last" or "filesystem"
+            -- end, 0)
         end, 0)
     end,
 })
@@ -23,10 +23,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     pattern = "COMMIT_EDITMSG",
     callback = function()
         -- vim.cmd(":Neotree close")
-        vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
-        vim.defer_fn(function()
-            vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
-        end, 100)
+        -- vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
+        -- vim.defer_fn(function()
+        --     vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
+        -- end, 100)
 
         vim.defer_fn(function()
             require("nvim-gitstatus").update_git_status()
