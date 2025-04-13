@@ -42,7 +42,7 @@ sudo pacman -Syu --needed \
 sudo pacman -Syu --needed \
 	neovim \
 	go rustup sccache cargo-outdated \
-	protobuf pyenv nodejs npm typescript lua luajit luarocks llvm lld clang \
+	protobuf pyenv nodejs npm typescript lua luajit llvm lld clang \
 	docker docker-compose docker-buildx \
 	alacritty bubblewrap git-lfs \
 	graphviz python-pygments hugo \
