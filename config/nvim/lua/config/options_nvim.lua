@@ -80,6 +80,7 @@ vim.diagnostic.config({
     update_in_insert = false,
 })
 
+
 -- Don't display `~` at the end of buffer.
 vim.opt.fillchars = { eob = " " }
 
