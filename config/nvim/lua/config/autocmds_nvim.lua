@@ -25,23 +25,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = augroup("colorscheme_kitty_on_enter"),
-    once = true,
-    callback = function()
-        require("extra.decolor").golang()
-
-        local bg = vim.o.background
-        if bg == "light" then
-            -- TODO: move this to startup
-            vim.api.nvim_set_hl(0, "@string", { link = "String", force = true })                 -- This is for vscode light theme
-            vim.api.nvim_set_hl(0, "@comment", { link = "Comment", force = true })               -- This is for vscode light theme
-        elseif bg == "dark" then
-            vim.api.nvim_set_hl(0, "@string", { link = "String", italic = false, force = true }) -- This is for tokyonight night theme
-        end
-    end,
-})
-
 vim.api.nvim_create_autocmd({ "FileType" }, {
     group = augroup("autospell"),
     pattern = { "gitcommit" },

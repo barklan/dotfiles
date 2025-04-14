@@ -83,6 +83,14 @@ vim.diagnostic.config({
 vim.opt.fillchars = { eob = " " }
 
 require("extra.autotheme").load_colorscheme()
+require("extra.decolor").golang()
+local bg = vim.o.background
+if bg == "light" then
+    vim.api.nvim_set_hl(0, "@string", { link = "String", force = true }) -- This is for vscode light theme
+    vim.api.nvim_set_hl(0, "@comment", { link = "Comment", force = true }) -- This is for vscode light theme
+elseif bg == "dark" then
+    vim.api.nvim_set_hl(0, "@string", { link = "String", italic = false, force = true }) -- This is for tokyonight night theme
+end
 
 local function cwd()
     local full_cwd = vim.fn.getcwd()
