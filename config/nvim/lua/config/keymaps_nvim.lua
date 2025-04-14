@@ -35,6 +35,8 @@ local close_current_buffer = function()
             vim.cmd("echo")
         end)
         require("mini.bufremove").delete(0)
+    elseif vim.bo.filetype == "grug-far" then
+        require("grug-far").get_instance(0):close()
     elseif vim.bo.readonly == true then
         require("mini.bufremove").delete(0)
     else
