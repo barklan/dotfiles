@@ -14,7 +14,7 @@ return {
     {
         "akinsho/git-conflict.nvim",
         cond = NotVSCode,
-        lazy = false, -- TODO: Not great lazy loading, does not highlight conflicts in buffer
+        lazy = false, -- NOTE: Not great lazy loading, does not highlight conflicts in buffer
         -- event = "VeryLazy",
         version = "*",
         config = function()
