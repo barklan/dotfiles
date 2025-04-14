@@ -5,7 +5,7 @@ return {
         cond = NotVSCode,
         config = function()
             require("better_escape").setup({
-                timeout = 300, -- after `timeout` passes, you can press the escape key and the plugin will ignore it
+                timeout = 300,            -- after `timeout` passes, you can press the escape key and the plugin will ignore it
                 default_mappings = false, -- setting this to false removes all the default mappings
                 mappings = {
                     -- i for insert, other modes are the first letter too
@@ -35,8 +35,8 @@ return {
         "haya14busa/vim-asterisk",
         lazy = true,
         keys = {
-            { "*", [[<Plug>(asterisk-z*)]], mode = { "n", "x" } },
-            { "#", [[<Plug>(asterisk-z#)]], mode = { "n", "x" } },
+            { "*",  [[<Plug>(asterisk-z*)]],  mode = { "n", "x" } },
+            { "#",  [[<Plug>(asterisk-z#)]],  mode = { "n", "x" } },
             { "g*", [[<Plug>(asterisk-gz*)]], mode = { "n", "x" } },
             { "g#", [[<Plug>(asterisk-gz#)]], mode = { "n", "x" } },
         },
@@ -56,9 +56,19 @@ return {
                 custom_textobjects = {
                     o = false, -- To not overwrite unimpaired.nvim
 
-                    -- Line without whitespace
+                    -- Whole buffer.
+                    g = function()
+                        local from = { line = 1, col = 1 }
+                        local to = {
+                            line = vim.fn.line('$'),
+                            col = math.max(vim.fn.getline('$'):len(), 1)
+                        }
+                        return { from = from, to = to }
+                    end,
+
+                    -- Line without whitespace.
                     k = function()
-                        local line = vim.api.nvim_get_current_line() -- Get current line (1-based)
+                        local line = vim.api.nvim_get_current_line()  -- Get current line (1-based)
                         local row = vim.api.nvim_win_get_cursor(0)[1] -- Current line number
 
                         -- Find first non-whitespace character
@@ -97,7 +107,7 @@ return {
                             -- - snake_case_words in lowercase
                             -- - regular lowercase words
                             "%f[^%s%p][%l%d]+%f[^%l%d]", -- after whitespace/punctuation, 1+ lowercase letters, to end of lowercase letters
-                            "^[%l%d]+%f[^%l%d]", -- after beginning of line, 1+ lowercase letters, to end of lowercase letters
+                            "^[%l%d]+%f[^%l%d]",         -- after beginning of line, 1+ lowercase letters, to end of lowercase letters
 
                             -- Matches uppercase or lowercase letters up until not letters.
                             -- This covers:
@@ -107,7 +117,7 @@ return {
                             -- (it must be both uppercase and lowercase otherwise it will
                             -- match just the first letter of PascalCaseWords)
                             "%f[^%s%p][%a%d]+%f[^%a%d]", -- after whitespace/punctuation, 1+ letters, to end of letters
-                            "^[%a%d]+%f[^%a%d]", -- after beginning of line, 1+ letters, to end of letters
+                            "^[%a%d]+%f[^%a%d]",         -- after beginning of line, 1+ letters, to end of letters
                         },
                         "^().*()$",
                     },
@@ -165,7 +175,7 @@ return {
         lazy = true,
         keys = {
             { ",", "<cmd>lua require('substitute').operator()<cr>", mode = { "n" } },
-            { ",", "<cmd>lua require('substitute').visual()<cr>", mode = { "x" } },
+            { ",", "<cmd>lua require('substitute').visual()<cr>",   mode = { "x" } },
         },
         opts = {},
     },
