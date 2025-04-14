@@ -122,7 +122,6 @@ SmartCommit = function()
                     local stderr = table.concat(j:stderr_result(), "\n")
 
                     if vim.g.smart_commit_prep_try <= 2 then
-
                         -- NOTE: this happens too often, don't even notify
                         -- vim.schedule(function()
                         --     vim.notify("git smart-prep failed, retrying in 500ms", "info", { title = "git" })
@@ -220,6 +219,37 @@ function CloseNamelessBuffers()
             -- Check for unnamed, unmodified, listed buffers
             if name == "" and not modified and listed then
                 vim.api.nvim_buf_delete(buf, { force = true })
+            end
+        end
+    end
+end
+
+function CloseBuffersNotInCWD()
+    local cwd = vim.fn.getcwd()
+    if cwd:sub(-1) ~= "/" then
+        cwd = cwd .. "/"
+    end
+
+    -- Escape special characters in the path for pattern matching
+    local escaped_cwd = cwd:gsub("([%[%]%^%$%(%)%%%.%+%-%?])", "%%%1")
+
+    local buffers = vim.api.nvim_list_bufs()
+
+    for _, buf in ipairs(buffers) do
+        if vim.api.nvim_buf_is_loaded(buf) then
+            local buf_name = vim.api.nvim_buf_get_name(buf)
+
+            -- Skip unnamed buffers and special buffers
+            if buf_name ~= "" and not buf_name:match("^[a-z]+://") then
+                if not buf_name:match("^" .. escaped_cwd) then
+                    if vim.api.nvim_get_option_value("modified", { buf = buf }) then
+                        print("Buffer " .. buf_name .. " has unsaved changes. Not closing.")
+                    else
+                        -- Close the buffer
+                        -- vim.api.nvim_buf_delete(buf, { force = true })
+                        require("mini.bufremove").delete(buf)
+                    end
+                end
             end
         end
     end

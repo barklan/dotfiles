@@ -276,6 +276,7 @@ vim.keymap.set("n", "<leader>l", function()
     vim.cmd("noh")
     vim.cmd("cclose")
     CloseNamelessBuffers()
+    CloseBuffersNotInCWD()
     vim.cmd("wall")
     -- vim.cmd("on") -- close other windows
     vim.cmd("echo")
