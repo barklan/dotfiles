@@ -24,7 +24,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = ',' -- FIX: map substitute plugin to this
+vim.g.maplocalleader = " "
 
 require("lazy").setup({
     spec = {
