@@ -252,12 +252,12 @@
     "terminal.explorerKind": "external",
     "workbench.editor.tabActionCloseVisibility": false,
     "editor.matchBrackets": "never",
-    "workbench.iconTheme": "material-icon-theme",
     "workbench.tree.indent": 14,
     "diffEditor.ignoreTrimWhitespace": true,
     "workbench.layoutControl.enabled": false,
     "window.customTitleBarVisibility": "never",
     "window.titleBarStyle": "native",
     "workbench.colorTheme": "Tokyo Night",
-    "window.zoomPerWindow": false
+    "window.zoomPerWindow": false,
+    "workbench.iconTheme": null
 }
