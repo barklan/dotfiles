@@ -25,9 +25,7 @@ vim.keymap.set("i", "<C-;>", "<C-v>", silent) -- To insert something without exp
 
 local close_current_buffer = function()
     local ft = vim.bo.filetype
-    if ft == "DiffviewFiles" then
-        vim.cmd(":DiffviewClose")
-    elseif ft == "qf" then
+    if ft == "qf" then
         vim.cmd("cclose")
     elseif ft == "help" then
         vim.cmd("bdelete")
@@ -185,9 +183,6 @@ vim.keymap.set(
     ":<c-u>exe ':term git log -L' line(\"'<\").','.line(\"'>\").':'.expand('%')<CR>",
     { silent = true, noremap = true, desc = "Git history of visual selection" }
 )
-
-vim.keymap.set("n", "<C-g>d", ":DiffviewOpen develop..@<cr>", { silent = true, desc = "Diffview develop..@" })
-vim.keymap.set("n", "<C-g>q", ":DiffviewClose<cr>", { silent = true, desc = "Close Diffivew" })
 
 vim.keymap.set("n", "<C-g>o", "<cmd>silent !git-open<cr>")
 

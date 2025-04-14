@@ -22,17 +22,6 @@ return {
         end,
     },
     {
-        "sindrets/diffview.nvim",
-        cond = NotVSCode,
-        lazy = true,
-        cmd = { "DiffviewFileHistory", "DiffviewOpen" },
-        config = function()
-            require("diffview").setup({
-                use_icons = false,
-            })
-        end,
-    },
-    {
         "lewis6991/gitsigns.nvim",
         cond = NotVSCode,
         lazy = true,

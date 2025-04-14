@@ -5,17 +5,7 @@ M.setup = function()
     M.augroup = augroup
 end
 
-local disabled_filetypes = {
-    "DiffviewFileHistory",
-    "DiffviewFiles",
-}
-
 M.on_attach = function(client, bufnr)
-    if vim.tbl_contains(disabled_filetypes, vim.bo[bufnr].filetype) then
-        client.stop()
-        return
-    end
-
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
