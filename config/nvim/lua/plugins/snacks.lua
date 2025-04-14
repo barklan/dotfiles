@@ -3,6 +3,11 @@ local layout_default = {
     preset = "ivy_split",
 }
 
+local layout_default_q = {
+    preset = "ivy",
+}
+
+
 local layout_select = {
     preview = false,
     preset = "select",
@@ -13,10 +18,11 @@ local layout_ctrll = {
     preset = "vscode",
 }
 
-local layout_lsp_symbols = {
-    -- preview = false,
-    preset = "right",
+local layout_ctrll_preview = {
+    preview = "main",
+    preset = "vscode",
 }
+
 
 local tab_map = { "list_down", mode = { "i", "n" } }
 
@@ -166,7 +172,7 @@ return {
                 "<leader>u",
                 function()
                     Snacks.picker.undo({
-                        layout = layout_lsp_symbols,
+                        layout = layout_default,
                         on_show = function()
                             vim.cmd.stopinsert()
                         end,
@@ -225,7 +231,7 @@ return {
                         vim.notify("call this from buffer", "info", { timeout = 1000 })
                     elseif ext == "go" or ext == "rust" or ext == "python" or ext == "lua" or ext == "json" or ext == "yaml" then
                         Snacks.picker.lsp_symbols({
-                            layout = layout_lsp_symbols,
+                            layout = layout_ctrll_preview,
                             filter = {
                                 default = {
                                     "Class",
@@ -246,7 +252,7 @@ return {
                         })
                     else
                         Snacks.picker.treesitter({
-                            layout = layout_lsp_symbols,
+                            layout = layout_ctrll_preview,
                         })
                     end
                 end,
@@ -254,7 +260,7 @@ return {
             {
                 "<C-t>",
                 function()
-                    Snacks.picker.lsp_workspace_symbols({ layout = layout_default })
+                    Snacks.picker.lsp_workspace_symbols({ layout = layout_ctrll })
                 end,
             },
             {
@@ -381,7 +387,7 @@ return {
                 "<C-g>s",
                 function()
                     Snacks.picker.git_stash({
-                        layout = layout_lsp_symbols,
+                        layout = layout_default,
                         confirm = "cancel", -- NOTE: disabled for safety
                     })
                 end,
@@ -391,7 +397,7 @@ return {
                 "<C-g>k",
                 function()
                     Snacks.picker.git_branches({
-                        layout = layout_lsp_symbols,
+                        layout = layout_default_q,
                         on_close = function()
                             vim.defer_fn(function()
                                 require("nvim-gitstatus").update_git_status()
@@ -405,7 +411,7 @@ return {
                 "<C-g>lf",
                 function()
                     Snacks.picker.git_log_file({
-                        layout = layout_lsp_symbols,
+                        layout = layout_default_q,
                     })
                 end,
                 desc = "Git Log File",
@@ -414,7 +420,7 @@ return {
                 "<C-g>ll",
                 function()
                     Snacks.picker.git_log({
-                        layout = layout_lsp_symbols,
+                        layout = layout_default_q,
                     })
                 end,
                 desc = "Git Log File",
@@ -423,7 +429,7 @@ return {
                 "<C-g>i",
                 function()
                     Snacks.picker.git_log_line({
-                        layout = layout_lsp_symbols,
+                        layout = layout_default_q,
                     })
                 end,
                 desc = "Git Log Line",
