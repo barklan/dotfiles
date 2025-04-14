@@ -25,7 +25,9 @@ vim.keymap.set("i", "<C-;>", "<C-v>", silent) -- To insert something without exp
 
 local close_current_buffer = function()
     local ft = vim.bo.filetype
-    if ft == "qf" then
+    if ft == "DiffviewFiles" then
+        vim.cmd(":DiffviewClose")
+    elseif ft == "qf" then
         vim.cmd("cclose")
     elseif ft == "help" then
         vim.cmd("bdelete")
