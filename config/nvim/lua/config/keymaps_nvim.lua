@@ -24,24 +24,25 @@ vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true }) -- So that <Tab> mappi
 vim.keymap.set("i", "<C-;>", "<C-v>", silent) -- To insert something without expanding (to bypass abbreviations for example).
 
 local close_current_buffer = function()
-    if vim.bo.filetype == "qf" then
+    local ft = vim.bo.filetype
+    if ft == "qf" then
         vim.cmd("cclose")
-    elseif vim.bo.filetype == "help" then
+    elseif ft == "help" then
         vim.cmd("bdelete")
-    elseif vim.bo.filetype == "Trouble" then
+    elseif ft == "Trouble" then
         vim.cmd(":q")
-    elseif vim.bo.filetype == "oil" then
+    elseif ft == "oil" then
         vim.cmd(":u0")
         vim.schedule(function()
             vim.cmd("echo")
         end)
         require("mini.bufremove").delete(0)
-    elseif vim.bo.filetype == "grug-far" then
+    elseif ft == "grug-far" then
         require("grug-far").get_instance(0):close()
     elseif vim.bo.readonly == true then
         require("mini.bufremove").delete(0)
     else
-        local buf_ft = vim.bo.filetype
+        local buf_ft = ft
         if buf_ft == "gitcommit" then -- This condition needed to trigger autocmd.
             vim.cmd(":write")
         else
@@ -176,7 +177,15 @@ end, { desc = "Toggle diagnostics" })
 --Git
 -----
 
-vim.keymap.set("v", "<C-g>i", ":<c-u>exe ':term git log -L' line(\"'<\").','.line(\"'>\").':'.expand('%')<CR>", { silent = true, noremap = true, desc = "Git history of visual selection" })
+vim.keymap.set(
+    "v",
+    "<C-g>i",
+    ":<c-u>exe ':term git log -L' line(\"'<\").','.line(\"'>\").':'.expand('%')<CR>",
+    { silent = true, noremap = true, desc = "Git history of visual selection" }
+)
+
+vim.keymap.set("n", "<C-g>d", ":DiffviewOpen develop..@<cr>", { silent = true, desc = "Diffview develop..@" })
+vim.keymap.set("n", "<C-g>q", ":DiffviewClose<cr>", { silent = true, desc = "Close Diffivew" })
 
 vim.keymap.set("n", "<C-g>o", "<cmd>silent !git-open<cr>")
 
