@@ -109,8 +109,6 @@ return {
                             ["<leader><Tab>"] = { "cancel", mode = { "n" } },
                             ["<C-u>"] = { "<c-u>", mode = { "i" }, expr = true, desc = "delete line" },
                             ["<M-r>"] = { "toggle_regex", mode = { "i", "n" }, desc = "toggle regex" },
-                            ["<M-q>"] = { "qflist", mode = { "i", "n" }, desc = "send to quickfix" },
-                            ["<C-q>"] = { "cancel", mode = { "i", "n" }, desc = "cancel" },
                             -- <C-t> Mapped in normal mode also, because it crashes in normal mode otherwise.
                             ["<C-t>"] = { " -- -t", mode = { "i", "n" }, expr = true, desc = "filter by filetype" },
                         },

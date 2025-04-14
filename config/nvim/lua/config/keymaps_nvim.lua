@@ -62,7 +62,8 @@ vim.keymap.set("i", "<C-CR>", "<C-o>o", silent)
 vim.keymap.set("i", "<C-BS>", "<C-W>", silent)
 vim.keymap.set("c", "<C-BS>", "<C-W>", silent)
 
-vim.keymap.set("n", "<C-q>", "<cmd>qall<cr>", { silent = true, desc = "Quit Neovim" })
+-- NOTE: use ZZ or ZQ
+-- vim.keymap.set("n", "<C-q>", "<cmd>qall<cr>", { silent = true, desc = "Quit Neovim" })
 
 -- Move lines like in vscode!
 vim.keymap.set("n", "<C-M-n>", ":m .+1<CR>==")
