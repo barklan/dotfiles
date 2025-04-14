@@ -18,9 +18,7 @@ return {
         -- event = "VeryLazy",
         version = "*",
         config = function()
-            require("git-conflict").setup({
-                disable_diagnostics = true,
-            })
+            require("git-conflict").setup({})
         end,
     },
     {
