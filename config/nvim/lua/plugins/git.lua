@@ -74,7 +74,7 @@ return {
                 -- Actions
                 map({ "n", "v" }, "<C-g>ha", ":Gitsigns stage_hunk<CR>", { desc = "stage hunk" })
                 map({ "n", "v" }, "<C-g>hr", ":Gitsigns reset_hunk<CR>", { desc = "reset hunk" })
-                map("n", "<C-g>hu", gs.undo_stage_hunk, { desc = "unstage hunk" })
+                map("n", "<C-g>hu", gs.undo_stage_hunk, { desc = "undo stage hunk" })
                 map("n", "<C-g>hR", gs.reset_buffer, { desc = "reset buffer" })
                 map("n", "<C-g>hp", gs.preview_hunk, { desc = "preview hunk" })
                 map("n", "<C-g>hi", gs.preview_hunk_inline, { desc = "preview hunk inline" })
