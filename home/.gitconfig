@@ -138,11 +138,6 @@
 [tag]
 	gpgSign = true
     sort = version:refname
-[merge]
-	tool = vscode
-	conflictstyle = zdiff3
-[mergetool "vscode"]
-    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [diff]
     colorMoved = default
     tool = kitty
@@ -156,6 +151,19 @@
     cmd = kitten diff $LOCAL $REMOTE
 [difftool "vscode-diff"]
     cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+    ; guitool = nvimdiff
+	conflictstyle = zdiff3
+[mergetool]
+    prompt = false
+    guiDefault = false
+    keepBackup = false
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[mergetool "vscode"]
+    ; cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+    cmd = code --wait --merge $LOCAL $REMOTE $BASE $MERGED
 [init]
 	defaultBranch = main
 [fetch]
