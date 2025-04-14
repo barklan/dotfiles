@@ -175,6 +175,8 @@ end, { desc = "Toggle diagnostics" })
 --Git
 -----
 
+vim.keymap.set("v", "<C-g>i", ":<c-u>exe ':term git log -L' line(\"'<\").','.line(\"'>\").':'.expand('%')<CR>", { silent = true, noremap = true, desc = "Git history of visual selection" })
+
 vim.keymap.set("n", "<C-g>o", "<cmd>silent !git-open<cr>")
 
 vim.keymap.set("n", "<C-g>a", function()
