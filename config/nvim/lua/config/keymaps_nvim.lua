@@ -280,8 +280,6 @@ end
 
 vim.keymap.set("n", "<C-M-e>", ":Neotree source=diagnostics toggle float focus reveal=true<cr>", { silent = true, desc = "diasgnostic float" })
 
--- Clear stuff
--- TODO: also delete file buffers that don't have cwd prefix
 vim.keymap.set("n", "<leader>l", function()
     require("notify").dismiss({ silent = true, pending = false })
     vim.cmd("noh")

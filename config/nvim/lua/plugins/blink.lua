@@ -13,7 +13,7 @@ return {
                 disable_in_replace_mode = false,
                 disable_in_macro = false,
                 enable_abbr = false,
-                check_ts = false, -- TODO: what is this?
+                check_ts = false,
                 ignored_next_char = "[%w%.]",
                 map_cr = true,
             })
