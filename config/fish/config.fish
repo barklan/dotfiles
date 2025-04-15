@@ -293,11 +293,9 @@ function run
                 go test -cover -race $dir_path
             end
         case lua
-            docker run -it --rm --name temp-luajit nickblah/luajit:2.1-alpine3.20 luajit -v
+            nvim -version
             print-line
-            docker run -it --rm --name temp-luajit --network host \
-                -v "$PWD":/usr/src/myapp -w /usr/src/myapp \
-                nickblah/luajit:2.1-alpine3.20 luajit $file
+            nvim -l $file_full
         case js
             set -l node_version $(node --version)
             echo "node $node_version" && print-line
