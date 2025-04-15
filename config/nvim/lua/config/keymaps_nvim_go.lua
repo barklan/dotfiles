@@ -4,11 +4,13 @@
 
 -- https://github.com/ray-x/go.nvim/issues/352
 if IsPersonalDevice() then
+    -- use golangci-lint v2
     vim.api.nvim_create_user_command("GoLintEx", function()
         vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yaml --output.tab.path=stdout --show-stats=false --uniq-by-line=false"
         vim.cmd("GoMake")
     end, {})
 else
+    -- use golangci-lint v1
     vim.api.nvim_create_user_command("GoLintEx", function()
         vim.opt_local.makeprg = "golangci-lint run --print-issued-lines=false --exclude-use-default=true --out-format=line-number"
         vim.cmd("GoMake")
