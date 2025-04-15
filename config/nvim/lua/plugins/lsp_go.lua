@@ -55,19 +55,6 @@ return {
                     virt_text_pos = "inline", -- or "eol"
                 },
                 dap_debug_gui = {
-                    -- expand_lines = true,
-                    -- floating = {
-                    --     border = "single",
-                    --     mappings = {
-                    --         close = { "q", "<Esc>" },
-                    --     },
-                    -- },
-                    -- force_buffers = true,
-                    -- icons = {
-                    --     collapsed = "",
-                    --     current_frame = "",
-                    --     expanded = "",
-                    -- },
                     layouts = {
                         {
                             elements = {
@@ -83,10 +70,6 @@ return {
                                     id = "stacks",
                                     size = 0.20,
                                 },
-                                -- {
-                                --     id = "watches",
-                                --     size = 0.25,
-                                -- },
                             },
                             position = "left",
                             size = 40,
