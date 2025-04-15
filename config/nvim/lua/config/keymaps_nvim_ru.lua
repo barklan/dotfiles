@@ -4,7 +4,8 @@
 
 local silent = { silent = true }
 
-vim.keymap.set("i", "ло", "<esc>", silent)
+-- NOTE: mapped using better-escape.nvim
+-- vim.keymap.set("i", "ло", "<esc>", silent)
 
 -- local function escape(str)
 --     -- You need to escape these characters to work correctly
