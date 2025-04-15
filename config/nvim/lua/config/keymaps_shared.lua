@@ -12,10 +12,10 @@ vim.keymap.set(all_map_modes, "<2-MiddleMouse>", "<Nop>")
 vim.keymap.set(all_map_modes, "<3-MiddleMouse>", "<Nop>")
 vim.keymap.set(all_map_modes, "<4-MiddleMouse>", "<Nop>")
 
-vim.keymap.set("n", "<leader>rw", [[:%s#<C-r><C-w>##c<Left><Left>]], { desc = "Search and replace word" })
-vim.keymap.set("n", "<leader>rs", [[:%s###c<Left><Left>]], { desc = "Search and replace last search" })
-vim.keymap.set("v", "<leader>rs", [[:s###c<Left><Left>]], { desc = "Search and replace last search" })
-vim.keymap.set("n", "<leader>rq", [[:cfdo %s##c<Left><Left>]], { desc = "Search and replace (quickfix global)" })
+vim.keymap.set("n", "<leader>rw", [[:%s#\V<C-r><C-w>##c<Left><Left>]], { desc = "Search and replace word" })
+vim.keymap.set("n", "<leader>rs", [[:%s#\V##c<Left><Left>]], { desc = "Search and replace last search" })
+vim.keymap.set("v", "<leader>rs", [[:s#\V##c<Left><Left>]], { desc = "Search and replace last search" })
+vim.keymap.set("n", "<leader>rq", [[:cfdo %s#\V#c<Left><Left>]], { desc = "Search and replace (quickfix global)" })
 
 -- Make < > shifts keep selection.
 vim.keymap.set("v", "<", "<gv")
