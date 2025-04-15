@@ -40,7 +40,6 @@ fisher install PatrickF1/fzf.fish
 fisher install jorgebucaran/autopair.fish
 fisher install wfxr/forgit
 fisher install barklan/enter-docker-fzf
-fisher install jorgebucaran/nvm.fish
 ```
 
 Configure applications:
