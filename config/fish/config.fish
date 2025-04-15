@@ -293,7 +293,7 @@ function run
                 go test -cover -race $dir_path
             end
         case lua
-            nvim -version
+            nvim -version | head -n 3
             print-line
             nvim -l $file_full
         case js
