@@ -21,7 +21,7 @@
 - [Increase commit interval](https://wiki.archlinux.org/title/Ext4#Increasing_commit_interval) for ext4.
 - [Enable fast commit](https://wiki.archlinux.org/title/Ext4#Enabling_fast_commit_in_existing_filesystems) for main ext4 partition.
 - Walk through all KDE settings:
-  - 200ms for key hold delay
+  - 200ms for key hold delay, 30 repeat
   - Make Caps Lock an extra Ctrl
 
 ## Packages
