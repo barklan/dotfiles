@@ -2,14 +2,12 @@
 
 ## Neovim
 
-## Useful builtin keymaps
+## Forgotten builtin keymaps
 
 In normal mode:
 
 - `gi` - Drop into insert mode at last inserted position
 - `gv` - Select previous selection
-- `ZZ` - Save and close
-- `ZQ` - Close without saving
 
 In selection mode:
 
@@ -35,10 +33,9 @@ Command `:g/^/` matches every line.
 Select lines and
 
 ```txt
-:norm I foo
+:norm I foo      : Prepend all selected lines with "foo".
+:%norm! @a       : Execute the macro stored in register a on all lines.
 ```
-
-Prepend all selected lines with "foo".
 
 ### :sort
 
@@ -578,6 +575,7 @@ TODO: needs update
 ```txt
 set shell := ["bash", "-uc"]
 set dotenv-load
+set unstable
 
 # https://just.systems/man/en/chapter_30.html
 home_dir := env_var('HOME')
