@@ -50,7 +50,7 @@ return {
                         ["<BS>"] = "none",
                         ["<C-f>"] = "none",
                         ["ZZ"] = function()
-                            vim.cmd(":qall")
+                            vim.cmd(":wqall")
                         end,
                         ["<tab>"] = "next_source",
                     },
