@@ -23,7 +23,7 @@ return {
         end,
     },
     {
-        dir = vim.fn.stdpath("config") .. "/lplug/acceleratedjk",
+        "barklan/accelerated-jk.nvim",
         lazy = false, -- Don't want to have any delays here.
         keys = {
             { "j", silent = true },
