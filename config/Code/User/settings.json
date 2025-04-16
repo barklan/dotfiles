@@ -230,7 +230,7 @@
     "workbench.layoutControl.enabled": false,
     "window.customTitleBarVisibility": "never",
     "window.titleBarStyle": "native",
-    "workbench.colorTheme": "Tokyo Night",
     "window.zoomPerWindow": false,
-    "workbench.iconTheme": null
+    "workbench.iconTheme": null,
+    "workbench.colorTheme": "Tokyo Night Light"
 }
