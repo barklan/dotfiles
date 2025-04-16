@@ -97,6 +97,7 @@
 	# PUSH
 	ph = push
 	phf = push --force-with-lease --force-if-includes
+    pha = !bash ~/sys/git-async-push.sh
     ; php = push --prune --all
 
     # Github
