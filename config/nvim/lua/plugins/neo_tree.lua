@@ -49,7 +49,9 @@ return {
                         ["t"] = "none",
                         ["<BS>"] = "none",
                         ["<C-f>"] = "none",
-                        ["Z"] = "expand_all_nodes",
+                        ["ZZ"] = function()
+                            vim.cmd(":qall")
+                        end,
                         ["<tab>"] = "next_source",
                     },
                 },
@@ -98,7 +100,7 @@ return {
                             untracked = "UNTRACKED ",
                             added = "NEW ",
                             modified = "",
-                            unstaged =  "＊ ",
+                            unstaged = "＊ ",
                             deleted = "DEL ",
                             renamed = "RENAME ",
                             conflict = "CONFLICT! ",
