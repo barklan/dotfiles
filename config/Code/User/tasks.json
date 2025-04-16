@@ -15,7 +15,7 @@
             "command": "git smart",
             "options": {
                 "env": {
-                    "GIT_EDITOR": "alacritty --working-directory . -e nvim"
+                    "GIT_EDITOR": "kitty --working-directory=. nvim"
                 }
             },
             "presentation": {
@@ -57,7 +57,7 @@
         {
             "label": "golangci-lint-project",
             "type": "shell",
-            "command": "bash -ic 'yes_or_no \"Run golangci-lint?\" true && fish -ic \"golangci-lint run -c ./.golangci.yml\" || true'",
+            "command": "fish -ic 'yes_or_no \"Run golangci-lint?\" true && fish -ic \"golangci-lint run -c ./.golangci.yml\" || true'",
             "problemMatcher": {
                 "owner": "golangci-lint",
                 "fileLocation": [
