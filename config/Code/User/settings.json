@@ -1,7 +1,7 @@
 {
     "vscode-neovim.compositeKeys": {
         "kj": {
-            "command": "vscode-neovim.escape",
+            "command": "vscode-neovim.escape"
         }
     },
     "editor.renderWhitespace": "none",
@@ -14,9 +14,6 @@
         "comments": "on",
         "strings": "on",
         "other": "on"
-    },
-    "[git-commit]": {
-        "workbench.editor.restoreViewState": false
     },
     "editor.fontLigatures": true,
     "editor.fontFamily": "'Iosevka', 'Fira Code Retina', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
@@ -31,7 +28,6 @@
     "task.problemMatchers.neverPrompt": {
         "shell": true
     },
-    "editor.wordWrapColumn": 90,
     "workbench.list.automaticKeyboardNavigation": false,
     "terminal.integrated.commandsToSkipShell": [
         "workbench.action.toggleSidebarVisibility",
@@ -52,7 +48,6 @@
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "workbench.editor.limit.perEditorGroup": true,
-    "redhat.telemetry.enabled": false,
     "editor.suggest.preview": true,
     "workbench.editor.closeOnFileDelete": true,
     "notebook.consolidatedRunButton": true,
@@ -63,18 +58,6 @@
         "**/.bloop": true,
         "**/.metals": true,
         "**/.ammonite": true
-    },
-    "search.exclude": {
-        "**/__pypackages__/**": true,
-        "**/.cache/**": true,
-        "**/.pnpm": true,
-        "**/dist/**": true,
-        "**/go.sum": true,
-        "**/out/**": true,
-        "**/package-lock.json": true,
-        "**/pnpm-lock.yaml": true,
-        "**/tmp": true,
-        "**/vendor": true
     },
     "go.useLanguageServer": true,
     "gopls": {
@@ -97,16 +80,6 @@
     "git.enableSmartCommit": true,
     "git.enableCommitSigning": true,
     "git.showUnpublishedCommitsButton": "never",
-    "go.editorContextMenuCommands": {
-        "toggleTestFile": false,
-        "addTags": false,
-        "testAtCursor": false,
-        "generateTestForFunction": false,
-        "addImport": false,
-        "testCoverage": false,
-        "playground": false,
-        "debugTestAtCursor": false
-    },
     "window.restoreFullscreen": true,
     "notebook.cellToolbarLocation": {
         "default": "right"
