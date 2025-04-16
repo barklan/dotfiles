@@ -1,7 +1,6 @@
 local silent = { silent = true }
 
 vim.keymap.set("n", "q", "<Nop>")
-vim.keymap.set("n", "/", "<cmd>call VSCodeNotify('actions.find')<cr>", silent)
 
 -- Use VS Code's undo.
 vim.keymap.set("n", "u", "<cmd>call VSCodeNotify('undo')<cr>", silent)
