@@ -15,7 +15,6 @@ return {
         "akinsho/git-conflict.nvim",
         cond = NotVSCode,
         lazy = false, -- NOTE: Not great lazy loading, does not highlight conflicts in buffer
-        -- event = "VeryLazy",
         version = "*",
         config = function()
             require("git-conflict").setup({})
@@ -39,7 +38,6 @@ return {
                     vim.keymap.set(mode, l, r, opts)
                 end
 
-                -- Navigation
                 map("n", "]c", function()
                     if vim.wo.diff then
                         return "]c"
@@ -60,7 +58,6 @@ return {
                     return "<Ignore>"
                 end, { expr = true, desc = "prev_hunk" })
 
-                -- Actions
                 map({ "n", "v" }, "<C-g>ha", ":Gitsigns stage_hunk<CR>", { desc = "stage/unstage hunk" })
                 map({ "n", "v" }, "<C-g>hr", ":Gitsigns reset_hunk<CR>", { desc = "reset hunk" })
                 map("n", "<C-g>hu", gs.undo_stage_hunk, { desc = "undo stage hunk" })

@@ -8,7 +8,6 @@ return {
             require("notify").setup({
                 fps = 60,
                 render = "simple",
-                -- stages = "fade",
                 stages = "static",
             })
 
@@ -25,7 +24,6 @@ return {
                 "Yanked to register",
             }
 
-            -- vim.notify = require("notify")
             vim.notify = function(msg, ...)
                 for _, ignored in ipairs(ignore_messages) do
                     if msg:match(ignored) then
@@ -63,7 +61,7 @@ return {
         },
     },
     {
-        "lewis6991/satellite.nvim", -- This is scroll bar.
+        "lewis6991/satellite.nvim",
         cond = NotVSCode,
         enabled = true,
         lazy = true,
@@ -97,7 +95,7 @@ return {
                     },
                     marks = {
                         enable = false,
-                        show_builtins = false, -- shows the builtin marks like [ ] < >
+                        show_builtins = false,
                         key = "m",
                     },
                     quickfix = {

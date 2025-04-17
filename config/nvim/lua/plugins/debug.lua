@@ -50,10 +50,6 @@ return {
         },
         config = function()
             require("dapui").setup()
-            -- require("dap.ext.vscode").load_launchjs("./.vacode/launch_nvim.json", {
-            --     go = { "go", "delve" }, -- Filetypes to associate
-            --     python = { "python" },  -- Add other languages as needed
-            -- })
         end,
     },
 }

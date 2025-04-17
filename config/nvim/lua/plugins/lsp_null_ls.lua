@@ -63,11 +63,6 @@ return {
             local sources_work = {
                 null_ls.builtins.diagnostics.sqruff,
                 null_ls.builtins.diagnostics.fish,
-                -- null_ls.builtins.diagnostics.golangci_lint.with({
-                --     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-                --     extra_args = { "--no-config", "--concurrency=4", "--max-same-issues=0", "--fast" },
-                --     timeout = 6000,
-                -- }),
                 null_ls.builtins.formatting.golines.with({
                     extra_args = { "--max-len=250", "--base-formatter=gofumpt" },
                 }),

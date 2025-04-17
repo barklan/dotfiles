@@ -19,7 +19,6 @@ return {
 
             require("go").setup({
                 gopls_cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=20m" },
-                -- gopls_cmd = { "gopls" },
                 goimports = "gopls",
                 max_line_len = 250, -- NOTE: should be in sync with null_ls golines
                 gofmt = "golines",
@@ -42,7 +41,6 @@ return {
                 diagnostic = {
                     hdlr = false, -- hook lsp diag handler and send diag to quickfix
                     underline = true,
-                    -- virtual_text = { spacing = 0, prefix = "■" },
                     signs = false,
                     update_in_insert = false,
                 },

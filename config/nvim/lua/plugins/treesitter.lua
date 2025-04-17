@@ -2,11 +2,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
-        -- event = "VeryLazy",
         build = ":TSUpdate",
         dependencies = {
             { "nvim-treesitter/nvim-treesitter-textobjects" },
-            -- { "windwp/nvim-ts-autotag" },
             { "RRethy/nvim-treesitter-endwise" },
             { "theHamsta/nvim-treesitter-pairs" },
         },
@@ -36,31 +34,24 @@ return {
                     enable = true,
                     additional_vim_regex_highlighting = false,
                 },
-                -- autotag = {
-                --     enable = true,
-                -- },
-                -- indent = {
-                --     enable = true,
-                -- },
                 endwise = {
                     enable = true,
                 },
                 pairs = {
                     enable = true,
                     disable = {},
-                    highlight_pair_events = { "CursorMoved" }, -- e.g. {"CursorMoved"}, -- when to highlight the pairs, use {} to deactivate highlighting
-                    highlight_self = false, -- whether to highlight also the part of the pair under cursor (or only the partner)
-                    goto_right_end = true, -- whether to go to the end of the right partner or the beginning
-                    fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')", -- What command to issue when we can't find a pair (e.g. "normal! %")
+                    highlight_pair_events = { "CursorMoved" },
+                    highlight_self = false,
+                    goto_right_end = true,
+                    fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')",
                     keymaps = {
                         goto_partner = "<M-'>",
                         delete_balanced = "<leader>r'",
                     },
                     delete_balanced = {
-                        only_on_first_char = false, -- whether to trigger balanced delete when on first character of a pair
-                        fallback_cmd_normal = nil, -- fallback command when no pair found, can be nil
-                        longest_partner = false, -- whether to delete the longest or the shortest pair when multiple found.
-                        -- E.g. whether to delete the angle bracket or whole tag in  <pair> </pair>
+                        only_on_first_char = false,
+                        fallback_cmd_normal = nil,
+                        longest_partner = false,
                     },
                 },
                 textobjects = {
@@ -70,7 +61,6 @@ return {
                         keymaps = {
                             ["af"] = "@function.outer",
                             ["if"] = "@function.inner",
-                            -- ia and aa (a for argument) are already taken via welle/targets.vim
                             ["ix"] = "@parameter.inner",
                             ["ax"] = "@parameter.outer",
                             ["ak"] = "@comment.outer",
@@ -119,7 +109,6 @@ return {
         lazy = true,
         event = "VeryLazy",
         opts = {
-            -- mode = "topline",
             mode = "cursor",
             max_lines = 2,
         },
@@ -131,7 +120,6 @@ return {
         "numToStr/Comment.nvim",
         cond = NotVSCode,
         lazy = true,
-        -- event = "VeryLazy",
         keys = {
             { "<c-/>", mode = { "n", "x" }, desc = "Comment code" },
             { "<leader>k", mode = { "n" }, desc = "Comment at the eol" },

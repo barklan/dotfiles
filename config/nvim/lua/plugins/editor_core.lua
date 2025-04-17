@@ -5,12 +5,10 @@ return {
         cond = NotVSCode,
         config = function()
             require("better_escape").setup({
-                timeout = 300, -- after `timeout` passes, you can press the escape key and the plugin will ignore it
-                default_mappings = false, -- setting this to false removes all the default mappings
+                timeout = 300,
+                default_mappings = false,
                 mappings = {
-                    -- i for insert, other modes are the first letter too
                     i = {
-                        -- map kj to exit insert mode
                         k = {
                             j = "<Esc>",
                         },
