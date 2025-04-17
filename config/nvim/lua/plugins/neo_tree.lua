@@ -40,7 +40,6 @@ return {
                 },
                 close_if_last_window = true,
                 enable_git_status = true,
-                hijack_netrw_behavior = "open_default",
                 enable_diagnostics = true,
                 window = {
                     width = 40,
@@ -111,8 +110,13 @@ return {
                     },
                 },
                 filesystem = {
+                    hijack_netrw_behavior = "open_default",
                     use_libuv_file_watcher = true,
                     bind_to_cwd = true,
+                    follow_current_file = {
+                        enabled = true,
+                        leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+                    },
                     window = {
                         mappings = {
                             ["O"] = "open_in_file_manager",
@@ -204,10 +208,6 @@ return {
                             -- "__pycache__",
                             -- ".pytest_cache",
                         },
-                    },
-                    follow_current_file = {
-                        enabled = true,
-                        leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                     },
                 },
             })
