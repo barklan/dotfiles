@@ -30,6 +30,7 @@ return {
             end
 
             require("neo-tree").setup({
+                popup_border_style = "rounded",
                 auto_clean_after_session_restore = true,
                 sources = {
                     "filesystem",
