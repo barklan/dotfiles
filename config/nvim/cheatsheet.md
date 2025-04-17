@@ -229,8 +229,8 @@ dust                # Show file tree sorted by size
 ### Diagnostic
 
 ```fish
-sudo strace -yy -p 185021                   # Attach and view
-strace -o out.txt -yy ping -c 1 google.com  # Launch and dump
+sudo strace -Yyy -p 185021                   # Attach and view
+strace -o out.txt -Yyy ping -c 1 google.com  # Launch and dump
 strace -e open -o out.txt cmd               # Track specific syscall
 ps aux | peco                               # Interactive filtering
 sudo lsof                                   # See open files
