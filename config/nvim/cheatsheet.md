@@ -230,8 +230,10 @@ dust                # Show file tree sorted by size
 
 ```fish
 sudo strace -Yyy -p 185021                   # Attach and view
-strace -o out.txt -Yyy ping -c 1 google.com  # Launch and dump
-strace -e open -o out.txt cmd               # Track specific syscall
+sudo strace -o out.txt -Yyy ping -c 1 google.com  # Launch and dump
+sudo strace -e open -o out.txt cmd               # Track specific syscall
+sudp strace -f -e trace=network -- go run main.go # Follow forks and trace network
+
 ps aux | peco                               # Interactive filtering
 sudo lsof                                   # See open files
 sudo lsfd                                   # Modern replacement for lsof
@@ -636,5 +638,3 @@ d:
   echo 'D!'
 
 ```
-
-
