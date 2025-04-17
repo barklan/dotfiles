@@ -73,19 +73,6 @@ vim.api.nvim_create_autocmd({ "BufAdd" }, {
             return a.last_used < b.last_used
         end)
 
-        -- local message = "Sorted Buffers (oldest first):\n"
-        -- for i, item in ipairs(buffers) do
-        --     message = message .. string.format("%d. %s %s (last used: %s)\n",
-        --         i,
-        --         item.buf,
-        --         vim.api.nvim_buf_get_name(item.buf),
-        --         item.last_used > 0 and os.date("%H:%M:%S", item.last_used) or "never")
-        -- end
-        -- vim.notify(message, vim.log.levels.INFO, {
-        --     title = string.format("Active File Buffers (%d/%d)", #buffers, max_buffers),
-        --     timeout = 3000  -- 3 seconds
-        -- })
-        --
         while #buffers > max_buffers do
             local oldest = table.remove(buffers, 1)
             vim.api.nvim_buf_delete(oldest.buf, { force = true })
