@@ -37,8 +37,9 @@ return {
 
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
             local servers = {
+                "clangd",
                 "basedpyright",
                 "ts_ls",
                 "jsonls",
