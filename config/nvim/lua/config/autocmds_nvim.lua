@@ -11,7 +11,6 @@ end
 require("config.auto.limit_buffers")
 require("config.auto.git_auto")
 
--- Abbreviations for Go.
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "go",
     callback = function()

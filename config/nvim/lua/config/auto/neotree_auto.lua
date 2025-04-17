@@ -1,6 +1,6 @@
 vim.api.nvim_create_augroup("neotree_auto", { clear = true })
 
-vim.api.nvim_create_autocmd("VimEnter", { -- Changed from BufReadPre
+vim.api.nvim_create_autocmd("VimEnter", {
     desc = "Open neo-tree on enter",
     group = "neotree_auto",
     once = true,
