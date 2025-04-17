@@ -100,17 +100,6 @@
     push-async = !bash ~/sys/git-async-push.sh
     ; php = push --prune --all
 
-    # Github
-	pr-new = !yes | gh pr create -a @me --fill
-    pr-browse = !gh pr view -w
-    pr-review = !git rbm && git pr-new
-    pr-done = !bash -ic ~/sys/git-gh-done.sh
-
-	# Gitlab
-	phgl = push -u origin @ -o merge_request.create -o merge_request.assign="barklan"
-	phglmerge = push -u origin @ -o merge_request.create -o merge_request.assign="barklan" -o merge_request.merge_when_pipeline_succeeds
-	phglci = push -u origin @ -o merge_request.create -o merge_request.label="CI/CD" -o merge_request.assign="barklan"
-
 	# REBASE
     ri = rebase -v -i
     rif = forgit rebase
