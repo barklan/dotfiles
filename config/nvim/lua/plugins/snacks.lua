@@ -1,5 +1,4 @@
 local layout_default = {
-    -- preview = "main",
     preset = "ivy_split",
 }
 
