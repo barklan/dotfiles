@@ -29,10 +29,6 @@ return {
             "typescript",
             "sh",
             "python",
-            "c",
-            "cpp",
-            "objc",
-            "objcpp",
             "just",
         },
         event = { "CmdlineEnter" },
@@ -50,7 +46,6 @@ return {
 
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
             local servers = {
-                "clangd",
                 "basedpyright",
                 "ts_ls",
                 "jsonls",
