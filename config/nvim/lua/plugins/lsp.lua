@@ -56,7 +56,7 @@ return {
                 "jsonls",
                 "yamlls",
                 "bashls",
-                "just-lsp",
+                "just",
             }
 
             local nvim_lsp = require("lspconfig")
