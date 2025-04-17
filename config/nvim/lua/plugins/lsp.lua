@@ -5,7 +5,7 @@ return {
             return NotVSCode() and IsPersonalDevice()
         end,
         lazy = true,
-        ft = "lua",
+        ft = { "lua" },
         config = function()
             require("lazydev").setup({
                 library = {
@@ -22,7 +22,19 @@ return {
         "neovim/nvim-lspconfig",
         cond = NotVSCode,
         lazy = true,
-        ft = { "json", "yaml", "javascript", "typescript", "sh", "python" },
+        ft = {
+            "json",
+            "yaml",
+            "javascript",
+            "typescript",
+            "sh",
+            "python",
+            "c",
+            "cpp",
+            "objc",
+            "objcpp",
+            "just",
+        },
         event = { "CmdlineEnter" },
         dependencies = {
             "saghen/blink.cmp",
@@ -31,7 +43,6 @@ return {
             if not IsPersonalDevice() then
                 return
             end
-
 
             local shared = require("config.lsp_shim")
 
@@ -45,6 +56,7 @@ return {
                 "jsonls",
                 "yamlls",
                 "bashls",
+                "just-lsp",
             }
 
             local nvim_lsp = require("lspconfig")

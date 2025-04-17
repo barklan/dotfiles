@@ -108,6 +108,7 @@ cargo install killport
 cargo install kalker
 cargo install dotenv-linter
 cargo install --locked cargo-outdated
+cargo install just-lsp
 
 # This is `gore dump -l`
 go install golang.org/x/perf/cmd/benchstat@latest
