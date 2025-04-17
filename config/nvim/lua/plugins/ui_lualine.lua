@@ -188,8 +188,8 @@ return {
                         {
                             "datetime",
                             style = "%H:%M",
-                            color = "Comment",
-                            padding = {left = 3, right = 0},
+                            color = "Special",
+                            padding = {left = 3, right = 1},
                         },
                     },
                 },
