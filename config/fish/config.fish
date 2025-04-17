@@ -39,7 +39,7 @@ end
 
 if status is-interactive
     alias l='eza -a --group-directories-first'
-    alias ls='eza -l -a --hyperlink --group-directories-first --git --icons --time-style=relative --git-repos'
+    alias ls='eza -l -a --hyperlink --group-directories-first --git --icons=never --time-style=relative --git-repos'
     alias reboot='reboot-safe'
 
     bind \cc cancel-commandline # restore old ^C behavior
@@ -79,7 +79,7 @@ if status is-interactive
 
     __set_theme_style
 
-    set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons --time-style=relative --total-size --git-repos --color always {}'"
+    set -gx FZF_ALT_C_OPTS "--preview 'eza -l -a --group-directories-first --git --icons=never --time-style=relative --total-size --git-repos --color always {}'"
     fzf_key_bindings
 
     fzf_configure_dunder_bindings
