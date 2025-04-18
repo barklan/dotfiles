@@ -21,6 +21,11 @@ local layout_ctrll_preview = {
     preset = "vscode",
 }
 
+-- FIX: this seems to be stable now, change some git functions to it
+local layout_right = {
+    preset = "right"
+}
+
 local tab_map = { "list_down", mode = { "i", "n" } }
 
 local ctrl_l_confirm = function(picker, item)
@@ -226,7 +231,8 @@ return {
                         vim.notify("call this from buffer", "info", { timeout = 1000 })
                     elseif ext == "go" or ext == "rust" or ext == "python" or ext == "lua" or ext == "json" or ext == "yaml" then
                         Snacks.picker.lsp_symbols({
-                            layout = layout_ctrll_preview,
+                            layout = layout_right,
+                            -- layout = layout_ctrll_preview,
                             filter = {
                                 default = {
                                     "Class",
