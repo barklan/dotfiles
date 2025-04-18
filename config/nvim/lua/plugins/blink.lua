@@ -122,7 +122,7 @@ return {
                                 project_root_marker = ".git",
                                 project_root_fallback = true,
                                 search_casing = "--ignore-case",
-                                additional_rg_options = { "--max-depth=6", "--threads=6" },
+                                additional_rg_options = { "--threads=6" },
                                 fallback_to_regex_highlighting = false,
                                 ignore_paths = {},
                                 additional_paths = {},
