@@ -131,13 +131,19 @@ local function toggle_hover()
     for _, winid in ipairs(vim.api.nvim_list_wins()) do
         local buf = vim.api.nvim_win_get_buf(winid)
         local ft = vim.api.nvim_get_option_value("filetype", { buf = buf })
-        if ft == "lspinfo" or ft == "markdown" then
+        local buftype = vim.api.nvim_get_option_value("buftype", { buf = buf })
+        if ft == "lspinfo" then
+            vim.api.nvim_win_close(winid, true)
+            return
+        end
+
+        if ft == "markdown" and buftype == "nofile" then
             vim.api.nvim_win_close(winid, true)
             return
         end
     end
 
-    vim.lsp.buf.hover({ border = "single", focusable = false })
+    vim.lsp.buf.hover({ border = "single", focusable = true })
 end
 
 vim.keymap.set("n", "<Tab>", function()
