@@ -2,6 +2,7 @@ return {
     {
         "j-hui/fidget.nvim",
         cond = NotVSCode,
+        enabled = false,
         lazy = true,
         event = "VeryLazy",
         opts = {

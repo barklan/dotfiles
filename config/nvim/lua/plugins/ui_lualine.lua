@@ -149,7 +149,17 @@ return {
                             source = diff_source,
                         },
                         {
+                            "lsp_status",
+                            -- color = "Special",
+                            padding = { left = 2, right = 0 },
+                            symbols = {
+                                done = " ",
+                            },
+                            ignore_lsp = { "null-ls" },
+                        },
+                        {
                             "diagnostics",
+                            padding = { left = 0, right = 1 },
                             symbols = { error = "E", warn = "W", info = "I", hint = "H" },
                         },
                         {
@@ -185,15 +195,6 @@ return {
                     -- lualine_y = { "progress" },
                     lualine_y = {},
                     lualine_z = {
-                        {
-                            "lsp_status",
-                            color = "Special",
-                            padding = { left = 3, right = 0 },
-                            symbols = {
-                                done = " ",
-                            },
-                            ignore_lsp = { "null-ls" },
-                        },
                         {
                             "datetime",
                             style = "%H:%M",
