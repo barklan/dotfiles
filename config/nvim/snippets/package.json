@@ -11,12 +11,6 @@
             },
             {
                 "language": [
-                    "just"
-                ],
-                "path": "./justfile.json"
-            },
-            {
-                "language": [
                     "shellscript",
                     "shell",
                     "sh",
