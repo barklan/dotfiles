@@ -583,6 +583,7 @@ end
 
 function nvim-sessions-clean
     rm ~/.local/share/nvim/sessions/*
+    rm ~/.local/state/nvim/sessions/*
 end
 
 function pacmanls
