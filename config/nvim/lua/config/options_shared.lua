@@ -1,21 +1,21 @@
-vim.opt.hlsearch = true
-vim.opt.shell = "/bin/bash"
-vim.opt.encoding = "utf-8"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.tildeop = true
-vim.opt.gdefault = true
-vim.opt.showmode = false
+vim.o.hlsearch = true
+vim.o.shell = "/bin/bash"
+vim.o.encoding = "utf-8"
+vim.o.clipboard = "unnamedplus"
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.tildeop = true
+vim.o.gdefault = true
+vim.o.showmode = false
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
 -- disable nvim intro
 vim.opt.shortmess:append("sIcW")
 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
