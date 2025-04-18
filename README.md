@@ -75,17 +75,11 @@ pyenv install <version>
 
 ## VS Code
 
-Notable extensions:
-
-- Error lens
 - Git Graph
 - Go
-- Material icon theme
-- TODO tree
 - Tokyo night
 - VSCode neovim
 - Dev Containers
-- rust-analyzer
 
 ## Fonts
 
