@@ -1,5 +1,6 @@
 return {
     {
+        -- FIX: replaced by lualine, delete plugin
         "j-hui/fidget.nvim",
         cond = NotVSCode,
         enabled = false,
