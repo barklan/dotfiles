@@ -1,42 +1,5 @@
 return {
     {
-        "rebelot/kanagawa.nvim",
-        cond = NotVSCode,
-        enabled = true,
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("kanagawa").setup({
-                overrides = function(colors)
-                    return {
-                        -- Assign a static color to strings
-                        -- String = { fg = colors.palette.carpYellow, italic = true },
-                        LineNr = { fg = "#3e3e50" },
-                        CursorLine = { bg = "#2b2b38" },
-                        CursorLineNr = { link = "CursorLine" },
-
-                        illuminatedWord = { bg = "#313751" },
-                        illuminatedCurWord = { bg = "#313751" },
-                        IlluminatedWordRead = { bg = "#313751" },
-                        IlluminatedWordText = { bg = "#313751" },
-                        IlluminatedWordWrite = { bg = "#313751" },
-
-                        String = { fg = "#aac08e" },
-                    }
-                end,
-                colors = {
-                    theme = {
-                        all = {
-                            ui = {
-                                bg_gutter = "none",
-                            },
-                        },
-                    },
-                },
-            })
-        end,
-    },
-    {
         "Mofiqul/vscode.nvim",
         cond = NotVSCode,
         enabled = true,
