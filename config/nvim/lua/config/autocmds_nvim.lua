@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("goabbr"),
     pattern = "go",
     callback = function()
         vim.cmd("abclear <buffer>")
