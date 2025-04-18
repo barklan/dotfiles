@@ -6,7 +6,6 @@ local layout_default_q = {
     preset = "ivy",
 }
 
-
 local layout_select = {
     preview = false,
     preset = "select",
@@ -21,7 +20,6 @@ local layout_ctrll_preview = {
     preview = "main",
     preset = "vscode",
 }
-
 
 local tab_map = { "list_down", mode = { "i", "n" } }
 
