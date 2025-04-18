@@ -34,7 +34,7 @@ return {
                 auto_clean_after_session_restore = true, -- TODO: does this even exist?
                 sources = {
                     "filesystem",
-                    "buffers",
+                    -- "buffers",
                     "git_status",
                     "diagnostics",
                 },
