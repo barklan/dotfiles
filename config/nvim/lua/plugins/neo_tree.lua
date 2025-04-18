@@ -205,10 +205,6 @@ return {
                         -- to avoid accidental commits of these files.
                         hide_by_name = {
                             ".git",
-                            -- "node_modules",
-                            -- ".mypy_cache",
-                            -- "__pycache__",
-                            -- ".pytest_cache",
                         },
                     },
                 },
