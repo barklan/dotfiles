@@ -26,7 +26,7 @@ function M.load_colorscheme()
         pcall(vim.cmd.colorscheme, "vscode")
     else
         vim.o.background = "dark"
-        pcall(vim.cmd.colorscheme, "tokyonight-night")
+        pcall(vim.cmd.colorscheme, "tokyonight-storm")
     end
 end
 

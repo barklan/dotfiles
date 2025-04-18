@@ -1,5 +1,13 @@
 return {
     {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        cond = NotVSCode,
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+    },
+    {
         "Mofiqul/vscode.nvim",
         cond = NotVSCode,
         enabled = true,
@@ -50,7 +58,7 @@ return {
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
                 day_brightness = 0.25,
                 lualine_bold = true,
-                transparent = true,
+                transparent = false,
                 on_highlights = function(hl, c)
                     hl.CursorLineNr = { link = "CursorLine" }
                     hl.String = { fg = "#86c5da" }

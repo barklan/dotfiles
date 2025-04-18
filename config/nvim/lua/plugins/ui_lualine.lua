@@ -150,8 +150,9 @@ return {
                         },
                         {
                             "lsp_status",
-                            -- color = "Special",
-                            padding = { left = 2, right = 0 },
+                            -- color = "Comment",
+                            icon = "::",
+                            padding = { left = 2, right = 1 },
                             symbols = {
                                 done = " ",
                             },
