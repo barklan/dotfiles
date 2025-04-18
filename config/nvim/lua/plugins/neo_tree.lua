@@ -42,7 +42,7 @@ return {
                 enable_git_status = true,
                 enable_diagnostics = true,
                 window = {
-                    width = 40,
+                    width = 35,
                     mappings = {
                         ["l"] = "open",
                         ["h"] = "close_node",
@@ -84,7 +84,8 @@ return {
                     icon = {
                         folder_empty = "e",
                         folder_empty_open = ">",
-                        default = "˗",
+                        -- default = "˗",
+                        default = " ",
                         folder_closed = ">",
                         folder_open = "v",
                     },
