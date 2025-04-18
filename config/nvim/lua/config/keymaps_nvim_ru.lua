@@ -2,8 +2,6 @@
 --- RU layout support
 ---------------------
 
-local silent = { silent = true }
-
 -- NOTE: mapped using better-escape.nvim
 -- vim.keymap.set("i", "ло", "<esc>", silent)
 
