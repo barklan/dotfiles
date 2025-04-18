@@ -77,7 +77,14 @@ ShouldEnableNeotree = function()
     return true
 end
 
-ShouldEnableSessions = function ()
+ShouldEnableSessions = function()
+    local cwd = vim.fn.getcwd()
+    local dev_dir = os.getenv("HOME") .. "/dev"
+
+    if cwd == dev_dir then
+        return false
+    end
+
     if InVSCode() or IsScrollbackPager() or IsCMDLineEditor() or IsGitEditor() then
         return false
     end
