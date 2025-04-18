@@ -30,7 +30,7 @@ M.on_attach = function(client, bufnr)
     -- buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
     -- buf_set_keymap("n", "gi", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
     -- buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    buf_set_keymap("n", "-", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+    buf_set_keymap("n", "<M-d>", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
     buf_set_keymap("n", "<leader>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
