@@ -12,6 +12,7 @@ return {
         },
     },
     {
+        -- FIX: maybe delete and just use git difftool
         "akinsho/git-conflict.nvim",
         cond = NotVSCode,
         lazy = false, -- NOTE: Not great lazy loading, does not highlight conflicts in buffer
