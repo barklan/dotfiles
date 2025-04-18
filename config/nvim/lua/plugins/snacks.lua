@@ -71,6 +71,7 @@ return {
         priority = 1000,
         lazy = false,
         opts = {
+            zen = { enabled = true },
             toggle = { enabled = false },
             lazygit = { enabled = false },
             bigfile = { enabled = true },
