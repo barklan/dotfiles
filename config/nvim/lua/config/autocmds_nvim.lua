@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "WinLeave", "BufEnter" }, {
 
 -- Go to last loc when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
-    group = "nvim_auto_core",
+    group = augroup("buflastloc"),
     callback = function(event)
         local exclude = { "gitcommit" }
         local buf = event.buf
@@ -91,6 +91,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- Full-width quickfix window
 vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("qffullwidth"),
     pattern = "qf",
     callback = function()
         vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
