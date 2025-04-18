@@ -406,7 +406,7 @@ return {
                 "<C-g>lf",
                 function()
                     Snacks.picker.git_log_file({
-                        layout = layout_default_q,
+                        layout = layout_default,
                     })
                 end,
                 desc = "Git Log File",
@@ -415,7 +415,7 @@ return {
                 "<C-g>ll",
                 function()
                     Snacks.picker.git_log({
-                        layout = layout_default_q,
+                        layout = layout_default,
                     })
                 end,
                 desc = "Git Log File",
@@ -424,7 +424,7 @@ return {
                 "<C-g>i",
                 function()
                     Snacks.picker.git_log_line({
-                        layout = layout_default_q,
+                        layout = layout_default,
                     })
                 end,
                 desc = "Git Log Line",
