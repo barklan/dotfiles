@@ -11,6 +11,17 @@ end
 require("config.auto.limit_buffers")
 require("config.auto.git_auto")
 
+-- vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "*",
+    callback = function()
+        require("persistence").load()
+        vim.defer_fn(function()
+            DeleteBuffersWithoutFile()
+        end, 100)
+    end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "go",
     callback = function()
@@ -80,7 +91,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function()
-        vim.cmd("wincmd J")        -- Move quickfix to bottom (full-width)
+        vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
         vim.wo.winfixheight = true -- Lock height (optional)
     end,
 })
