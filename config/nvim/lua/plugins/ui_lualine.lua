@@ -87,19 +87,7 @@ return {
                                     return " " .. name
                                 end
                             end,
-                            -- padding = {
-                            --     right = 1,
-                            --     left = 1,
-                            -- },
                         },
-                        -- {
-                        --     "gitstatus",
-                        --     sections = {
-                        --         { "branch", format = " {}" },
-                        --         { "is_dirty", format = "*" },
-                        --     },
-                        --     sep = "",
-                        -- },
                         {
                             "gitstatus",
                             sections = {
@@ -113,10 +101,6 @@ return {
                                 { "deleted", format = "{}-" },
                             },
                             sep = " ",
-                            -- padding = {
-                            --     right = 1,
-                            --     left = 1,
-                            -- },
                         },
                         {
                             function()
@@ -193,7 +177,6 @@ return {
                             }, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
                         },
                     },
-                    -- lualine_y = { "progress" },
                     lualine_y = {},
                     lualine_z = {
                         {
