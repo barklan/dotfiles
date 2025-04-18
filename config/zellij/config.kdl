@@ -159,9 +159,24 @@ session_serialization false
         white "#a9b1d6"
         orange "#ff9e64"
     }
+    tokyonight_moon {
+        fg "#c8d3f5"
+        bg "#2f334d"
+        // Black should match the terminal background color
+        // This ensures the top and bottom bars are transparent
+        black "#222436"
+        red "#ff757f"
+        green "#c3e88d"
+        yellow "#ffc777"
+        blue "#82aaff"
+        magenta "#c099ff"
+        cyan "#86e1fc"
+        white "#828bb8"
+        orange "#ff966c"
+    }
  }
 
-theme "tokyonight_night"
+theme "tokyonight_moon"
 default_layout "compact"
 show_startup_tips false
 copy_on_select false
