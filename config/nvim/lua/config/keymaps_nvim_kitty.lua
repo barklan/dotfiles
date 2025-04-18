@@ -13,12 +13,12 @@ vim.keymap.set("n", "<leader>e", function()
     vim.fn.system("kitten @ action goto_layout tall")
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
-        .. tostring(kitty_pid)
-        .. " launch --type=window --bias -60 --cwd "
-        .. cwd
-        .. " fish -ic 'run "
-        .. file
-        .. "; read -P continue -n1'"
+            .. tostring(kitty_pid)
+            .. " launch --type=window --bias -60 --cwd "
+            .. cwd
+            .. " fish -ic 'run "
+            .. file
+            .. "; read -P continue -n1'"
     )
 end, { silent = true, desc = "Execute file" })
 
@@ -29,10 +29,10 @@ vim.keymap.set("n", "<leader>j", function()
     vim.fn.system("kitten @ action goto_layout tall")
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
-        .. tostring(kitty_pid)
-        .. " launch --type=window --bias -60 --cwd "
-        .. cwd
-        .. " fish -ic 'just; read -P continue -n1'"
+            .. tostring(kitty_pid)
+            .. " launch --type=window --bias -60 --cwd "
+            .. cwd
+            .. " fish -ic 'just; read -P continue -n1'"
     )
 end, { silent = true, desc = "just test" })
 
@@ -88,12 +88,10 @@ local toggle_terminal = function()
 
     -- vim.fn.system("kitten @ --to unix:@mykitty-" .. tostring(kitty_pid) .. " action goto_layout fat")
     vim.fn.system("kitten @ action goto_layout fat")
-    vim.fn.system("kitten @ launch --title " ..
-    toggle_term_title .. " --type=window --bias -40 --cwd " .. cwd .. " fish -ic zj")
+    vim.fn.system("kitten @ launch --title " .. toggle_term_title .. " --type=window --bias -40 --cwd " .. cwd .. " fish -ic zj")
 end
 
-vim.keymap.set(all_map_modes, "<C-j>", toggle_terminal,
-    { noremap = true, silent = true, desc = "Toggle (almost) terminal" })
+vim.keymap.set(all_map_modes, "<C-j>", toggle_terminal, { noremap = true, silent = true, desc = "Toggle (almost) terminal" })
 
 --------------------
 --- Paragraph runner
@@ -150,11 +148,7 @@ local run_paragraph = function()
     if vim.tbl_contains(whitelist, vim.bo.filetype) then
         pass()
     elseif not first_line:find("interactive", 1, true) then
-        vim.notify(
-            "ft not in whitelist: \n" .. table.concat(whitelist, ",") .. "\n\nand interactive directive not set",
-            "info",
-            { timeout = 1000 }
-        )
+        vim.notify("ft not in whitelist: \n" .. table.concat(whitelist, ",") .. "\n\nand interactive directive not set", "info", { timeout = 1000 })
 
         return
     end
@@ -174,8 +168,7 @@ local run_paragraph = function()
         return
     end
 
-    local cmd = [[kitten @ send-text --match 'title:^]] ..
-    toggle_term_title .. [[$' ]] .. "'" .. escape_special_chars(paragraph) .. "'"
+    local cmd = [[kitten @ send-text --match 'title:^]] .. toggle_term_title .. [[$' ]] .. "'" .. escape_special_chars(paragraph) .. "'"
     vim.fn.system(cmd)
     vim.fn.system("kitten @ send-key --match 'title:^" .. toggle_term_title .. "$' enter")
 end
