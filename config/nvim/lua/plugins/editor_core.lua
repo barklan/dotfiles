@@ -43,12 +43,6 @@ return {
         },
     },
     {
-        -- FIX: get toggle spell from here and remove this plugin
-        "tummetott/unimpaired.nvim",
-        lazy = false,
-        opts = {},
-    },
-    {
         "echasnovski/mini.ai",
         version = false,
         lazy = false, -- Don't load text objects lazily
