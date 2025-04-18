@@ -12,8 +12,7 @@ sudo pacman -Syu --needed \
 	xdg-desktop-portal-kde ffmpegthumbs p7zip keepassxc \
 	bluez bluez-utils bluedevil mat2 plasma-systemmonitor \
 	rclone electrum kdeplasma-addons plasma-browser-integration \
-	firefox-developer-edition thunderbird \
-    brotli \
+	firefox-developer-edition brotli \
 	kcharselect fish fisher kgpg musl sqlite \
 	xdg-desktop-portal-gtk wireguard-tools \
 	aspell aspell-ru aspell-de usbguard sbctl efibootmgr libreoffice-fresh \
