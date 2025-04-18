@@ -89,7 +89,10 @@ return {
                 lualine_bold = true,
                 transparent = false,
                 on_highlights = function(hl, c)
-                    hl.CursorLineNr = { link = "CursorLine" }
+                    hl.LineNr = { fg = "#313751" }
+                    hl.CursorLineNr = { bg = "#2F334D", fg = "#4a5379" }
+
+                    -- hl.CursorLineNr = { link = "CursorLine" }
                     hl.String = { fg = "#86c5da" }
                     hl.Constant = { link = "@none" }
 
