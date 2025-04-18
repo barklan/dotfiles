@@ -87,7 +87,7 @@ return {
                 -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
                 day_brightness = 0.25,
                 lualine_bold = true,
-                transparent = false,
+                transparent = true,
                 on_highlights = function(hl, c)
                     hl.CursorLine = { bg = "#282b41" } -- disable for night variant
 

@@ -22,6 +22,6 @@ def get_background_value():
 if __name__ == "__main__":
     background = get_background_value()
     if background == "dark":
-        print("include kitty_dark.conf")
+        print("include kitty_dark_regular.conf")
     elif background == "light":
         print("include kitty_light.conf")
