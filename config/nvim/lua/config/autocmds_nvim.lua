@@ -26,6 +26,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
         end
 
         require("persistence").load()
+
         vim.cmd("Neotree show")
 
         vim.defer_fn(function()
@@ -34,6 +35,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
     nested = true,
 })
+
+-- vim.api.nvim_create_autocmd("User", {
+--     group = augroup("autoautopre"),
+--     pattern = "PersistenceSavePre",
+--     callback = function()
+--         vim.cmd("Neotree close")
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("goabbr"),
@@ -106,7 +115,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = augroup("qffullwidth"),
     pattern = "qf",
     callback = function()
-        vim.cmd("wincmd J")        -- Move quickfix to bottom (full-width)
+        vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
         vim.wo.winfixheight = true -- Lock height (optional)
     end,
 })
