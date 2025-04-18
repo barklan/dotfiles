@@ -3,25 +3,7 @@ return {
         "folke/persistence.nvim",
         -- event = "BufReadPre", -- this will only start session saving when an actual file was opened
         lazy = false,
-        cond = function()
-            if InVSCode() then
-                return false
-            end
-
-            if IsGitEditor() then
-                return false
-            end
-
-            if IsCMDLineEditor() then
-                return false
-            end
-
-            if IsScrollbackPager() then
-                return false
-            end
-
-            return true
-        end,
+        cond = ShouldEnableSessions,
         opts = {},
     },
     -- {

@@ -77,6 +77,14 @@ ShouldEnableNeotree = function()
     return true
 end
 
+ShouldEnableSessions = function ()
+    if InVSCode() or IsScrollbackPager() or IsCMDLineEditor() or IsGitEditor() then
+        return false
+    end
+
+    return true
+end
+
 function TimeIt(msg, fn, ...)
     local start = vim.loop.hrtime()
     local result = fn(...)

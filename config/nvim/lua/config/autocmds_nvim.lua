@@ -15,6 +15,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     pattern = "*",
     callback = function()
+        if not ShouldEnableSessions() then
+            return
+        end
+
         require("persistence").load()
         vim.defer_fn(function()
             DeleteBuffersWithoutFile()
@@ -93,7 +97,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = augroup("qffullwidth"),
     pattern = "qf",
     callback = function()
-        vim.cmd("wincmd J") -- Move quickfix to bottom (full-width)
+        vim.cmd("wincmd J")        -- Move quickfix to bottom (full-width)
         vim.wo.winfixheight = true -- Lock height (optional)
     end,
 })
