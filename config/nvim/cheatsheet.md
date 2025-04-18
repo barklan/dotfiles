@@ -2,7 +2,25 @@
 
 ## Neovim
 
-## Forgotten builtin keymaps
+### Go debug
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Connect to external session",
+            "type": "go",
+            "request": "attach",
+            "mode": "remote",
+            "port": 12345,
+            "host": "127.0.0.1"
+        }
+    ]
+}
+```
+
+### Forgotten builtin keymaps
 
 In normal mode:
 
@@ -13,9 +31,9 @@ In selection mode:
 
 - `o` to jump to different ends of selection
 
-## Commands
+### Commands
 
-### :g
+#### :g
 
 ```txt
 :g/one\|two/     : list lines containing "one" or "two"
@@ -28,7 +46,7 @@ In selection mode:
 
 Command `:g/^/` matches every line.
 
-### :norm
+#### :norm
 
 Select lines and
 
@@ -37,11 +55,11 @@ Select lines and
 :%norm! @a       : Execute the macro stored in register a on all lines.
 ```
 
-### :sort
+#### :sort
 
 Sorts selected lines.
 
-### Global search and replace
+#### Global search and replace
 
 1. Populate quickfix with fzf picker
 2. In quickfix:
@@ -52,7 +70,7 @@ Sorts selected lines.
 
 Note that `:cfdo` will do command on every **file** present in quickfix, while `:cdo` will do it on every **entry**.
 
-### External commands
+#### External commands
 
 Select lines and
 
