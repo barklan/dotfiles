@@ -43,9 +43,9 @@ return {
         },
     },
     {
+        -- FIX: get toggle spell from here and remove this plugin
         "tummetott/unimpaired.nvim",
-        lazy = true,
-        event = "VeryLazy",
+        lazy = false,
         opts = {},
     },
     {
