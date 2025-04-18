@@ -3,7 +3,7 @@ return {
         "folke/todo-comments.nvim",
         cond = NotVSCode,
         dependencies = { "nvim-lua/plenary.nvim" },
-        event = "VeryLazy", -- To highlight immediately
+        event = "VeryLazy",
         keys = {
             {
                 "<leader>t",
@@ -25,9 +25,6 @@ return {
         },
         opts = {
             signs = false,
-            -- highlight = {
-            --     exclude = { "json" },
-            -- },
         },
     },
 }
