@@ -1,7 +1,6 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "rebelot/kanagawa.nvim",
         cond = NotVSCode,
         enabled = true,
         lazy = false,
