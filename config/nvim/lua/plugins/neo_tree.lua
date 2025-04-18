@@ -31,7 +31,7 @@ return {
 
             require("neo-tree").setup({
                 popup_border_style = "rounded",
-                auto_clean_after_session_restore = true,
+                auto_clean_after_session_restore = true, -- TODO: does this even exist?
                 sources = {
                     "filesystem",
                     "buffers",

@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
             vim.schedule(function()
                 if not vim.g.neotree_opened then
                     vim.g.neotree_opened = true
-                    vim.cmd("Neotree show")
+                    -- vim.cmd("Neotree show")
                 end
             end)
         end
