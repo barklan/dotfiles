@@ -22,6 +22,7 @@ return {
                 "nvim-dap-virtual-text not found",
                 "INFO: plugin nvim-dap-virtual-text module nvim-dap-virtual-text  not loaded",
                 "Yanked to register",
+                "no test file found for",
             }
 
             vim.notify = function(msg, ...)
