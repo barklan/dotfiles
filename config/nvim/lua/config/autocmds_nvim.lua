@@ -13,8 +13,14 @@ require("config.auto.git_auto")
 
 vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
-    pattern = "*",
     callback = function()
+        if IsGitEditor() then
+            vim.g.neotree_opened = true
+            vim.cmd(":Neotree show source=git_status position=left") -- source can be "last"
+
+            return
+        end
+
         if not ShouldEnableSessions() then
             return
         end
