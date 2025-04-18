@@ -39,7 +39,6 @@ sudo pacman -Syu --needed \
 
 # Dev
 sudo pacman -Syu --needed \
-	neovim \
 	go rustup sccache \
 	protobuf pyenv nodejs npm typescript lua luajit llvm lld clang \
 	docker docker-compose docker-buildx \
