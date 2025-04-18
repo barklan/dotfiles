@@ -11,7 +11,6 @@ end
 require("config.auto.limit_buffers")
 require("config.auto.git_auto")
 
--- vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
 vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     pattern = "*",

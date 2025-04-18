@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- start git messages in insert mode
 vim.api.nvim_create_augroup("bufcheck", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     group = "bufcheck",
