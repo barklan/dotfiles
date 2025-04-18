@@ -1,7 +1,9 @@
 -- TODO: not recommended) Suppresses deprecation warnings. Disable once neovim stablizes.
 vim.deprecate = function() end
 
-vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,terminal"
+-- vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,terminal"
+vim.o.sessionoptions = "buffers,curdir,winsize"
+
 -- vim.o.winborder = "none" -- NEW thing in neovim 0.11
 
 vim.opt.showcmd = false -- Shows number of selected lines, etc.

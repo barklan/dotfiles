@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
         require("persistence").load()
 
-        -- vim.cmd("Neotree show")
+        vim.cmd("Neotree show")
 
         vim.defer_fn(function()
             DeleteBuffersWithoutFile()
