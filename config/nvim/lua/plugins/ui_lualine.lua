@@ -169,11 +169,11 @@ return {
                             show_filename_only = false,
                             show_modified_status = true,
                             buffers_color = {
-                                active = "lualine_a_normal", -- Color for active buffer.
+                                active = "lualine_a_normal",   -- Color for active buffer.
                                 inactive = "lualine_c_normal", -- This fix is mainly for tokyo-night
                             },
                             symbols = {
-                                modified = "^", -- Text to show when the buffer is modified
+                                modified = "^",      -- Text to show when the buffer is modified
                                 alternate_file = "", -- Text to show to identify the alternate file
                             },
                             filetype_names = {
@@ -186,10 +186,18 @@ return {
                     lualine_y = {},
                     lualine_z = {
                         {
+                            "lsp_status",
+                            color = "Special",
+                            padding = { left = 3, right = 0 },
+                            symbols = {
+                                done = " ",
+                            },
+                            ignore_lsp = { "null-ls" },
+                        },
+                        {
                             "datetime",
                             style = "%H:%M",
                             color = "Special",
-                            padding = {left = 3, right = 1},
                         },
                     },
                 },

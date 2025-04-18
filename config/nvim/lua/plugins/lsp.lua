@@ -36,10 +36,6 @@ return {
             "saghen/blink.cmp",
         },
         config = function()
-            if not IsPersonalDevice() then
-                return
-            end
-
             local shared = require("config.lsp_shim")
 
             local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -53,6 +49,10 @@ return {
                 "bashls",
                 "just",
             }
+
+            if not IsPersonalDevice() then
+                servers = { "just" }
+            end
 
             local nvim_lsp = require("lspconfig")
 
