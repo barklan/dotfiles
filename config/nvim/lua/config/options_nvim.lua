@@ -29,7 +29,7 @@ vim.o.termguicolors = true
 vim.o.mouse = "a"
 vim.o.smoothscroll = true -- Not sure what this does
 vim.o.mousemoveevent = true
-vim.o.number = true -- Option is set as local on autocmd
+vim.o.number = true
 vim.o.relativenumber = false
 vim.o.swapfile = false -- fuck swap files
 vim.o.scrolloff = 6
@@ -38,14 +38,10 @@ vim.o.timeout = true
 vim.o.timeoutlen = 700 -- this is for jk escape (if mapped natively) and other repetitions like `xx`
 vim.o.signcolumn = "yes"
 vim.o.numberwidth = 1
-vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-
+vim.o.writebackup = false -- if a file is being edited by another program, it is not allowed to be edited
 vim.o.jumpoptions = "stack" -- go back with <C-o> even if buffer has been closed
-
--- vim.opt.winborder = "single"
 vim.o.cmdheight = 1
 vim.o.showmode = false -- Dont show mode since we have a statusline
-
 vim.o.mousescroll = "ver:3"
 
 vim.o.grepformat = "%f:%l:%c:%m"
@@ -60,24 +56,16 @@ vim.o.spell = false
 vim.o.spelllang = "en_us,ru"
 
 -- vim.opt.textwidth = 120 -- live the dream
-
 vim.o.undofile = true
-
--- interval for writing swap file to disk, also used by gitsigns
-vim.o.updatetime = 500
-
+vim.o.updatetime = 500 -- interval for writing swap file to disk, also used by gitsigns
 vim.o.laststatus = 0
-
 vim.o.lazyredraw = false
 vim.o.ttyfast = true
 
 vim.diagnostic.config({
     underline = false,
-
     virtual_text = true,
-
     virtual_lines = false,
-
     signs = false,
     update_in_insert = false,
 })
