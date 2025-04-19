@@ -590,8 +590,6 @@ end
 
 ## Just
 
-TODO: needs update
-
 ```txt
 set shell := ["bash", "-uc"]
 set dotenv-load
@@ -625,6 +623,7 @@ foo:
     set -euxo pipefail
     echo "Hello from Bash!"
 
+# This requires `set unstable`
 [script('bash')]
 somescript:
     echo "Hello from Bash!"
