@@ -100,4 +100,4 @@ vim.defer_fn(function()
     end
 
     vim.cmd([[set title titlestring=]] .. title)
-end, 20)
+end, 50)
