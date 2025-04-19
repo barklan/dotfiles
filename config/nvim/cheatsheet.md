@@ -597,21 +597,10 @@ set shell := ["bash", "-uc"]
 set dotenv-load
 set unstable
 
-# https://just.systems/man/en/chapter_30.html
 home_dir := env_var('HOME')
-
-python_dir := if os_family() == "windows" { "./.venv/Scripts" } else { "./.venv/bin" }
-python := python_dir + if os_family() == "windows" { "/python.exe" } else { "/python3" }
-system_python := if os_family() == "windows" { "py.exe -3.9" } else { "python3.9" }
 
 # These recipes will be run when invoking `just` with no arguments.
 default: lint build test
-
-# Set up development environment
-bootstrap:
-    if test ! -e .venv; then {{ system_python }} -m venv .venv; fi
-    {{ python }} -m pip install --upgrade pip wheel pip-tools
-    {{ python_dir }}/pip-sync
 
 # Recipe with two arguments
 build target tests=default:
@@ -630,20 +619,15 @@ script *ARGS:
 backup +FILES:
     scp {{FILES}} me@server.com:
 
-# Recipe with argument that will be exported as environment variable
-foo $bar:
-    echo $bar
-
 # Multiline recipe that uses bash
 foo:
     #!/usr/bin/env bash
     set -euxo pipefail
     echo "Hello from Bash!"
 
-# This is a private recipe.
-[private]
-a:
-  echo 'A!'
+[script('bash')]
+somescript:
+    echo "Hello from Bash!"
 
 # Order of execution: a -> b -> c -> d
 b: a && c d
