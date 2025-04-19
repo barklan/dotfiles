@@ -17,7 +17,6 @@ local layout_ctrll_preview = {
     preset = "vscode",
 }
 
--- FIX: this seems to be stable now, change some git functions to it
 local layout_right = {
     preset = "right"
 }
