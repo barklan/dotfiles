@@ -297,5 +297,3 @@ vim.keymap.set("n", "<leader>l", function()
     -- vim.cmd("on") -- close other windows
     vim.cmd("echo")
 end, { desc = "Clean shit" })
-
-vim.keymap.set("n", "R", "<Nop>")
