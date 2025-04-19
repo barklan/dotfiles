@@ -42,7 +42,7 @@ vim.o.writebackup = false -- if a file is being edited by another program, it is
 vim.o.jumpoptions = "stack" -- go back with <C-o> even if buffer has been closed
 vim.o.cmdheight = 1
 vim.o.showmode = false -- Dont show mode since we have a statusline
-vim.o.mousescroll = "ver:3"
+vim.o.mousescroll = "ver:2"
 
 vim.o.grepformat = "%f:%l:%c:%m"
 vim.o.grepprg = "rg --vimgrep --smart-case"
