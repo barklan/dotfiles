@@ -116,7 +116,7 @@ return {
                             module = "blink-ripgrep",
                             name = "Ripgrep",
                             opts = {
-                                prefix_min_len = 4,
+                                prefix_min_len = 3,
                                 context_size = 2,
                                 max_filesize = "1M",
                                 project_root_marker = ".git",
