@@ -42,7 +42,6 @@ local ctrl_l_confirm = function(picker, item)
             if item.file then
                 local action_key = ChooseFileAction(item.file)
                 if action_key == "edit" then
-                    -- require("fzf-lua").actions.file_edit(selected, opts)
                     picker:action("edit")
                 elseif action_key == "open" then
                     picker:close()
