@@ -17,6 +17,14 @@ return {
                 desc = "Print variable",
             },
             { "<leader>rb", mode = { "n" }, ":Refactor extract_block<cr>", desc = "Extract block" },
+            {
+                "<leader>rc",
+                mode = { "n" },
+                function()
+                    require("refactoring").debug.cleanup({})
+                end,
+                desc = "Cleanup debug prints",
+            },
         },
         dependencies = {
             { "nvim-lua/plenary.nvim" },
