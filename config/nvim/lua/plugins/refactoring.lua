@@ -18,7 +18,7 @@ return {
             },
             { "<leader>rb", mode = { "n" }, ":Refactor extract_block<cr>", desc = "Extract block" },
             {
-                "<leader>rc",
+                "<leader>rl",
                 mode = { "n" },
                 function()
                     require("refactoring").debug.cleanup({})
