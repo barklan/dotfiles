@@ -2,10 +2,6 @@ local layout_default = {
     preset = "ivy_split",
 }
 
-local layout_default_q = {
-    preset = "ivy",
-}
-
 local layout_select = {
     preview = false,
     preset = "select",
@@ -85,12 +81,6 @@ return {
                     duration = { step = 8, total = 150 },
                     easing = "linear",
                 },
-                -- faster animation when repeating scroll after delay
-                -- animate_repeat = {
-                --     delay = 100, -- delay in ms before using the repeat animation
-                --     duration = { step = 5, total = 50 },
-                --     easing = "linear",
-                -- },
             },
             image = { enabled = true },
             picker = {
@@ -388,7 +378,7 @@ return {
                 "<C-g>s",
                 function()
                     Snacks.picker.git_stash({
-                        layout = layout_default,
+                        layout = layout_right,
                         confirm = "cancel", -- NOTE: disabled for safety
                     })
                 end,
@@ -398,7 +388,7 @@ return {
                 "<C-g>k",
                 function()
                     Snacks.picker.git_branches({
-                        layout = layout_default_q,
+                        layout = layout_right,
                         on_close = function()
                             vim.defer_fn(function()
                                 require("nvim-gitstatus").update_git_status()
@@ -412,7 +402,7 @@ return {
                 "<C-g>lf",
                 function()
                     Snacks.picker.git_log_file({
-                        layout = layout_default,
+                        layout = layout_right,
                     })
                 end,
                 desc = "Git Log File",
@@ -421,7 +411,7 @@ return {
                 "<C-g>ll",
                 function()
                     Snacks.picker.git_log({
-                        layout = layout_default,
+                        layout = layout_right,
                     })
                 end,
                 desc = "Git Log File",
@@ -430,7 +420,7 @@ return {
                 "<C-g>i",
                 function()
                     Snacks.picker.git_log_line({
-                        layout = layout_default,
+                        layout = layout_right,
                     })
                 end,
                 desc = "Git Log Line",
