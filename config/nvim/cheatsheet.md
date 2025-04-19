@@ -24,7 +24,7 @@
 
 In normal mode:
 
-- `gi` - Drop into insert mode at last inserted position
+- `gi` - Drop into insert mode at last inserted position (might be taken by lsp)
 - `gv` - Select previous selection
 
 In selection mode:
