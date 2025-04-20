@@ -153,7 +153,7 @@ return {
                             name = "Ripgrep",
                             opts = {
                                 prefix_min_len = 3,
-                                context_size = 2,
+                                context_size = 0,
                                 max_filesize = "1M",
                                 project_root_marker = ".git",
                                 project_root_fallback = true,
