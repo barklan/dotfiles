@@ -33,7 +33,7 @@ return {
                     Variable = "󰀫",
                     Class = "󰠱",
                     Interface = "",
-                    Module = "󰆧",
+                    Module = "󰆧", -- This is set the same as method, only difference with defaults
                     Property = "󰜢",
                     Unit = "󰑭",
                     Value = "󰎠",
