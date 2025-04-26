@@ -39,4 +39,4 @@ vim.keymap.set({ "n", "v" }, "K", "{")
 vim.keymap.set("n", "<M-CR>", "<Nop>")
 
 -- Duplicate line and comment the first line.
-vim.keymap.set("n", "ycc", "yygccp", { remap = true })
+vim.keymap.set("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true })
