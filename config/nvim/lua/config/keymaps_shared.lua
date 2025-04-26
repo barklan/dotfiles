@@ -38,5 +38,5 @@ vim.keymap.set({ "n", "v" }, "K", "{")
 -- Look into treesitter objects
 vim.keymap.set("n", "<M-CR>", "<Nop>")
 
--- Duplicate line(s) and comment the first line.
+-- Duplicate line(s) and comment the first line(s).
 vim.keymap.set("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true })
