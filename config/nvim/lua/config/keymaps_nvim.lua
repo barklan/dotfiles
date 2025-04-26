@@ -280,10 +280,12 @@ end, { silent = true, desc = "Focus explorer" })
 if IsCMDLineEditor() == true then
     vim.keymap.set("n", "<M-e>", "<cmd>wqall<cr>", { silent = true, desc = "Quit Neovim" })
 else
-    vim.keymap.set("n", "<M-e>", ":Neotree git_status toggle float focus reveal=true<cr>", { silent = true, desc = "git status float" })
+    vim.keymap.set("n", "<M-e>", ":Neotree git_status toggle float focus reveal=true<cr>",
+        { silent = true, desc = "git status float" })
 end
 
-vim.keymap.set("n", "<C-M-e>", ":Neotree source=diagnostics toggle float focus reveal=true<cr>", { silent = true, desc = "diasgnostic float" })
+vim.keymap.set("n", "<C-M-e>", ":Neotree source=diagnostics toggle float focus reveal=true<cr>",
+    { silent = true, desc = "diasgnostic float" })
 
 vim.keymap.set("n", "<leader>l", function()
     require("notify").dismiss({ silent = true, pending = false })

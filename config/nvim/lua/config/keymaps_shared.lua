@@ -37,3 +37,6 @@ vim.keymap.set({ "n", "v" }, "K", "{")
 
 -- Look into treesitter objects
 vim.keymap.set("n", "<M-CR>", "<Nop>")
+
+-- Duplicate line and comment the first line.
+vim.keymap.set("n", "ycc", "yygccp", { remap = true })
