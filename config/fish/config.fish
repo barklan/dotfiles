@@ -69,7 +69,7 @@ if status is-interactive
         set -gx FZF_ALT_C_COMMAND 'fdfind --type d --hidden --strip-cwd-prefix'
         set -gx FZF_CTRL_T_COMMAND 'fdfind --type f --type d --hidden --strip-cwd-prefix'
 
-        set -gx LANG en_US
+        set -gx LANG C
     else
         set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --strip-cwd-prefix'
         set -gx FZF_ALT_C_COMMAND 'fd --type d --hidden --strip-cwd-prefix'
