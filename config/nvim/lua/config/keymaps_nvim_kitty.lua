@@ -88,7 +88,7 @@ local toggle_terminal = function()
 
     -- vim.fn.system("kitten @ --to unix:@mykitty-" .. tostring(kitty_pid) .. " action goto_layout fat")
     vim.fn.system("kitten @ action goto_layout fat")
-    vim.fn.system("kitten @ launch --title " .. toggle_term_title .. " --type=window --bias -40 --cwd " .. cwd .. " fish -ic zj")
+    vim.fn.system("kitten @ launch --title " .. toggle_term_title .. " --type=window --bias -45 --cwd " .. cwd .. " fish -ic zj")
 end
 
 vim.keymap.set(all_map_modes, "<C-j>", toggle_terminal, { noremap = true, silent = true, desc = "Toggle (almost) terminal" })
