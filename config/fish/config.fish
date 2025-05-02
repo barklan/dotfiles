@@ -96,6 +96,8 @@ if status is-interactive
     set -gx FORGIT_CHECKOUT_BRANCH_BRANCH_GIT_OPTS '--sort=-committerdate'
     set -gx FORGIT_REBASE_GIT_OPTS -v
 
+    set -gx NVIM_GOLANG_CI_VERSION (golangci-lint --version | rg -o 'v\d')
+
     # if set -q KITTY_INSTALLATION_DIR
     #     set --global KITTY_SHELL_INTEGRATION no-cursor
     #     source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"

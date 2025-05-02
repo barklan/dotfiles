@@ -3,18 +3,17 @@
 ------
 
 -- https://github.com/ray-x/go.nvim/issues/352
-if IsPersonalDevice() then
-    -- use golangci-lint v2
+if os.getenv("NVIM_GOLANG_CI_VERSION") == "v1" then
+    vim.api.nvim_create_user_command("GoLintEx", function()
+        vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yml --print-issued-lines=false --exclude-use-default=true --out-format=line-number"
+        vim.cmd("GoMake")
+    end, {})
+else
     vim.api.nvim_create_user_command("GoLintEx", function()
         vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yml --output.tab.path=stdout --show-stats=false --uniq-by-line=false"
         vim.cmd("GoMake")
     end, {})
-else
-    -- use golangci-lint v1
-    vim.api.nvim_create_user_command("GoLintEx", function()
-        vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yml --print-issued-lines=true --exclude-use-default=true --out-format=tab"
-        vim.cmd("GoMake")
-    end, {})
+
 end
 
 vim.keymap.set("n", "<leader>gl", ":GoLintEx<cr>", { desc = "Lint" })
