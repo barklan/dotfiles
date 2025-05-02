@@ -12,7 +12,7 @@ if IsPersonalDevice() then
 else
     -- use golangci-lint v1
     vim.api.nvim_create_user_command("GoLintEx", function()
-        vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yml --print-issued-lines=false --exclude-use-default=true --out-format=line-number"
+        vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yml --print-issued-lines=true --exclude-use-default=true --out-format=tab"
         vim.cmd("GoMake")
     end, {})
 end
