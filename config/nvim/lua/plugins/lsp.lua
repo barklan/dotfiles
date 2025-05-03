@@ -83,6 +83,7 @@ return {
                     })
                 elseif lsp == "gopls" then
                     nvim_lsp[lsp].setup({
+                        cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=10m" },
                         on_attach = shared.on_attach,
                         capabilities = capabilities,
                         settings = {
