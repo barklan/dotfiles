@@ -106,7 +106,7 @@ return {
                     },
                     menu = {
                         draw = {
-                            treesitter = { "lsp" },
+                            -- treesitter = { "lsp" },
                             components = {
                                 kind_icon = {
                                     text = function(ctx)
