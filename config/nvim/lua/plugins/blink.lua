@@ -84,7 +84,6 @@ return {
                     ["<M-e>"] = { "snippet_backward" },
                     ["<M-l>"] = { "hide" },
                 },
-
                 appearance = {
                     nerd_font_variant = "mono",
                 },
