@@ -37,6 +37,10 @@
         "prefix": "e",
         "body": "err$0"
     },
+    "error": {
+        "prefix": "ee",
+        "body": "error$0"
+    },
     "string": {
         "prefix": "s",
         "body": "string$0",

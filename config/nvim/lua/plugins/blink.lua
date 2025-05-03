@@ -132,7 +132,7 @@ return {
                     },
                     providers = {
                         snippets = {
-                            score_offset = 4,
+                            score_offset = 9,
                             opts = {
                                 friendly_snippets = false,
                             },

@@ -1,14 +1,4 @@
 {
-    "single import": {
-        "prefix": "im",
-        "body": "import \"${1:package}\"",
-        "description": "Snippet for import statement"
-    },
-    "multiple imports": {
-        "prefix": "ims",
-        "body": "import (\n\t\"${1:package}\"\n)",
-        "description": "Snippet for a import block"
-    },
     "single constant": {
         "prefix": "co",
         "body": "const ${1:name} = ${2:value}",
@@ -94,11 +84,6 @@
         "body": "map[${1:type}]${2:type}",
         "description": "Snippet for a map"
     },
-    "empty interface": {
-        "prefix": "in",
-        "body": "interface{}",
-        "description": "Snippet for empty interface"
-    },
     "if statement": {
         "prefix": "if",
         "body": "if ${1:condition} {\n\t$0\n}",
@@ -118,16 +103,6 @@
         "prefix": "ir",
         "body": "if err != nil {\n\treturn ${1:nil}, ${2:err}\n}",
         "description": "Snippet for if err != nil"
-    },
-    "fmt.Println": {
-        "prefix": "fp",
-        "body": "fmt.Println(\"$1\")",
-        "description": "Snippet for fmt.Println()"
-    },
-    "fmt.Printf": {
-        "prefix": "ff",
-        "body": "fmt.Printf(\"$1\", ${2:var})",
-        "description": "Snippet for fmt.Printf()"
     },
     "t.Log": {
         "prefix": "tl",
@@ -154,11 +129,6 @@
         "body": "new(${1:type})",
         "description": "Snippet for new statement"
     },
-    "panic(...)": {
-        "prefix": "pn",
-        "body": "panic(\"$0\")",
-        "description": "Snippet for panic"
-    },
     "http ResponseWriter *Request": {
         "prefix": "wr",
         "body": "${1:w} http.ResponseWriter, ${2:r} *http.Request",
@@ -174,25 +144,10 @@
         "body": "func $1(${2:w} http.ResponseWriter, ${3:r} *http.Request) {\n\t$0\n}",
         "description": "Snippet for http handler declaration"
     },
-    "http.Redirect": {
-        "prefix": "rd",
-        "body": "http.Redirect(${1:w}, ${2:r}, \"${3:/}\", ${4:http.StatusFound})",
-        "description": "Snippet for http.Redirect()"
-    },
     "http.Error": {
         "prefix": "herr",
         "body": "http.Error(${1:w}, ${2:err}.Error(), ${3:http.StatusInternalServerError})",
         "description": "Snippet for http.Error()"
-    },
-    "http.ListenAndServe": {
-        "prefix": "las",
-        "body": "http.ListenAndServe(\"${1::8080}\", ${2:nil})",
-        "description": "Snippet for http.ListenAndServe"
-    },
-    "http.Serve": {
-        "prefix": "sv",
-        "body": "http.Serve(\"${1::8080}\", ${2:nil})",
-        "description": "Snippet for http.Serve"
     },
     "goroutine anonymous function": {
         "prefix": "go",
@@ -229,11 +184,6 @@
         "body": "func Test$1(t *testing.T) {\n\ttestCases := []struct {\n\t\tdesc\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tdesc: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tC := range testCases {\n\t\tt.Run(tC.desc, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
         "description": "Snippet for table driven test"
     },
-    "init function": {
-        "prefix": "finit",
-        "body": "func init() {\n\t$1\n}",
-        "description": "Snippet for init function"
-    },
     "main function": {
         "prefix": "fmain",
         "body": "func main() {\n\t$1\n}",
@@ -247,11 +197,6 @@
         "body": "func (${1:receiver} ${2:type}) ${3:method}($4) $5 {\n\t$0\n}",
         "description": "Snippet for method declaration"
     },
-    "hello world web app": {
-        "prefix": "helloweb",
-        "body": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"time\"\n)\n\nfunc greet(w http.ResponseWriter, r *http.Request) {\n\tfmt.Fprintf(w, \"Hello World! %s\", time.Now())\n}\n\nfunc main() {\n\thttp.HandleFunc(\"/\", greet)\n\thttp.ListenAndServe(\":8080\", nil)\n}",
-        "description": "Snippet for sample hello world webapp"
-    },
     "sort implementation": {
         "prefix": "sort",
         "body": "type ${1:SortBy} []${2:Type}\n\nfunc (a $1) Len() int           { return len(a) }\nfunc (a $1) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }\nfunc (a $1) Less(i, j int) bool { ${3:return a[i] < a[j]} }",
@@ -261,11 +206,6 @@
         "prefix": "json",
         "body": "`json:\"$1\"`",
         "description": "Snippet for struct json tag"
-    },
-    "xml tag": {
-        "prefix": "xml",
-        "body": "`xml:\"$1\"`",
-        "description": "Snippet for struct xml tag"
     },
     "if key in a map": {
         "prefix": "om",
