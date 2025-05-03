@@ -40,7 +40,10 @@ vim.o.signcolumn = "yes"
 vim.o.numberwidth = 1
 vim.o.writebackup = false -- if a file is being edited by another program, it is not allowed to be edited
 vim.o.jumpoptions = "stack" -- go back with <C-o> even if buffer has been closed
-vim.o.cmdheight = 1
+
+require('vim._extui').enable({})
+vim.o.cmdheight = 0
+
 vim.o.showmode = false -- Dont show mode since we have a statusline
 vim.o.mousescroll = "ver:2"
 
