@@ -18,7 +18,7 @@ return {
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
             require("go").setup({
-                gopls_cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=20m" },
+                gopls_cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=10m" },
                 goimports = "gopls",
                 max_line_len = 250, -- NOTE: should be in sync with null_ls golines
                 gofmt = "golines",
