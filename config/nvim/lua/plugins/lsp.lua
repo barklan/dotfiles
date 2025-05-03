@@ -51,7 +51,7 @@ return {
             }
 
             if not IsPersonalDevice() then
-                servers = { "just" }
+                servers = { "just", "basedpyright" }
             end
 
             local nvim_lsp = require("lspconfig")
