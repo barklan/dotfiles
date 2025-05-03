@@ -1,9 +1,14 @@
 {
-    "fmt.Errorf": {
+    "errors.Errorf": {
         "prefix": "ef",
-        "body": "fmt.Errorf(\"$0: %w\", err)",
+        "body": "errors.Errorf(\"$0: %w\", err)",
         "description": "Wrapped error.",
         "priority": 2000
+    },
+    "errors.New": {
+        "prefix": "en",
+        "body": "errors.New(\"$0\")",
+        "description": "Wrapped error."
     },
     "; err != nil {}": {
         "prefix": "ern",
