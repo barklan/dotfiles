@@ -158,7 +158,7 @@ return {
                                 project_root_marker = ".git",
                                 project_root_fallback = true,
                                 search_casing = "--ignore-case",
-                                additional_rg_options = { "--threads=8" },
+                                additional_rg_options = { "--type=all" },
                                 fallback_to_regex_highlighting = false,
                                 ignore_paths = {},
                                 additional_paths = {},
