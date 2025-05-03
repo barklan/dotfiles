@@ -165,10 +165,6 @@ return {
                                 ignore_paths = {},
                                 additional_paths = {},
                                 future_features = {
-                                    -- Workaround for
-                                    -- https://github.com/mikavilpas/blink-ripgrep.nvim/issues/185. This
-                                    -- is a temporary fix and will be removed in the future.
-                                    issue185_workaround = true, -- TODO: disable once the bug is fixed
                                     -- toggles = {
                                     --     on_off = "<leader>tg",
                                     -- },
