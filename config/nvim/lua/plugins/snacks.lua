@@ -18,7 +18,7 @@ local layout_ctrll_preview = {
 }
 
 local layout_right = {
-    preset = "right"
+    preset = "right",
 }
 
 local tab_map = { "list_down", mode = { "i", "n" } }
@@ -134,7 +134,12 @@ return {
             {
                 "<leader><tab>",
                 function()
-                    Snacks.picker.buffers({ layout = layout_ctrll })
+                    Snacks.picker.buffers({
+                        layout = layout_ctrll,
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
+                    })
                 end,
                 desc = "Buffers",
             },
