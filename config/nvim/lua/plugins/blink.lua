@@ -132,7 +132,10 @@ return {
                     },
                     providers = {
                         snippets = {
-                            score_offset = 5,
+                            should_show_items = function(ctx)
+                                return ctx.trigger.initial_kind ~= 'trigger_character'
+                            end,
+                            score_offset = 9,
                             opts = {
                                 friendly_snippets = false,
                             },
