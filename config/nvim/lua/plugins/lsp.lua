@@ -42,18 +42,10 @@ return {
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-            local servers = {
-                "basedpyright",
-                "ts_ls",
-                "jsonls",
-                "yamlls",
-                "bashls",
-                "just",
-                "gopls",
-            }
+            local servers = { "gopls", "just", "basedpyright", "ts_ls", "jsonls", "yamlls", "bashls" }
 
             if not IsPersonalDevice() then
-                servers = { "just", "basedpyright" }
+                servers = { "gopls", "just", "basedpyright" }
             end
 
             local nvim_lsp = require("lspconfig")
