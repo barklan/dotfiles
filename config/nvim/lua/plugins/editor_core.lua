@@ -98,8 +98,7 @@ return {
                     -- snake_case, camelCase, PascalCase, etc; all capitalizations
                     -- https://github.com/echasnovski/mini.nvim/discussions/1434
                     -- ['\r'] also can be mapped as <cr>
-                    -- `s` for "key that just under w on a keyboard"
-                    s = {
+                    e = {
                         -- Lua 5.1 character classes and the undocumented frontier pattern:
                         -- https://www.lua.org/manual/5.1/manual.html#5.4.1
                         -- http://lua-users.org/wiki/FrontierPattern
