@@ -33,26 +33,18 @@
         "body": "log.ErrorContext(ctx, \"$1\", \"$2\", $0)",
         "description": "Log error level."
     },
-    "err": {
-        "prefix": "e",
-        "body": "err$0"
-    },
     "error": {
         "prefix": "ee",
         "body": "error$0"
     },
     "string": {
-        "prefix": "s",
+        "prefix": "ss",
         "body": "string$0",
         "description": "string"
     },
     "[]byte": {
         "prefix": "b",
         "body": "[]byte$0"
-    },
-    "int": {
-        "prefix": "i",
-        "body": "int$0"
     },
     "int64": {
         "prefix": "ii",
