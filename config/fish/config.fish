@@ -97,12 +97,6 @@ if status is-interactive
     set -gx FORGIT_REBASE_GIT_OPTS -v
 
     set -gx NVIM_GOLANG_CI_VERSION (golangci-lint --version | rg -o 'v\d')
-
-    # if set -q KITTY_INSTALLATION_DIR
-    #     set --global KITTY_SHELL_INTEGRATION no-cursor
-    #     source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
-    #     set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
-    # end
 end
 
 function __on_nvim_exit --on-event nvim_exit
