@@ -90,6 +90,8 @@ return {
                     hl.IlluminatedWordText = { bg = "#313751" }
                     hl.IlluminatedWordWrite = { bg = "#313751" }
 
+                    hl.NeoTreeDimText = { link = "Whitespace" }
+
                     -- Only for night theme
                     hl.Whitespace = { fg = "#282c41" } -- blink Indent uses this
 
