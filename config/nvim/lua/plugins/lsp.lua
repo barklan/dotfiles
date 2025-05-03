@@ -30,6 +30,7 @@ return {
             "sh",
             "python",
             "just",
+            "go",
         },
         event = { "CmdlineEnter" },
         dependencies = {
@@ -48,6 +49,7 @@ return {
                 "yamlls",
                 "bashls",
                 "just",
+                "gopls",
             }
 
             if not IsPersonalDevice() then
@@ -79,12 +81,40 @@ return {
                             },
                         },
                     })
+                elseif lsp == "gopls" then
+                    nvim_lsp[lsp].setup({
+                        on_attach = shared.on_attach,
+                        capabilities = capabilities,
+                        settings = {
+                            gopls = {
+                                gofumpt = true,
+                                hints = {
+                                    assignVariableTypes = true,
+                                    compositeLiteralFields = true,
+                                    compositeLiteralTypes = true,
+                                    constantValues = true,
+                                    functionTypeParameters = true,
+                                    parameterNames = true,
+                                    rangeVariableTypes = true,
+                                },
+                                semanticTokens = false,
+                                symbolScope = "workspace",
+                                usePlaceholders = false,
+                                staticcheck = true,
+                                directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+                            },
+                        },
+                    })
                 else
                     nvim_lsp[lsp].setup({
                         on_attach = shared.on_attach,
                         capabilities = capabilities,
                     })
                 end
+            end
+
+            if not IsPersonalDevice() then
+                return
             end
 
             nvim_lsp.lua_ls.setup({

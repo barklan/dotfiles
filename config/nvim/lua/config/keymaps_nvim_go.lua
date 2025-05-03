@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>ga", ":GoCodeLenAct<cr>")
 
 vim.keymap.set("n", "<leader>gi", function()
     vim.cmd(":GoImports")
-    vim.cmd(":LspRestart") -- because goimports fucks up gopls
+    -- vim.cmd(":LspRestart") -- NOTE: this seems to be only needed if using gopls enabled via ray-x plugin
 end, { desc = "GoImports" })
 
 -----------

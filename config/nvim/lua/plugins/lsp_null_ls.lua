@@ -30,11 +30,11 @@ return {
                 null_ls.builtins.formatting.markdownlint.with({
                     extra_args = { "--disable=MD034" },
                 }),
-                null_ls.builtins.diagnostics.golangci_lint.with({
-                    method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-                    extra_args = { "--no-config", "--concurrency=4", "--max-same-issues=0", "--fast" },
-                    timeout = 6000,
-                }),
+                -- null_ls.builtins.diagnostics.golangci_lint.with({
+                --     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+                --     extra_args = { "--no-config", "--concurrency=4", "--max-same-issues=0", "--fast" },
+                --     timeout = 6000,
+                -- }),
 
                 null_ls.builtins.formatting.golines.with({
                     extra_args = { "--max-len=150", "--base-formatter=gofumpt" },

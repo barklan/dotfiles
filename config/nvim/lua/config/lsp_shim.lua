@@ -23,6 +23,10 @@ M.on_attach = function(client, bufnr)
         end, {})
     end
 
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true)
+    end
+
     -- Mappings.
     local opts = { noremap = true, silent = true }
 

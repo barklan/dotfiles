@@ -10,12 +10,11 @@ return {
             "neovim/nvim-lspconfig",
             "ray-x/guihua.lua",
             "rcarriga/nvim-dap-ui", -- To load debug plugins.
-            "saghen/blink.cmp",
+            -- "saghen/blink.cmp",
         },
         config = function()
-            local shared = require("config.lsp_shim")
-
-            local capabilities = require("blink.cmp").get_lsp_capabilities()
+            -- local shared = require("config.lsp_shim")
+            -- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
             require("go").setup({
                 gopls_cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=10m" },
@@ -26,18 +25,19 @@ return {
                 lsp_document_formatting = true,
                 tag_options = "",
                 verbose_tests = false,
-                tag_transform = "camelcase",
-                -- tag_transform = "snakecase",
-                lsp_cfg = {
-                    capabilities = capabilities,
-                    on_attach = shared.on_attach,
-                    settings = {
-                        gopls = {
-                            symbolScope = "workspace",
-                            -- diagnosticsTrigger = "Edit",
-                        },
-                    },
-                },
+                tag_transform = "camelcase", -- "snakecase"
+                -- lsp used with lspconfig plugin because of this https://github.com/ray-x/go.nvim/issues/416
+                lsp_cfg = false,
+                -- lsp_cfg = {
+                --     capabilities = capabilities,
+                --     on_attach = shared.on_attach,
+                --     settings = {
+                --         gopls = {
+                --             symbolScope = "workspace",
+                --             -- diagnosticsTrigger = "Edit",
+                --         },
+                --     },
+                -- },
                 diagnostic = {
                     hdlr = false, -- hook lsp diag handler and send diag to quickfix
                     underline = false,
