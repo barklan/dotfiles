@@ -37,7 +37,7 @@ return {
             end,
             write_all_buffers = false,
             noautocmd = false,
-            debounce_delay = 800,
+            debounce_delay = 400,
         },
     },
 }

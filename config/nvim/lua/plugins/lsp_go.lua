@@ -34,7 +34,7 @@ return {
                     settings = {
                         gopls = {
                             symbolScope = "workspace",
-                            diagnosticsTrigger = "Edit",
+                            -- diagnosticsTrigger = "Edit",
                         },
                     },
                 },
