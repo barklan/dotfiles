@@ -154,7 +154,7 @@ return {
                 desc = "Clipboard history",
             },
             {
-                "<M-/>",
+                "<leader>/",
                 function()
                     Snacks.picker.lines({ layout = layout_default })
                 end,
