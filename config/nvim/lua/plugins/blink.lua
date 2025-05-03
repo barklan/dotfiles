@@ -132,7 +132,7 @@ return {
                     },
                     providers = {
                         snippets = {
-                            score_offset = 9,
+                            score_offset = 5,
                             opts = {
                                 friendly_snippets = false,
                             },
@@ -196,11 +196,11 @@ return {
                 fuzzy = {
                     implementation = "rust",
                     -- Add this section if you want exact matches to be prioritized
-                    sorts = {
-                        "exact",
-                        "score",
-                        "sort_text",
-                    },
+                    -- sorts = {
+                    --     "exact",
+                    --     "score",
+                    --     "sort_text",
+                    -- },
                 },
                 snippets = {
                     preset = "default",
