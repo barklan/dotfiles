@@ -36,14 +36,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
     nested = true,
 })
 
--- vim.api.nvim_create_autocmd("User", {
---     group = augroup("autoautopre"),
---     pattern = "PersistenceSavePre",
---     callback = function()
---         vim.cmd("Neotree close")
---     end,
--- })
-
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("goabbr"),
     pattern = "go",
