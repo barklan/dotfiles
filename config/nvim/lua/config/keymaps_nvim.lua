@@ -258,7 +258,7 @@ local function toggle_quickfix()
     vim.cmd("copen")
 end
 
-vim.keymap.set("n", "<leader>q", toggle_quickfix, { silent = true, desc = "Open quickfix" })
+vim.keymap.set("n", "<M-q>", toggle_quickfix, { silent = true, desc = "Open quickfix" })
 
 vim.keymap.set("n", "<C-e>", function()
     if require("dap").session() ~= nil then
