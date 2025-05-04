@@ -3,7 +3,9 @@ return {
         "abecodes/tabout.nvim",
         cond = NotVSCode,
         lazy = true,
-        event = "InsertEnter",
+        -- event = "InsertEnter",
+        event = "InsertCharPre",
+        priority = 1000,
         config = function()
             require("tabout").setup({
                 tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
@@ -28,6 +30,7 @@ return {
         end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
+            "saghen/blink.cmp",
         },
     },
 }
