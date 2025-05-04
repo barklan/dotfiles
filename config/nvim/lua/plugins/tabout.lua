@@ -3,7 +3,6 @@ return {
         "abecodes/tabout.nvim",
         cond = NotVSCode,
         lazy = true,
-        -- event = "InsertEnter",
         event = "InsertCharPre",
         priority = 1000,
         config = function()
