@@ -65,6 +65,11 @@ end, { desc = "Test current package" })
 vim.keymap.set("n", "<leader>gbs", ":GoBreakSave<cr>", { desc = "Save breakpoints" })
 vim.keymap.set("n", "<leader>gbl", ":GoBreakLoad<cr>", { desc = "Load breakpoints" })
 
+vim.keymap.set("n", "<leader>gd", function ()
+    vim.cmd(":GoDebug -t")
+    vim.cmd(":Neotree close")
+end, {desc = "Debug test"})
+
 vim.keymap.set("n", "<F5>", function()
     local dap = require("dap")
 
