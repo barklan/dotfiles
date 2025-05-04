@@ -5,7 +5,7 @@ return {
         lazy = true,
         ft = "qf",
         dependencies = {
-            { "nvim-treesitter/nvim-treesitter" },
+            "nvim-treesitter/nvim-treesitter",
         },
         opts = {
             auto_enable = true,
