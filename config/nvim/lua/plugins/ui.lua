@@ -54,7 +54,7 @@ return {
         lazy = true,
         event = "VeryLazy",
         opts = {
-            delay = 500,
+            delay = 600,
             preset = "helix",
             icons = {
                 mappings = false,
