@@ -29,7 +29,7 @@ return {
                     vim.keymap.set(mode, l, r, opts)
                 end
 
-                map("n", "]c", function()
+                map("n", "<M-c>", function()
                     if vim.wo.diff then
                         return "]c"
                     end

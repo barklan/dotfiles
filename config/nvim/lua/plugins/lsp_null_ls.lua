@@ -3,7 +3,17 @@ return {
         -- Sources here: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
         "nvimtools/none-ls.nvim",
         name = "null_ls",
-        cond = NotVSCode,
+        cond = function()
+            if InVSCode() then
+                return false
+            end
+
+            if not IsPersonalDevice() then
+                return false
+            end
+
+            return true
+        end,
         lazy = true,
         event = "VeryLazy",
         dependencies = {
