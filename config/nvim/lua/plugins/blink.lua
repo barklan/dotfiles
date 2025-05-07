@@ -176,7 +176,8 @@ return {
                                         -- - "gitgrep", always use git grep
                                         -- - "gitgrep-or-ripgrep", use git grep if possible, otherwise
                                         --   ripgrep
-                                        use = "gitgrep-or-ripgrep",
+                                        -- use = "gitgrep-or-ripgrep",
+                                        use = "ripgrep",
                                     },
                                 },
                                 debug = false,
