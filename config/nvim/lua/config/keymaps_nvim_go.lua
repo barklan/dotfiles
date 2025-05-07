@@ -18,7 +18,7 @@ end
 
 vim.keymap.set("n", "<leader>gl", ":GoLintEx<cr>", { desc = "Lint" })
 
-vim.keymap.set("n", "<leader>gr", ":LspRestart<cr>", { silent = true })
+vim.keymap.set("n", "<leader>gr", ":LspRestart gopls<cr>", { silent = true })
 vim.keymap.set("n", "<leader>gf", ":GoFillStruct<cr>", { silent = true })
 vim.keymap.set("n", "<leader>gp", ":GoFixPlurals<cr>", { silent = true })
 vim.keymap.set("n", "<leader>gp", ":GoFixPlurals<cr>", { silent = true })
