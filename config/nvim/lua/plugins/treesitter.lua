@@ -90,6 +90,7 @@ return {
                         set_jumps = true,
                         goto_next_start = {
                             ["]m"] = "@function.outer",
+                            ["<M-]>"] = "@function.outer",
                             ["]]"] = "@class.outer",
                         },
                         goto_next_end = {
@@ -98,6 +99,7 @@ return {
                         },
                         goto_previous_start = {
                             ["[m"] = "@function.outer",
+                            ["<M-[>"] = "@function.outer",
                             ["[["] = "@class.outer",
                         },
                         goto_previous_end = {
