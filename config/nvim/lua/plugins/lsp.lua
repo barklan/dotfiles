@@ -95,7 +95,6 @@ return {
                                 usePlaceholders = false,
                                 staticcheck = true,
                                 directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-                                diagnosticsDelay = "2s",
                             },
                         },
                     })
