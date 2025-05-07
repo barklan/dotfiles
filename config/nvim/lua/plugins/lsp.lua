@@ -93,7 +93,7 @@ return {
                                 semanticTokens = false,
                                 symbolScope = "workspace",
                                 usePlaceholders = false,
-                                staticcheck = true,
+                                staticcheck = false,
                                 directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
                             },
                         },
