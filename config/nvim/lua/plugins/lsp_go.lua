@@ -17,12 +17,13 @@ return {
             -- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
             require("go").setup({
-                gopls_cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=10m" },
-                goimports = "gopls",
+                -- gopls_cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=10m" },
+                -- goimports = "gopls",
+                goimports = "golines",
                 max_line_len = 250, -- NOTE: should be in sync with null_ls golines
                 gofmt = "golines",
-                lsp_gofumpt = true,
-                lsp_document_formatting = true,
+                -- lsp_gofumpt = true,
+                lsp_document_formatting = false,
                 tag_options = "",
                 verbose_tests = false,
                 tag_transform = "camelcase", -- "snakecase"
