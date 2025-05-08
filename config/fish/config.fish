@@ -95,8 +95,6 @@ if status is-interactive
     set -gx PATH "$PATH:$FORGIT_INSTALL_DIR/bin"
     set -gx FORGIT_CHECKOUT_BRANCH_BRANCH_GIT_OPTS '--sort=-committerdate'
     set -gx FORGIT_REBASE_GIT_OPTS -v
-
-    set -gx NVIM_GOLANG_CI_VERSION (golangci-lint --version | rg -o 'v\d')
 end
 
 function __on_nvim_exit --on-event nvim_exit

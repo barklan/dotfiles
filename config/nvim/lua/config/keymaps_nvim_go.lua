@@ -3,18 +3,15 @@
 ------
 
 -- https://github.com/ray-x/go.nvim/issues/352
-if os.getenv("NVIM_GOLANG_CI_VERSION") == "v1" then
-    vim.api.nvim_create_user_command("GoLintEx", function()
-        vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yml --print-issued-lines=false --exclude-use-default=true --out-format=line-number"
-        vim.cmd("GoMake")
-    end, {})
-else
-    vim.api.nvim_create_user_command("GoLintEx", function()
-        vim.opt_local.makeprg = "golangci-lint run --config=./.golangci.yml --output.tab.path=stdout --show-stats=false --uniq-by-line=false"
-        vim.cmd("GoMake")
-    end, {})
-
-end
+vim.api.nvim_create_user_command("GoLintEx", function()
+    -- v1:
+    -- golangci-lint run --config=./.golangci.yml --print-issued-lines=false --exclude-use-default=true --out-format=line-number
+    --
+    -- v2:
+    -- golangci-lint run --config=./.golangci.yml --output.tab.path=stdout --show-stats=false --uniq-by-line=false
+    vim.opt_local.makeprg = "just lint-nvim"
+    vim.cmd("GoMake")
+end, {})
 
 vim.keymap.set("n", "<leader>gl", ":GoLintEx<cr>", { desc = "Lint" })
 
@@ -46,14 +43,14 @@ vim.keymap.set("n", "<leader>g<cr>", function()
 
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
-            .. tostring(kitty_pid)
-            .. " launch --type=window --bias -60 --cwd "
-            .. cwd
-            .. " fish -ic 'kitten @ action goto_layout tall && echo go test "
-            .. go_pkg_path
-            .. " && print-line && go test -cover "
-            .. go_pkg_path
-            .. " && print-line; read -P continue -n1'"
+        .. tostring(kitty_pid)
+        .. " launch --type=window --bias -60 --cwd "
+        .. cwd
+        .. " fish -ic 'kitten @ action goto_layout tall && echo go test "
+        .. go_pkg_path
+        .. " && print-line && go test -cover "
+        .. go_pkg_path
+        .. " && print-line; read -P continue -n1'"
     )
 end, { desc = "Test current package" })
 
@@ -64,10 +61,10 @@ end, { desc = "Test current package" })
 vim.keymap.set("n", "<leader>gbs", ":GoBreakSave<cr>", { desc = "Save breakpoints" })
 vim.keymap.set("n", "<leader>gbl", ":GoBreakLoad<cr>", { desc = "Load breakpoints" })
 
-vim.keymap.set("n", "<leader>gd", function ()
+vim.keymap.set("n", "<leader>gd", function()
     vim.cmd(":GoDebug -t")
     vim.cmd(":Neotree close")
-end, {desc = "Debug test"})
+end, { desc = "Debug test" })
 
 vim.keymap.set("n", "<F5>", function()
     local dap = require("dap")
@@ -107,12 +104,12 @@ vim.keymap.set("n", "<F5>", function()
 
     vim.fn.system(
         "kitten @ --to unix:@mykitty-"
-            .. tostring(kitty_pid)
-            .. " launch --type=window --bias -15 --dont-take-focus --cwd "
-            .. cwd
-            .. " fish -ic 'dlv debug ./cmd/"
-            .. target
-            .. "/ --headless --listen=:12345 -- -config=config.yaml 2>&1 | tee ./_dlv_log; kitten @ action goto_layout tall'"
+        .. tostring(kitty_pid)
+        .. " launch --type=window --bias -15 --dont-take-focus --cwd "
+        .. cwd
+        .. " fish -ic 'dlv debug ./cmd/"
+        .. target
+        .. "/ --headless --listen=:12345 -- -config=config.yaml 2>&1 | tee ./_dlv_log; kitten @ action goto_layout tall'"
     )
 
     vim.cmd(":GoDebug -e placeholder")
