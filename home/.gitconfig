@@ -29,7 +29,7 @@
     s = !git status --show-stash && echo && gitx status
 
     ; NOTE: change here to desired branch - probably will be used by scripts
-    default-branch-name = !git branch -l master main release | sed -r 's/^[* ] //' | head -n 1
+    default-branch-name = !git branch -l master main release | sed -r 's/^[* ] //' | head -n 1 | awk '{print $NF}'
     staged-files-with-unstaged-changes = !git status -s | awk '/MM / { print $2 }'
 
 	# LOG
