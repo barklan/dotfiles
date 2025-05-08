@@ -91,6 +91,10 @@ return {
                                     parameterNames = true,
                                     rangeVariableTypes = true,
                                 },
+                                analyses = {
+                                    unusedparams = true,
+                                    shadow = true,
+                                },
                                 semanticTokens = false,
                                 symbolScope = "workspace",
                                 usePlaceholders = false,
