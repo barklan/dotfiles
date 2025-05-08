@@ -31,6 +31,7 @@ return {
             "python",
             "just",
             "go",
+            "c",
         },
         event = { "CmdlineEnter" },
         dependencies = {
@@ -42,10 +43,10 @@ return {
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-            local servers = { "gopls", "just", "basedpyright", "ts_ls", "jsonls", "yamlls", "bashls" }
+            local servers = { "gopls", "just", "basedpyright", "clangd", "ts_ls", "jsonls", "yamlls", "bashls" }
 
             if not IsPersonalDevice() then
-                servers = { "gopls", "just", "basedpyright" }
+                servers = { "gopls", "just", "basedpyright", "clangd" }
             end
 
             local nvim_lsp = require("lspconfig")
@@ -72,6 +73,16 @@ return {
                                 validate = { enable = true },
                             },
                         },
+                    })
+                elseif lsp == "clangd" then
+                    -- .clangd file:
+                    -- ---
+                    -- CompileFlags:
+                    --   Add:
+                    --     - -I/home/barklan/dev/krb5-1.21.3/src/include
+
+                    nvim_lsp[lsp].setup({
+                        cmd = { "clangd", "--enable-config" },
                     })
                 elseif lsp == "gopls" then
                     nvim_lsp[lsp].setup({

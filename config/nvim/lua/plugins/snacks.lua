@@ -259,7 +259,7 @@ return {
                         })
                     else
                         Snacks.picker.treesitter({
-                            layout = layout_ctrll_preview,
+                            layout = layout_right,
                         })
                     end
                 end,
