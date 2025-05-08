@@ -17,7 +17,7 @@ return {
             }
 
             local ignore_prefixes = {
-                "just nvim-lint",
+                "just lint-nvim",
                 "golangci-lint run",
                 "Client gopls quit with exit code 2 and signal 0.",
                 "nvim-dap-virtual-text not found",
