@@ -22,6 +22,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
             require("nvim-gitstatus").update_git_status()
         end, 200)
     end,
+
 })
 
 vim.api.nvim_create_autocmd("TermClose", {
