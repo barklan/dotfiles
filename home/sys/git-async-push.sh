@@ -2,4 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-systemd-run -E CURRENT_BRANCH="$(git branch --show-current)" --same-dir --collect --user bash -c 'git push '"$*"' origin ${CURRENT_BRANCH} && notify-send "pushed ${CURRENT_BRANCH}"' &
+current=$(git branch --show-current)
+cmd="git push $* origin $current && notify-send 'pushed $current'"
+systemd-run --same-dir --collect --user bash -c "$cmd" &
