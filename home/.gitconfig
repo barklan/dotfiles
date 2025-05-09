@@ -73,6 +73,7 @@
 	# CHECKOUT & SWITCH
 	co = forgit checkout_branch
     sw = switch
+    swc = switch -c
     com = !bash ~/sys/git-checkout-default.sh
 	coc = forgit checkout_commit
 	cot = forgit checkout_tag
