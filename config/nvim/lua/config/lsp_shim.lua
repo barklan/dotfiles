@@ -15,9 +15,6 @@ M.on_attach = function(client, bufnr)
         vim.api.nvim_clear_autocmds({ group = M.augroup, buffer = bufnr })
         vim.api.nvim_buf_create_user_command(bufnr, "LspFormat", function()
             vim.lsp.buf.format({
-                -- filter = function(server)
-                --     return server.name ~= "lua_ls"
-                -- end,
                 bufnr = bufnr,
             })
         end, {})
