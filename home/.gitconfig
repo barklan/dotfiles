@@ -74,13 +74,13 @@
 	co = forgit checkout_branch
     sw = switch
     swc = switch -c
-    com = !bash ~/sys/git-checkout-default.sh
+    com = !bash -c 'git checkout $(git default-branch-name) && git pull'
 	coc = forgit checkout_commit
 	cot = forgit checkout_tag
 
 	# FETCH
-	# Fetch main while on different branch
     f = fetch --all
+	# Fetch main while on different branch
     fm = !git fetch origin "$(git default-branch-name)":"$(git default-branch-name)"
     fetch-main-safe = !bash ~/sys/git_fetch_main_safe.sh
 
