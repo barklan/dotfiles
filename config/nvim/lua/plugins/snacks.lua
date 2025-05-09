@@ -148,7 +148,12 @@ return {
                 function()
                     -- systemctl --user status cliphist-watch.service
                     -- systemd-run --unit=cliphist-watch --collect --user wl-paste --watch cliphist store
-                    Snacks.picker.cliphist({ layout = layout_select })
+                    Snacks.picker.cliphist({
+                        layout = layout_select,
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
+                    })
                 end,
                 mode = { "n", "i" },
                 desc = "Clipboard history",
