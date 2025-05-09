@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd("TermClose", {
             if exit_code == 0 then
                 if IsPersonalDevice() then
                     vim.defer_fn(function()
-                        vim.cmd([[silent !git push-async ]])
+                        vim.cmd([[silent !git pa ]])
                     end, 0)
                 end
 
