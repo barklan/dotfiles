@@ -39,7 +39,7 @@ M.on_attach = function(client, bufnr)
     buf_set_keymap("n", "<leader>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     buf_set_keymap("n", "<leader>di", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    buf_set_keymap("n", "<leader>df", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+    -- buf_set_keymap("n", "<leader>df", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
 return M
