@@ -29,7 +29,7 @@
     s = !bash ~/sys/git-status.sh
 
     ; NOTE: change here to desired branch - probably will be used by scripts
-    default-branch-name = !git branch -l develop master main release | sort | sed -r 's/^[* ] //' | head -n 1 | awk '{print $NF}'
+    default-branch-name = !git branch -l develop master main | sed -r 's/^[* ] //' | awk '{print $NF}' | sort | head -n 1
     staged-files-with-unstaged-changes = !git status -s | awk '/MM / { print $2 }'
 
 	# LOG
