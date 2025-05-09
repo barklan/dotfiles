@@ -14,7 +14,7 @@
     ; NOTE: fsmonitor not available on Linux rn
     ; fsmonitor = true
 [gc]
-    auto = 256
+    auto = 1024
 [url "ssh://git@codeberg.org/"]
 	insteadOf = https://codeberg.org/
 [includeIf "gitdir:~/dev/berg/"]
