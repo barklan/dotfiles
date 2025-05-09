@@ -179,7 +179,7 @@ return {
         config = function()
             require("flash").setup({
                 label = {
-                    exclude = "y",
+                    exclude = "yb",
                 },
                 jump = {
                     autojump = false,
