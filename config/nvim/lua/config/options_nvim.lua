@@ -45,7 +45,7 @@ require('vim._extui').enable({})
 vim.o.cmdheight = 0
 
 vim.o.showmode = false -- Dont show mode since we have a statusline
-vim.o.mousescroll = "ver:2"
+vim.o.mousescroll = "ver:3"
 
 vim.o.grepformat = "%f:%l:%c:%m"
 vim.o.grepprg = "rg --vimgrep --smart-case"
