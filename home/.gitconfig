@@ -97,9 +97,10 @@
     go = !git smart-prep && git commit -m 'fixup!' && git push
 
 	# PUSH
-	ph = push
-	phf = push --force-with-lease --force-if-includes
-    push-async = !bash ~/sys/git-async-push.sh
+	p = push
+	pf = push --force-with-lease --force-if-includes
+    pa = !bash ~/sys/git-async-push.sh
+    pfa = !bash ~/sys/git-async-push.sh --force-with-lease --force-if-includes
     ; php = push --prune --all
 
 	# REBASE
