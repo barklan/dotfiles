@@ -211,7 +211,7 @@ return {
                 end,
             },
             {
-                "<leader>f",
+                "<leader>w",
                 function()
                     Snacks.picker.grep_word({
                         layout = layout_default,
