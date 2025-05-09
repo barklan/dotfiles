@@ -63,18 +63,19 @@
 
 	# Diff
     # These three accept ref as an argument
-    df = forgit diff
-    dfd = difftool -d
-    diffs = diff --minimal -M -C --summary --stat
+    df = difftool -d
+    dff = forgit diff
+    dfs = diff --minimal -M -C --summary --stat
 
-	diffm = !git difftool --minimal -d $(git default-branch-name) "$(git branch --show-current)"
-    diffms = !git diff --minimal --stat -M -C --summary $(git default-branch-name) "$(git branch --show-current)"
+    dfp = difftool -d @{push}
+	dfm = !git difftool --minimal -d $(git default-branch-name) "$(git branch --show-current)"
+    dfsm = !git diff --minimal --stat -M -C --summary $(git default-branch-name) "$(git branch --show-current)"
 
 	# CHECKOUT & SWITCH
 	co = forgit checkout_branch
     sw = switch
     swc = switch -c
-    com = !bash -c 'git checkout $(git default-branch-name) && git pull'
+    com = !git checkout $(git default-branch-name) && git pull
 	coc = forgit checkout_commit
 	cot = forgit checkout_tag
 
@@ -114,9 +115,9 @@
 	# MISC
     o = open
 	changelogen = !npx changelogen@latest --from="origin/$(git default-branch-name)"
-    reset-main = !git checkout main && git fetch origin && git reset --hard @{u}
-    reset-master = !git checkout master && git fetch origin && git reset --hard @{u}
-    reset-develop = !git checkout develop && git fetch origin && git reset --hard @{u}
+    reset-from-push = !fish ~/sys/git_reset_from_push.fish
+    show-push = rev-parse --abbrev-ref @{push}
+    show-upstream = rev-parse --abbrev-ref @{u}
 
 	# to delete all unstaged files ignoring .gitignore files
 	cleantree = clean -i -d
@@ -146,7 +147,7 @@
     cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
 	tool = vscode
-    ; guitool = nvimdiff
+    ; tool = nvimdiff
 	conflictstyle = zdiff3
 [mergetool]
     prompt = false

@@ -12,6 +12,26 @@ return {
         },
     },
     {
+        {
+            "akinsho/git-conflict.nvim",
+            version = "*",
+            cond = NotVSCode,
+            lazy = false,
+            config = function()
+                require("git-conflict").setup({
+                    default_mappings = false,
+                })
+
+                vim.keymap.set("n", "<C-g>co", "<Plug>(git-conflict-ours)")
+                vim.keymap.set("n", "<C-g>ct", "<Plug>(git-conflict-theirs)")
+                vim.keymap.set("n", "<C-g>cb", "<Plug>(git-conflict-both)")
+                vim.keymap.set("n", "<C-g>c0", "<Plug>(git-conflict-none)")
+                vim.keymap.set("n", "[x", "<Plug>(git-conflict-prev-conflict)")
+                vim.keymap.set("n", "]x", "<Plug>(git-conflict-next-conflict)")
+            end,
+        },
+    },
+    {
         "lewis6991/gitsigns.nvim",
         cond = NotVSCode,
         lazy = true,
