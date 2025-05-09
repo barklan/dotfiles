@@ -240,6 +240,8 @@ end, { desc = "Change base to main" })
 -- Misc
 -----------------
 
+vim.keymap.set("n", "<M-f>", "%", { silent = true })
+
 vim.keymap.set("n", "<C-M-l>", function()
     require("extra.functions").snacks_dirs()
 end)
