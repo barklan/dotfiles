@@ -26,10 +26,10 @@
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [alias]
-    s = !git status --show-stash && echo && gitx status
+    s = !bash ~/sys/git-status.sh
 
     ; NOTE: change here to desired branch - probably will be used by scripts
-    default-branch-name = !git branch -l master main release | sed -r 's/^[* ] //' | head -n 1 | awk '{print $NF}'
+    default-branch-name = !git branch -l develop master main release | sort | sed -r 's/^[* ] //' | head -n 1 | awk '{print $NF}'
     staged-files-with-unstaged-changes = !git status -s | awk '/MM / { print $2 }'
 
 	# LOG
@@ -79,6 +79,7 @@
 
 	# FETCH
 	# Fetch main while on different branch
+    f = fetch --all
     fm = !git fetch origin "$(git default-branch-name)":"$(git default-branch-name)"
     fetch-main-safe = !bash ~/sys/git_fetch_main_safe.sh
 

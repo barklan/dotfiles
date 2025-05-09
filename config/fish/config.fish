@@ -51,7 +51,8 @@ if status is-interactive
     bind \ei zj
     bind \ej 'just --list; commandline -f repaint'
     bind \e\cj 'just --choose; commandline -f repaint'
-    bind \cg 'echo; git status --short --branch; commandline -f repaint'
+    # bind \cg 'echo; git status --short --branch; commandline -f repaint'
+    bind \cg 'echo; git s; commandline -f repaint'
     bind \el 'echo; eza -a --group-directories-first; commandline -f repaint'
 
     # To delete an abbreviation use `abbr -e t`
