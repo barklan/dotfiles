@@ -78,6 +78,7 @@ return {
                 keymap = {
                     preset = "super-tab",
                     -- preset = "none",
+                    ["<C-f>"] = {},
                     ["<C-M-e>"] = { "select_prev", "fallback" },
                     ["<C-e>"] = { "select_next", "fallback" },
                     ["<M-r>"] = { "snippet_forward" },
@@ -133,7 +134,7 @@ return {
                     providers = {
                         snippets = {
                             should_show_items = function(ctx)
-                                return ctx.trigger.initial_kind ~= 'trigger_character'
+                                return ctx.trigger.initial_kind ~= "trigger_character"
                             end,
                             score_offset = 6,
                             opts = {
