@@ -14,18 +14,16 @@ if [ "${BRANCH}" == "${CURRENT}" ]; then
 	exit 0
 fi
 
-timeout 5 git fetch origin "${BRANCH}":"${BRANCH}"
-
 retVal=$?
 if [ $retVal -eq 124 ]; then
 	notify-send "fuck"
 fi
 
-export LEFT_RIGHT=$(git rev-list --left-right --count "${BRANCH}"..."${CURRENT}")
+export LEFT_RIGHT=$(git rev-list --left-right --count "origin/${BRANCH}"..."${CURRENT}")
 
 export LEFT_RIGHT_ARR=($LEFT_RIGHT)
 export BEHIND="${LEFT_RIGHT_ARR[0]}"
 
 if [ "${BEHIND}" != "0" ]; then
-	notify-send "${CURRENT} is behind ${BRANCH} by ${BEHIND} commits!"
+	notify-send "${CURRENT} is behind origin/${BRANCH} by ${BEHIND} commits!"
 fi
