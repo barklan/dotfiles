@@ -43,6 +43,9 @@ M.golang = function()
     vim.api.nvim_set_hl(0, "@variable.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@variable.builtin", { link = "@none", force = true })
 
+    -- To disable special highlighting for `map`, `chan`, etc..
+    vim.api.nvim_set_hl(0, "@lsp.type.keyword.go", { link = "@none", force = true })
+
     -- vim.api.nvim_set_hl(0, "@function.builtin.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@punctuation.delimiter.go", { link = "@none", force = true })
     vim.api.nvim_set_hl(0, "@operator.go", { link = "@none", force = true })
