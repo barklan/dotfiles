@@ -68,8 +68,8 @@ local git_fetch = function()
             cwd = vim.fn.getcwd(),
             on_exit = function(j, return_val)
                 if return_val ~= 0 then
-                    local stdout = table.concat(j:result(), "\n")
-                    local stderr = table.concat(j:stderr_result(), "\n")
+                    -- local stdout = table.concat(j:result(), "\n")
+                    -- local stderr = table.concat(j:stderr_result(), "\n")
 
                     vim.notify("git fetch fail")
                 end
