@@ -106,7 +106,7 @@ return {
                                     unusedparams = true,
                                     shadow = true,
                                 },
-                                semanticTokens = false,
+                                semanticTokens = true,
                                 symbolScope = "workspace",
                                 usePlaceholders = false,
                                 staticcheck = true,
