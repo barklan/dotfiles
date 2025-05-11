@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+git notify-behind
+
 CURRENT_BRANCH=$(git branch --show-current)
 # DEFAULT_BRANCH=$(git default-branch-name)
 
