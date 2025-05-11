@@ -28,6 +28,9 @@
 [alias]
     s = !bash ~/sys/git-status.sh
 
+    stu = stash -u
+    stp = stash pop
+
     ; NOTE: change here to desired branch - probably will be used by scripts
     default-branch-name = !git branch -l develop master main | sed -r 's/^[* ] //' | awk '{print $NF}' | sort | head -n 1
     staged-files-with-unstaged-changes = !git status -s | awk '/MM / { print $2 }'
