@@ -71,7 +71,7 @@ local git_fetch = function()
                     -- local stdout = table.concat(j:result(), "\n")
                     -- local stderr = table.concat(j:stderr_result(), "\n")
 
-                    vim.notify("git fetch fail")
+                    vim.notify("autofetch failed")
                 end
             end,
         })
