@@ -14,7 +14,7 @@ default_ab=$(git rev-list --left-right --count @..."$default")
 default_a=$(echo "$default_ab" | awk '{print $1}')
 default_b=$(echo "$default_ab" | awk '{print $2}')
 
-git branch --merged "$default" | rg --fixed-strings -q "$current" || error_code=$?
+git branch --merged "$default" | xargs printf '%s\n' | rg -q "^${current}\$" || error_code=$?
 error_code="${error_code:-0}"
 if [ "${error_code}" -eq 0 ]; then
     merged_msg="$current is merged into $default"
