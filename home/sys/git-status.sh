@@ -30,4 +30,4 @@ push_ab=$(git rev-list --left-right --count '@...@{push}')
 push_a=$(echo "$push_ab" | awk '{print $1}')
 push_b=$(echo "$push_ab" | awk '{print $2}')
 
-printf "\e[1m%s\e[0m: %s ahead, %s behind\n" "remote" "$push_a" "$push_b"
+printf "\e[1m%s\e[0m: %s ahead, %s behind\n" "$(git rev-parse --abbrev-ref '@{push}')" "$push_a" "$push_b"
