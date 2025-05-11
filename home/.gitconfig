@@ -113,6 +113,7 @@
     ri = rebase -v -i
     rif = forgit rebase
     rim = !git fetch --all --quiet && REBASE_ONTO="origin/$(git default-branch-name)" git rebase -v -i "origin/$(git default-branch-name)"
+    rc = rebase --continue
 
 	# RESTORE
 	; rs = restore --staged
@@ -168,7 +169,7 @@
 [fetch]
     writeCommitGraph = true
     prune = true
-	pruneTags = true
+	pruneTags = false
     all = true
 [push]
 	followTags = true
