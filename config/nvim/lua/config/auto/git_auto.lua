@@ -59,3 +59,46 @@ vim.api.nvim_create_autocmd("TermClose", {
         end
     end,
 })
+
+local git_fetch = function()
+    require("plenary.job")
+        :new({
+            command = "git",
+            args = { "fetch" },
+            cwd = vim.fn.getcwd(),
+            on_exit = function(j, return_val)
+                if return_val ~= 0 then
+                    local stdout = table.concat(j:result(), "\n")
+                    local stderr = table.concat(j:stderr_result(), "\n")
+
+                    vim.notify("git fetch fail")
+                end
+            end,
+        })
+        :start()
+end
+
+vim.defer_fn(function()
+    if IsScrollbackPager() or IsCMDLineEditor() or IsGitEditor() then
+        return
+    end
+
+    local obj = vim.system({ "git", "rev-parse", "--is-inside-work-tree" }):wait()
+    if obj.code ~= 0 then
+        vim.notify("Not in git repo, disabling autofetch.", "info", { timeout = 1500 })
+
+        return
+    end
+
+    vim.schedule(function()
+        local timer = vim.uv.new_timer()
+
+        timer:start(
+            10000, -- initial delay
+            30000, -- interval
+            vim.schedule_wrap(function()
+                git_fetch()
+            end)
+        )
+    end)
+end, 1000)
