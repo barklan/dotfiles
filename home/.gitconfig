@@ -100,7 +100,7 @@
     smart-prep = !bash ~/sys/git-smart-prepare.sh
 	amend = commit --amend --no-edit
 	; fake = !MY_TIME=$(date --date=\"120 days ago\" -R) GIT_AUTHOR_DATE=$MY_TIME GIT_COMMITTER_DATE=$MY_TIME git commit
-    go = !git smart-prep && git commit -m 'fixup!' && git push
+    go = !git smart-prep && git commit -m 'fixup!' && git pa
 
 	# PUSH
 	p = push
