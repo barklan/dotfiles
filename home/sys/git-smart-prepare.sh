@@ -7,7 +7,6 @@ git notify-behind
 CURRENT_BRANCH=$(git branch --show-current)
 # DEFAULT_BRANCH=$(git default-branch-name)
 
-# NOTE: main excluded as it's mainly used for personal projects.
 if [[ "$DISTRIB_ID" != 'EndeavourOS' ]]; then
     if [[ "$CURRENT_BRANCH" =~ ^(release|master|develop|main)$ ]]; then
         notify-send -a 'git' "can't commit to protected branch: $CURRENT_BRANCH"
