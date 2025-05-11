@@ -121,7 +121,7 @@
 	# MISC
     o = open
 	changelogen = !npx changelogen@latest --from="origin/$(git default-branch-name)"
-    reset-from-push = !fish ~/sys/git_reset_from_push.fish
+    reset-from-upstream = !fish ~/sys/git_reset_from_upstream.fish
     show-push = rev-parse --abbrev-ref @{push}
     show-upstream = rev-parse --abbrev-ref @{u}
 
