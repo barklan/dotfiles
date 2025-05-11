@@ -39,18 +39,18 @@
 
 	# LOG
 	; l = !clear && git log --oneline --graph --abbrev-commit --all --decorate -20
-    l = !git fetch --all --quiet && printf '%s' 'Divergent commits: ' && \
+    l = !printf '%s' 'Divergent commits: ' && \
         git rev-list $(git default-branch-name)..@ --count && \
         echo '--------------------' && \
         git log --pretty=format:'%C(auto)%h%d%Creset %C(cyan)(%cr)%Creset %C(green)%cn %Creset %s' \
         --decorate --graph --first-parent @ --first-parent -30 $(git default-branch-name) -- && echo '...'
 
-    ll = !git fetch --all --quiet && echo && printf '%s' 'Divergent commits: ' && \
+    ll = !printf '%s' 'Divergent commits: ' && \
         git rev-list $(git default-branch-name)..@ --count  && \
         echo '--------------------' && \
         git log --decorate --stat --graph --oneline --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
 
-    lll = !git fetch --all --quiet && echo && printf '%s' 'Divergent commits: ' && \
+    lll = !printf '%s' 'Divergent commits: ' && \
         git rev-list $(git default-branch-name)..@ --count  && \
         echo '--------------------' && \
         git log --decorate --summary --stat --graph --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
@@ -112,7 +112,7 @@
 	# REBASE
     ri = rebase -v -i
     rif = forgit rebase
-    rim = !git fetch --all --quiet && REBASE_ONTO="origin/$(git default-branch-name)" git rebase -v -i "origin/$(git default-branch-name)"
+    rim = !REBASE_ONTO="origin/$(git default-branch-name)" git rebase -v -i "origin/$(git default-branch-name)"
     rc = rebase --continue
 
 	# RESTORE
