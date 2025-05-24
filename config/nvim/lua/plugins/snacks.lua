@@ -12,11 +12,6 @@ local layout_ctrll = {
     preset = "vscode",
 }
 
-local layout_ctrll_preview = {
-    preview = "main",
-    preset = "vscode",
-}
-
 local layout_right = {
     preset = "right",
 }
@@ -229,7 +224,6 @@ return {
                     elseif ext == "go" or ext == "rust" or ext == "python" or ext == "lua" or ext == "json" or ext == "yaml" then
                         Snacks.picker.lsp_symbols({
                             layout = layout_right,
-                            -- layout = layout_ctrll_preview,
                             filter = {
                                 default = {
                                     "Class",
