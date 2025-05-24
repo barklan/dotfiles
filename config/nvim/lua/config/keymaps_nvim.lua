@@ -240,6 +240,17 @@ end, { desc = "Change base to main" })
 -- Misc
 -----------------
 
+vim.keymap.set("n", "<leader>L", function()
+    local reldir = GetCurrentBufDirRelativeToCwd()
+    local file_fields = Split(vim.fn.expand("%"), "/")
+    local filename = file_fields[#file_fields]
+    local file = reldir .. "/" .. filename
+
+    local line = vim.fn.line(".")
+    vim.fn.setreg("+", string.format("%s:%d", file, line))
+    vim.notify("Copied line reference to clipboard")
+end, { desc = "Copy line reference to clipboard" })
+
 vim.keymap.set("n", "<M-f>", "%", { silent = true })
 
 vim.keymap.set("n", "<C-M-l>", function()
