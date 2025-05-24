@@ -75,7 +75,8 @@ return {
                     hl.DiagnosticUnnecessary = { fg = c.fg }
 
                     hl.WinSeparator = { fg = c.bg, bg = c.bg } -- color of Normal background in tokyonight-night
-                    hl.DapUINormal = { bg = c.bg_dark } -- color or neo-tree in tokyonight-night
+                    hl.DapUINormal = { bg = c.bg_dark }        -- color or neo-tree in tokyonight-night
+                    hl.debugPC = { bg = "#676700" }
 
                     hl.TreesitterContext = { bg = c.bg }
                     hl.TreesitterContextBottom = { underline = true, sp = c.comment }

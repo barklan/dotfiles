@@ -48,7 +48,8 @@ return {
                 lsp_inlay_hints = {
                     enable = false, -- Still fucking buggy
                 },
-                icons = { breakpoint = "🔴", currentpos = "🟡" },
+                -- icons = { breakpoint = "🔴", currentpos = "🟡" },
+                icons = false,
                 dap_debug_keymap = false,
                 dap_debug_vt = {
                     virt_text_pos = "inline", -- or "eol"
