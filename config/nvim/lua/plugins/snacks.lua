@@ -410,6 +410,9 @@ return {
                 function()
                     Snacks.picker.git_log_file({
                         layout = layout_right,
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
                     })
                 end,
                 desc = "Git Log File",
@@ -419,6 +422,9 @@ return {
                 function()
                     Snacks.picker.git_log({
                         layout = layout_right,
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
                     })
                 end,
                 desc = "Git Log",
@@ -428,6 +434,9 @@ return {
                 function()
                     Snacks.picker.git_log_line({
                         layout = layout_right,
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
                     })
                 end,
                 desc = "Git Log Line",
