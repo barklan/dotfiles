@@ -190,20 +190,6 @@ return {
                 end,
                 desc = "Workspace diagnostics",
             },
-            -- TODO: nvim crashes on this
-            -- {
-            --     "<leader>q",
-            --     function()
-            --         Snacks.picker.qflist({
-            --             layout = layout_default,
-            --             -- show_empty = false,
-            --             -- on_show = function()
-            --             --     vim.cmd.stopinsert()
-            --             -- end,
-            --         })
-            --     end,
-            --     desc = "Quickfix picker",
-            -- },
             {
                 "<C-f>",
                 function()
@@ -435,7 +421,7 @@ return {
                         layout = layout_right,
                     })
                 end,
-                desc = "Git Log File",
+                desc = "Git Log",
             },
             {
                 "<C-g>i",
