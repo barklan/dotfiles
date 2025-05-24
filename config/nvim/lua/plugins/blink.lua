@@ -9,6 +9,7 @@ return {
 
             local autopairs = require("nvim-autopairs")
             autopairs.setup({
+                disable_filetype = { "TelescopePrompt", "spectre_panel", "snacks_picker_input", "grug-far" },
                 enable_check_bracket_line = false, -- Disable line checks for selections
                 disable_in_replace_mode = false,
                 disable_in_macro = false,
