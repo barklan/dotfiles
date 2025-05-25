@@ -109,7 +109,7 @@ vim.keymap.set("n", "<F5>", function()
         .. cwd
         .. " fish -ic 'dlv debug ./cmd/"
         .. target
-        .. "/ --headless --listen=:12345 -- -config=config.yaml 2>&1 | tee ./_dlv_log; kitten @ action goto_layout tall'"
+        .. "/ --headless --listen=:12345 2>&1 | tee ./_dlv_log; kitten @ action goto_layout tall'"
     )
 
     vim.cmd(":GoDebug -e placeholder")
