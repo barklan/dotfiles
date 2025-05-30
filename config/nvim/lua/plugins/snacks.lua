@@ -191,7 +191,7 @@ return {
                     Snacks.picker.grep({
                         layout = layout_default,
                         hidden = true,
-                        ignored = true,
+                        ignored = false,
                         regex = false,
                     })
                 end,
