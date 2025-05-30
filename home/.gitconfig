@@ -40,21 +40,13 @@
 	# LOG
 	; l = !clear && git log --oneline --graph --abbrev-commit --all --decorate -20
     l = !printf '%s' 'Divergent commits: ' && \
-        git rev-list $(git default-branch-name)..@ --count && \
+        git rev-list "origin/$(git default-branch-name)..@" --count && \
         echo '--------------------' && \
         git log --pretty=format:'%C(auto)%h%d%Creset %C(cyan)(%cr)%Creset %C(green)%cn %Creset %s' \
-        --decorate --graph --first-parent @ --first-parent -30 $(git default-branch-name) -- && echo '...'
+        --decorate --graph --first-parent @ --first-parent -30 "origin/$(git default-branch-name)" -- && echo '...'
 
-    ll = !printf '%s' 'Divergent commits: ' && \
-        git rev-list $(git default-branch-name)..@ --count  && \
-        echo '--------------------' && \
-        git log --decorate --stat --graph --oneline --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
-
-    lll = !printf '%s' 'Divergent commits: ' && \
-        git rev-list $(git default-branch-name)..@ --count  && \
-        echo '--------------------' && \
-        git log --decorate --summary --stat --graph --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
-
+    ll = !git log --decorate --stat --graph --oneline --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
+    lll = !git log --decorate --summary --stat --graph --first-parent @ --first-parent $(git default-branch-name) -- && echo '...'
 	la = !clear && git log --oneline --graph --abbrev-commit --all --decorate
     lf = log -p --follow --stat
 	lm = !clear && git log --oneline --first-parent $(git default-branch-name)
