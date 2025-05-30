@@ -55,7 +55,7 @@
 	b = branch -v
 	ba = branch -a -v
 	abandon-branch = !fish ~/sys/git-abandon-branch.fish
-    rm-backups = !git branch | rg '_backup_' | xargs git branch -d
+    rm-backups = !fish ~/sys/git_rm_backups.fish
     notify-behind = !bash ~/sys/git-notify-behind.sh
 
 	# Diff
