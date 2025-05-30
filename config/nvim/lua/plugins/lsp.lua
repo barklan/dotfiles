@@ -84,6 +84,24 @@ return {
                     nvim_lsp[lsp].setup({
                         cmd = { "clangd", "--enable-config" },
                     })
+                elseif lsp == "basedpyright" then
+                    nvim_lsp[lsp].setup({
+                        on_attach = shared.on_attach,
+                        capabilities = capabilities,
+                        settings = {
+                            basedpyright = {
+                                reportMissingImports = "off",
+                                analysis = {
+                                    -- ["off", "basic", "standard", "strict", "recommended", "all"]
+                                    typeCheckingMode = "basic",
+                                    -- diagnosticMode = "openFilesOnly",
+                                    -- inlayHints = {
+                                    --     callArgumentNames = true,
+                                    -- },
+                                },
+                            },
+                        },
+                    })
                 elseif lsp == "gopls" then
                     nvim_lsp[lsp].setup({
                         -- cmd = { "gopls", "-remote=auto", "-remote.listen.timeout=10m" },
