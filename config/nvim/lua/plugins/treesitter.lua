@@ -2,7 +2,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
-        branch = "master",
+        branch = "master", -- TODO: switch to "main" once stabilizes
         build = ":TSUpdate",
         dependencies = {
             {
