@@ -2,9 +2,13 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
+        branch = "master",
         build = ":TSUpdate",
         dependencies = {
-            { "nvim-treesitter/nvim-treesitter-textobjects" },
+            {
+                "nvim-treesitter/nvim-treesitter-textobjects",
+                -- branch = "main",
+            },
             { "RRethy/nvim-treesitter-endwise" },
             { "theHamsta/nvim-treesitter-pairs" },
         },
@@ -117,6 +121,7 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
+        -- branch = "master",
         cond = NotVSCode,
         lazy = true,
         event = "VeryLazy",
@@ -133,14 +138,15 @@ return {
         cond = NotVSCode,
         lazy = true,
         keys = {
-            { "<c-/>", mode = { "n", "x" }, desc = "Comment code" },
-            { "<leader>k", mode = { "n" }, desc = "Comment at the eol" },
+            { "<c-/>",     mode = { "n", "x" }, desc = "Comment code" },
+            { "<leader>k", mode = { "n" },      desc = "Comment at the eol" },
         },
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
         config = function()
-            local commentstring_avail, commentstring = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
+            local commentstring_avail, commentstring = pcall(require,
+                "ts_context_commentstring.integrations.comment_nvim")
             local opts = {}
             if commentstring_avail then
                 opts.pre_hook = commentstring.create_pre_hook()
