@@ -40,8 +40,6 @@ end, { silent = true, desc = "just test" })
 --- Toggle terminal
 -------------------
 
--- TODO: make use of vim.fn.shellescape()
-
 -- "fg", "bg", "err"
 local get_zellij_status = function()
     local output = vim.fn.system("pgrep zellij | wc -l"):gsub("%s+", "")
