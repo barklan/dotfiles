@@ -283,10 +283,10 @@ function run
                 print-line
                 go run -race $dir_path
             else
-                set -f go_cmd "go test -cover -race $dir_path"
+                set -f go_cmd "go test -cover $dir_path"
                 echo "$go_version_short  CMD: $go_cmd"
                 print-line
-                go test -cover -race $dir_path
+                go test -cover $dir_path
             end
         case lua
             nvim -version | head -n 3
