@@ -170,7 +170,7 @@ local run_paragraph = function()
         return
     end
 
-    local cmd = [[kitten @ send-text --match 'title:^]] .. toggle_term_title .. [[$' ]] .. "'" .. escape_special_chars(paragraph) .. "'"
+    local cmd = [[kitten @ send-text --match 'title:^]] .. toggle_term_title .. [[$' ]] .. vim.fn.shellescape(paragraph)
     vim.fn.system(cmd)
     vim.fn.system("kitten @ send-key --match 'title:^" .. toggle_term_title .. "$' enter")
 end
