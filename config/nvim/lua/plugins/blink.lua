@@ -137,13 +137,13 @@ return {
                             should_show_items = function(ctx)
                                 return ctx.trigger.initial_kind ~= "trigger_character"
                             end,
-                            score_offset = 7,
+                            score_offset = 8,
                             opts = {
                                 friendly_snippets = false,
                             },
                         },
                         lsp = {
-                            score_offset = 3,
+                            score_offset = 4,
                         },
                         path = {
                             opts = {
