@@ -28,7 +28,6 @@ return {
                 symbol_map = {
                     Text = "󰉿",
                     Method = "󰆧",
-
                     Function = "󰊕",
                     Constructor = "",
                     Field = "󰜢",
@@ -138,7 +137,7 @@ return {
                             should_show_items = function(ctx)
                                 return ctx.trigger.initial_kind ~= "trigger_character"
                             end,
-                            score_offset = 6,
+                            score_offset = 7,
                             opts = {
                                 friendly_snippets = false,
                             },
