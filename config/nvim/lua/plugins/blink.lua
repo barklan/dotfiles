@@ -198,11 +198,11 @@ return {
                 fuzzy = {
                     implementation = "rust",
                     -- Add this section if you want exact matches to be prioritized
-                    -- sorts = {
-                    --     "exact",
-                    --     "score",
-                    --     "sort_text",
-                    -- },
+                    sorts = {
+                        "exact",
+                        "score",
+                        "sort_text",
+                    },
                 },
                 snippets = {
                     preset = "default",
