@@ -123,7 +123,6 @@
     "files.autoSave": "afterDelay",
     "notebook.globalToolbar": false,
     "notebook.showCellStatusBar": "hidden",
-    "notebook.lineNumbers": "on",
     "editor.wordBasedSuggestionsMode": "allDocuments",
     "explorer.fileNesting.enabled": false,
     "terminal.integrated.tabs.showActions": "never",
@@ -232,5 +231,5 @@
     "window.titleBarStyle": "native",
     "window.zoomPerWindow": false,
     "workbench.iconTheme": null,
-    "workbench.colorTheme": "Tokyo Night Light"
+    "workbench.colorTheme": "Tokyo Night Storm"
 }
