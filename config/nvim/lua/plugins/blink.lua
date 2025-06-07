@@ -143,7 +143,7 @@ return {
                             },
                         },
                         lsp = {
-                            score_offset = 4,
+                            score_offset = 5,
                         },
                         path = {
                             opts = {
