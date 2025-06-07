@@ -28,6 +28,7 @@ return {
                 symbol_map = {
                     Text = "󰉿",
                     Method = "󰆧",
+
                     Function = "󰊕",
                     Constructor = "",
                     Field = "󰜢",
