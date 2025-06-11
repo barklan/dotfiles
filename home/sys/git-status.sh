@@ -19,7 +19,7 @@ error_code="${error_code:-0}"
 if [ "${error_code}" -eq 0 ]; then
     merged_msg="$current is merged into origin/${default}"
 elif [ "${error_code}" -eq 1 ]; then
-    merged_msg="$current is not merged into origin${default}"
+    merged_msg="$current is not merged into origin/${default}"
 else
     merged_msg="Could not check if branch is merged, exit code $error_code"
 fi
