@@ -20,6 +20,7 @@ return {
                 sync_install = false,
                 auto_install = true,
                 ignore_install = {
+                    "ipkg",
                     "hoon",
                     "ocaml",
                     "org",
